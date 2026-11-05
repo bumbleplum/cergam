@@ -1,0 +1,22 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-11-05T15:00:00Z"},
+  "lists": "css",
+  "title": "Cergam Conceito Digital",
+  "order": ["cover", "brief", "asset", "today", "market", "answers", "solution", "imagery", "impact", "needs", "next", "annex", "buyers", "journey", "page-a", "page-b", "compare", "system", "plant-test"],
+  "sections": {
+    "s1": {"description": "O que a Cergam pediu, o que já tem e o que o site lhe custa hoje.", "start": "cover"},
+    "s2": {"description": "O espaço no mercado e a ideia: três respostas em dez segundos.", "start": "market"},
+    "s3": {"description": "O que a Cergam vai ter, a imagem e como medimos o resultado.", "start": "solution"},
+    "s4": {"description": "O que precisamos da Cergam e como começamos.", "start": "needs"},
+    "s5": {"description": "Anexos com o detalhe de apoio.", "start": "annex"}
+  },
+  "faces": {
+    "fraunces": {"family": "Fraunces", "href": "https://fonts.googleapis.com/css2?family=Fraunces:wght@400..700&display=swap"},
+    "public-sans": {"family": "Public Sans", "href": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap"},
+    "ibm-plex-mono": {"family": "IBM Plex Mono", "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"}
+  },
+  "designSystems": [
+    {"title": "Carta Cergam", "namespace": "cartacergam", "artifact": "https://claude.ai/artifact/MQSMTdU9P4BgWcwnzWhmC5", "version": "1793878509-1298", "copiedAt": "2026-11-05T15:00:00Z"}
+  ]
+}

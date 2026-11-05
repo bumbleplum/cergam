@@ -1,0 +1,51 @@
+<!-- @dsCard height=300 -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Public+Sans:wght@400&display=swap">
+<style>
+  html, body { margin: 0; }
+  body { width: 960px; height: 300px; position: relative; overflow: hidden; background: var(--canvas); }
+  svg { position: absolute; left: 0; top: 0; }
+  .navy { fill: var(--inverse-bg); }
+  .c14 { fill: var(--cergam-c14); }
+  .c16 { fill: var(--cergam-c16); }
+  .c24 { fill: var(--cergam-c24); }
+  .c28 { fill: var(--cergam-c28); }
+  .dot { fill: var(--accent); }
+  .cut { fill: var(--canvas); }
+  .copy { position: absolute; left: var(--space-6); bottom: var(--space-6); width: 440px; }
+  h1 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 96px; line-height: 0.95; color: var(--ink); letter-spacing: -0.01em; }
+  p { margin: var(--space-2) 0 0; font-family: var(--font-sans); font-size: 13px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<svg width="960" height="300" viewBox="0 0 960 300" aria-hidden="true">
+  <!--
+    blocks: navy slab 144x300 (inverse-bg), c14 orange band 80x300, c16 yellow band 64x300, c24 green band 96x300, c28 blue band 96x300 (the Cores Cergam at full value, unequal widths like the strips of a colour chart, x from 480)
+    arrangement: five unequal vertical bands bleeding off the top and bottom, the order of a printer's colour chart
+    pattern: the dot of the logo. One accent dot r=48 (space-7) on the navy and orange boundary, with a canvas ring cut out, plus 2 columns of canvas-coloured cut-out dots r=6 on the blue band at pitch 24 (space-5). Chosen because the orange dot is the only distinctive mark in Cergam's logo.
+    steps and radii: space-11 not used; widths 144, 80, 64, 96, 96; dot radius space-7 and 6; round radius on every dot
+  -->
+  <rect class="navy" x="480" y="0" width="144" height="300"/>
+  <rect class="c14" x="624" y="0" width="80" height="300"/>
+  <rect class="c16" x="704" y="0" width="64" height="300"/>
+  <rect class="c24" x="768" y="0" width="96" height="300"/>
+  <rect class="c28" x="864" y="0" width="96" height="300"/>
+  <circle class="cut" cx="624" cy="96" r="60"/>
+  <circle class="dot" cx="624" cy="96" r="48"/>
+  <g class="cut">
+    <circle cx="888" cy="180" r="6"/><circle cx="912" cy="180" r="6"/>
+    <circle cx="888" cy="204" r="6"/><circle cx="912" cy="204" r="6"/>
+    <circle cx="888" cy="228" r="6"/><circle cx="912" cy="228" r="6"/>
+    <circle cx="888" cy="252" r="6"/><circle cx="912" cy="252" r="6"/>
+    <circle cx="888" cy="276" r="6"/><circle cx="912" cy="276" r="6"/>
+  </g>
+</svg>
+<div class="copy">
+  <h1>Carta<br>Cergam</h1>
+  <p>O seu logótipo em cada garrafa.</p>
+</div>
+</body>
+</html>

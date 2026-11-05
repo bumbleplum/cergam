@@ -1,0 +1,118 @@
+<main class="view" id="v-cores" data-view="cores" hidden>
+<section class="phead slim" aria-labelledby="h-cores">
+  <div class="bi">
+    <nav class="crumb" aria-label="Localização" data-al-en="You are here">
+      <ol>
+        <li><a href="#top" data-en="Home">Início</a></li>
+        <li><span aria-current="page" data-en="The 22 Cergam colours">As 22 Cores Cergam</span></li>
+      </ol>
+    </nav>
+    <div class="phead-grid">
+      <div>
+        <p class="eyebrow" data-en="Colours">Cores</p>
+        <h1 id="h-cores" tabindex="-1" data-en="The 22 Cergam colours">As 22 Cores Cergam</h1>
+        <p class="supply" data-en="Pick up to three colours and see them on the object. The same codes go into your quote.">Escolha até três cores e veja-as no objeto. Os mesmos códigos seguem no seu pedido.</p>
+        <p class="pill"><b data-en="Screen samples, not a print standard.">Amostras de ecrã, não um padrão de impressão.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band tight" aria-labelledby="h-chart">
+  <div class="bi">
+    <div class="ctool">
+      <div class="ct-chart">
+        <div class="ct-head">
+          <h2 id="h-chart" data-en="Choose up to three colours">Escolha até três cores</h2>
+          <p class="lead" data-en="Select a tile. The code is what Cergam needs in your quote.">Toque num quadrado. O código é o que a Cergam precisa no seu pedido.</p>
+        </div>
+        <ul class="chart" id="chart" aria-label="22 Cores Cergam" data-al-en="22 Cergam colours"></ul>
+        <p class="chart-foot"><b data-en="Screen samples, not a print standard.">Amostras de ecrã, não um padrão de impressão.</b> <span data-en="The values are what the existing Cergam page shows on screen. Colour names:">Os valores são os que a página atual da Cergam mostra no ecrã. Nomes das cores:</span> {{tbc}} <span data-en="The numbering skips some codes. Reason:">A numeração salta alguns códigos. Motivo:</span> {{tbc}}</p>
+        <div class="ct-bar">
+          <a class="btn" href="#orcamento" data-en="Request a quote with these colours">Pedir orçamento com estas cores</a>
+        </div>
+      </div>
+      <aside class="ct-view" aria-label="Pré-visualização no objeto" data-al-en="Preview on the object">
+        <p class="seg-l" id="seg-obj-l" data-en="Object">Objeto</p>
+        <div class="seg" id="seg-obj" role="group" aria-labelledby="seg-obj-l">
+          <button type="button" data-obj="carafe" aria-pressed="true" data-en="Carafe">Jarro</button>
+          <button type="button" data-obj="wine" aria-pressed="false" data-en="Wine bottle">Garrafa de vinho</button>
+          <button type="button" data-obj="mug" aria-pressed="false" data-en="Mug">Caneca</button>
+          <button type="button" data-obj="plate" aria-pressed="false" data-en="Plate">Prato</button>
+        </div>
+        <div class="cp-art" id="cp-art"></div>
+        <p class="cp-sel" id="cp-sel" aria-live="polite"></p>
+        <div class="seg" id="seg-bg" role="group" aria-label="Fundo" data-al-en="Background">
+          <button type="button" id="cp-bl" aria-pressed="true" data-en="Light background">Fundo claro</button>
+          <button type="button" id="cp-bd" aria-pressed="false" data-en="Dark background">Fundo escuro</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="h-cn">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="Honest notes">Notas honestas</p>
+      <h2 id="h-cn" data-en="What colour can and cannot do">O que a cor pode e não pode fazer</h2>
+    </div>
+    <div class="notes-grid">
+      <div class="notes">
+        <article class="card">
+          <h3 data-en="Screen samples">Amostras de ecrã</h3>
+          <p data-en="The colours on this page are a guide on screen. They are not a print standard. The photo shows real colours fired onto glass.">As cores desta página são uma referência no ecrã. Não são um padrão de impressão. A foto mostra cores reais cozidas no vidro.</p>
+        </article>
+        <article class="card">
+          <h3 data-en="Fired at 580 °C">Cozidas a 580 °C</h3>
+          <p data-en="The decal is fired onto the glass at 580 °C. One listing says 620 °C.">O decalque é cozido no vidro a 580 °C. Uma listagem indica 620 °C.</p>
+          {{tbc|temperatura: a confirmar|temperature: to be confirmed}}
+        </article>
+        <article class="card">
+          <h3 data-en="Pantone and CMYK">Pantone e CMYK</h3>
+          <p data-en="Pantone and CMYK are not matched exactly. The process only comes close, so pick the nearest Cergam colour.">Pantone e CMYK não são reproduzidos de forma exata. O processo só chega perto, por isso escolha a Cor Cergam mais próxima.</p>
+        </article>
+        <article class="card">
+          <h3 data-en="How many colours, and which">Quantas cores e quais</h3>
+          <p data-en="We quote black, or 1, 2 or 3 colours from these 22. Other colours only above 250 units, after the sample and the quote are approved.">Orçamos preto, ou 1, 2 ou 3 cores destas 22. Outras cores só acima de 250 unidades, depois de aprovadas a amostra e o orçamento.</p>
+        </article>
+      </div>
+      <div class="cb-photo">
+        @@PH:cor-garrafa-tecnica-A|Garrafa de teste|Test bottle@@
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-band cta-band" aria-labelledby="h-cn-cta">
+  <div class="bi">
+    <div>
+      <h2 id="h-cn-cta" data-en="Want to see the colours printed?">Quer ver as cores impressas?</h2>
+      <p><span data-en="Ask for the printed range. Whether Cergam has one to send, and what it costs:">Peça a gama impressa. Se a Cergam tem uma para enviar, e quanto custa:</span> {{tbc}}</p>
+    </div>
+    <div class="acts">
+      <a class="btn" href="#orcamento" data-sit="chart" data-en="Ask for the printed range">Pedir a gama impressa</a>
+      <a class="btn ghost" href="tel:+351219862540" data-en="Talk to a person">Falar com uma pessoa</a>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-cn-faq">
+  <div class="bi">
+    <div class="faq-grid">
+      <div class="sec-h">
+        <p class="kick" data-en="Questions about colour">Perguntas sobre cor</p>
+        <h2 id="h-cn-faq" data-en="Before you ask us">Antes de nos perguntar</h2>
+      </div>
+      <div class="faq">
+        <h3><button type="button" class="q" id="cq1" aria-expanded="true" aria-controls="ca1" data-en="My colour is a Pantone. Will it match?">A minha cor é um Pantone. Vai ficar igual?</button></h3>
+        <div class="a" id="ca1" role="region" aria-labelledby="cq1"><p data-en="Pantone and CMYK are not matched exactly. Pick the nearest Cergam colour from the chart and write its code in your enquiry.">Pantone e CMYK não são reproduzidos de forma exata. Escolha na tabela a Cor Cergam mais próxima e escreva o código no pedido.</p><p><span data-en="Real sample, below 250 units:">Amostra real, abaixo de 250 unidades:</span> {{tbc}}</p></div>
+        <h3><button type="button" class="q" id="cq2" aria-expanded="false" aria-controls="ca2" data-en="How many colours can my logo have?">Quantas cores pode ter o meu logótipo?</button></h3>
+        <div class="a" id="ca2" role="region" aria-labelledby="cq2" hidden><p data-en="We quote black, or 1, 2 or 3 colours from the range of 22. If your logo has more, say so in the enquiry.">Orçamos preto, ou 1, 2 ou 3 cores da gama de 22. Se o seu logótipo tem mais, diga-o no pedido.</p><p><span data-en="Logos with more than 3 colours:">Logótipos com mais de 3 cores:</span> {{tbc}}</p></div>
+        <h3><button type="button" class="q" id="cq3" aria-expanded="false" aria-controls="ca3" data-en="Can I use a colour outside the 22?">Posso usar uma cor fora das 22?</button></h3>
+        <div class="a" id="ca3" role="region" aria-labelledby="cq3" hidden><p data-en="Only above 250 units, after you approve a sample and a quote.">Só acima de 250 unidades, depois de aprovar uma amostra e um orçamento.</p><p><a href="#orcamento" data-en="Request a quote">Pedir orçamento</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>

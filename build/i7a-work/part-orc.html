@@ -1,0 +1,75 @@
+<main class="view" id="v-orcamento" data-view="orcamento" hidden>
+<section class="phead slim" aria-labelledby="h-orc">
+  <div class="bi">
+    <nav class="crumb" aria-label="Localização" data-al-en="You are here">
+      <ol>
+        <li><a href="#top" data-en="Home">Início</a></li>
+        <li><span aria-current="page" data-en="Request a quote">Pedir orçamento</span></li>
+      </ol>
+    </nav>
+    <div class="phead-grid">
+      <div>
+        <p class="eyebrow" data-en="Enquiry">Pedido</p>
+        <h1 id="h-orc" tabindex="-1" data-en="Request a quote">Pedir orçamento</h1>
+        <p class="supply" data-en="Six answers are enough to start. If you have nothing ready, leave an email and one line. No address and no tax number now.">Seis respostas chegam para começar. Se não tem nada pronto, deixe um email e uma linha. Sem morada e sem NIF por agora.</p>
+        <p class="pill"><span><span data-en="Who replies:">Quem responde:</span> {{tbc|nome a confirmar|name to be confirmed}} &nbsp;<span data-en="Reply time:">Prazo de resposta:</span> {{tbc|prazo a confirmar|time to be confirmed}}</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt2 tight" aria-label="Pedido de orçamento" data-al-en="Quote request">
+  <div class="bi">
+    <div class="enq-page">
+      <div class="enq-side">
+        <section aria-labelledby="h-next">
+          <h2 id="h-next" data-en="What happens next">O que acontece a seguir</h2>
+          <ol class="next">
+            <li data-en="You send the form.">Envia o formulário.</li>
+            <li data-en="Cergam reads it and replies with a quote.">A Cergam lê e responde com um orçamento.</li>
+            <li data-en="You confirm the logo, the colours and the date.">Confirma o logótipo, as cores e a data.</li>
+            <li data-en="Production starts. 12 to 25 working days.">Começa a produção. 12 a 25 dias úteis.</li>
+          </ol>
+          <dl class="slots">
+            <div><dt data-en="Who replies">Quem responde</dt><dd>{{tbc|nome a confirmar|name to be confirmed}}</dd></div>
+            <div><dt data-en="Reply time">Prazo de resposta</dt><dd>{{tbc|prazo a confirmar|time to be confirmed}}</dd></div>
+            <div><dt data-en="Colour proof">Prova de cor</dt><dd>{{tbc|prova: a confirmar|proof: to be confirmed}}</dd></div>
+          </dl>
+        </section>
+        <section aria-labelledby="h-send">
+          <h2 id="h-send" data-en="What to send">O que enviar</h2>
+          <ul class="chk">
+            <li data-en="The logo, as a file or a photo. It can follow later by email.">O logótipo, em ficheiro ou foto. Pode seguir depois por email.</li>
+            <li data-en="What to print on: bottle, carafe, glass, mug or plate. The model, if you have it.">O objeto: garrafa, jarro, copo, caneca ou prato. O modelo, se o tiver.</li>
+            <li data-en="How many pieces, in a band. An estimate is fine.">Quantas peças, numa faixa. Uma estimativa serve.</li>
+            <li data-en="The colour codes from the colours page.">Os códigos das cores, da página das cores.</li>
+            <li data-en="The date you need them by and the delivery country.">A data de que precisa e o país de entrega.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="h-ct">
+          <h2 id="h-ct" data-en="Contact">Contactos</h2>
+          <address class="ccard">
+            <strong>Cergam</strong><br>
+            Estrada Velha da Avessada N.3-A<br>2665-281 Malveira, Portugal<br>
+            <a href="tel:+351219862540">+351 21 9862 540</a><br>
+            <a href="mailto:info@cergam.pt">info@cergam.pt</a>
+          </address>
+          <div class="dp">
+            <span data-en="Data protection note:">Nota de proteção de dados:</span> {{tbc|texto a confirmar|text to be confirmed}}
+          </div>
+        </section>
+      </div>
+
+      <div class="fcard">
+        <div class="mode" role="tablist" aria-label="Tipo de pedido" data-al-en="Type of enquiry">
+          <button type="button" role="tab" id="mt-full" aria-controls="pn-full" aria-selected="true" tabindex="0" data-en="Full enquiry">Pedido completo</button>
+          <button type="button" role="tab" id="mt-quick" aria-controls="pn-quick" aria-selected="false" tabindex="-1" data-en="I have nothing ready yet">Ainda não tenho nada pronto</button>
+        </div>
+        <div class="sitchip" id="sitchip" hidden><span><span data-en="Your case:">O seu caso:</span> <b id="sit-name"></b></span><button type="button" id="sit-clear" data-en="Remove">Remover</button></div>
+        <div class="coltags" id="coltags"></div>
+        @@FORM@@
+      </div>
+    </div>
+  </div>
+</section>
+</main>

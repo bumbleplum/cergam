@@ -1,0 +1,1687 @@
+<meta charset="utf-8">
+<title>Cergam Garrafas Personalizadas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap">
+<style>
+/* Cergam classic landing (i6). One bold decision: the hero image is a full-bleed Cergam-blue field (C31) that runs to the edge of the screen. Everything else is conventional: full-width bands, alternating light grounds, one button style, one card style. */
+:root{
+  --bg:#FFFFFF;--alt:#F5F2EA;--alt2:#ECE8DD;--card:#FFFFFF;--field:#FFFFFF;
+  --ink:#0B1B33;--mute:#3F4B5C;--faint:#566172;--rule:#D9D4C6;--rule-strong:#6D7480;
+  --primary:#00416F;--primary-h:#00315A;--on-primary:#FFFFFF;--link:#00569A;--focus:#00569A;--accent:#F05A28;--accent-text:#AE3A0D;
+  --band:#00315A;--band-deep:#00213F;--on-band:#F2EFE8;--on-band-mute:#B5C3D8;--band-rule:#2E517E;--link-band:#9CC9F5;--focus-band:#FFB38F;
+  --tbc-bg:#FBE9A8;--tbc-ink:#553900;--tbc-line:#8F6700;--tbc-hatch:rgba(143,103,0,.22);
+  --error:#B3261E;--ok:#1E5E10;
+  --font-text:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --wrap:1200px;--hh:72px;
+}
+@media(max-width:899px){:root{--hh:64px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#081326;--alt:#0D1B33;--alt2:#12233F;--card:#102240;--field:#0A1730;
+  --ink:#F3F0E8;--mute:#B8C1D0;--faint:#93A0B5;--rule:#243955;--rule-strong:#7B8CA6;
+  --primary:#8FC1F2;--primary-h:#B0D3F7;--on-primary:#08111F;--link:#8FC1F2;--focus:#FFB38F;--accent:#FF7A4D;--accent-text:#FF7A4D;
+  --band:#00264A;--band-deep:#00152B;--band-rule:#26466F;
+  --tbc-bg:#3A2C06;--tbc-ink:#FFD97A;--tbc-line:#B08A2A;--tbc-hatch:rgba(255,217,122,.16);
+  --error:#FF9A92;--ok:#8FD67A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#081326;--alt:#0D1B33;--alt2:#12233F;--card:#102240;--field:#0A1730;
+  --ink:#F3F0E8;--mute:#B8C1D0;--faint:#93A0B5;--rule:#243955;--rule-strong:#7B8CA6;
+  --primary:#8FC1F2;--primary-h:#B0D3F7;--on-primary:#08111F;--link:#8FC1F2;--focus:#FFB38F;--accent:#FF7A4D;--accent-text:#FF7A4D;
+  --band:#00264A;--band-deep:#00152B;--band-rule:#26466F;
+  --tbc-bg:#3A2C06;--tbc-ink:#FFD97A;--tbc-line:#B08A2A;--tbc-hatch:rgba(255,217,122,.16);
+  --error:#FF9A92;--ok:#8FD67A;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--font-text);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--font-text);color:var(--ink)}
+img{display:block;max-width:100%}
+.bi{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--bg);color:var(--ink);padding:12px 16px;z-index:50;border:2px solid var(--focus)}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.on-band :focus-visible{outline-color:var(--focus-band)}
+section[id],footer[id]{scroll-margin-top:calc(var(--hh) + 8px)}
+
+/* the one button style: navy fill. Secondary = same shape, outline. */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:4px;font:600 16px/1.2 var(--font-text);cursor:pointer;text-decoration:none;border:2px solid var(--primary);background:var(--primary);color:var(--on-primary);text-align:center}
+.btn:hover{background:var(--primary-h);border-color:var(--primary-h)}
+.btn.ghost{background:transparent;color:var(--primary)}
+.btn.ghost:hover{background:var(--alt2)}
+.btn.small{min-height:44px;padding:0 16px;font-size:15px}
+.on-band .btn{background:var(--on-band);border-color:var(--on-band);color:var(--band)}
+.on-band .btn:hover{background:#FFFFFF;border-color:#FFFFFF}
+.on-band .btn.ghost{background:transparent;color:var(--on-band)}
+.on-band .btn.ghost:hover{background:rgba(255,255,255,.1)}
+.tlink{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:600;font-size:15px;color:var(--link);text-decoration:none}
+.tlink:hover{text-decoration:underline;text-underline-offset:4px}
+.tlink::after{content:"";width:7px;height:7px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);margin-left:2px}
+
+/* stamp for everything Cergam still has to confirm */
+.tbc{display:inline-block;font:500 11px/1.3 var(--font-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--tbc-ink);background-color:var(--tbc-bg);background-image:repeating-linear-gradient(135deg,transparent 0 5px,var(--tbc-hatch) 5px 6px);border:1px dashed var(--tbc-line);border-radius:2px;padding:2px 6px;vertical-align:1px;white-space:nowrap}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--rule)}
+.top .bi{display:flex;align-items:center;gap:8px;min-height:var(--hh)}
+.mark{font:700 20px/1 var(--font-text);letter-spacing:.14em;text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--ink)}
+.mark i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
+.nav{display:none;gap:2px;margin-left:24px}
+.nav a{font:500 15px/1 var(--font-text);text-decoration:none;color:var(--mute);padding:0 12px;min-height:44px;display:inline-flex;align-items:center;border-radius:3px}
+.nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:6px}
+.sp{flex:1}
+.tel{font:500 15px/1 var(--font-text);text-decoration:none;min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 6px;color:var(--ink)}
+.tel svg{width:18px;height:18px;flex:none}
+.telt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.lang{display:inline-flex;border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
+.lang button{font:500 13px/1 var(--font-text);letter-spacing:.04em;min-width:44px;min-height:44px;background:transparent;color:var(--mute);border:0;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.menubtn{min-height:44px;min-width:44px;padding:0 12px;font:500 15px/1 var(--font-text);color:var(--ink);background:transparent;border:1px solid var(--rule-strong);border-radius:4px;cursor:pointer}
+.top .hbtn{display:none}
+@media(max-width:519px){.cta .btn{flex:1 1 100%}}
+@media(max-width:379px){.tel{display:none}.mark{font-size:18px;letter-spacing:.1em}.menubtn{padding:0 8px}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--alt);position:relative}
+.hero-top{position:relative;display:flex;flex-direction:column}
+.copy{padding-top:28px;padding-bottom:28px;min-width:0}
+.eyebrow{font:500 14px/1.4 var(--font-text);color:var(--mute);letter-spacing:.01em}
+h1{font-weight:700;font-size:clamp(36px,5.6vw,64px);line-height:1.02;letter-spacing:-.03em;margin-top:14px;color:var(--ink)}
+h1 span:first-child{display:block;text-wrap:balance}
+h1 .lite{display:block;font-weight:300;color:var(--mute)}
+.supply{font-size:clamp(17px,2vw,20px);line-height:1.5;margin-top:20px;max-width:30em;color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.cta .btn{min-height:52px;padding:0 26px;font-size:17px}
+.hero-art{position:relative;background:#003D6E;aspect-ratio:1/.92;width:100%;line-height:0;overflow:hidden}
+.hero-art svg{display:block;width:100%;height:100%}
+@media(min-width:900px){
+  .hero-top{display:flex;align-items:center;min-height:min(640px,calc(100svh - var(--hh) - 130px));min-height:max(560px,min(660px,calc(100svh - var(--hh) - 120px)))}
+  .copy{width:50%;padding-top:clamp(40px,7vw,88px);padding-bottom:clamp(40px,7vw,88px)}
+  .hero-top>.bi{position:relative;z-index:2;width:100%}
+  .hero-art{position:absolute;top:0;right:0;bottom:0;width:44%;aspect-ratio:auto}
+}
+@media(min-width:1500px){.hero-art{width:calc(50% - 180px)}}
+.facts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);background:var(--alt)}
+.facts-w{background:var(--alt)}
+.facts li{padding:16px 12px 14px 0;min-width:0}
+.facts li:nth-child(2n){padding-left:16px;border-left:1px solid var(--rule)}
+.facts li:nth-child(n+3){border-top:1px solid var(--rule)}
+.facts b{display:block;font:600 clamp(24px,6vw,34px)/1.1 var(--font-text);letter-spacing:-.015em;color:var(--ink);white-space:nowrap}
+.facts li>span{display:block;font-size:14px;line-height:1.4;color:var(--mute);margin-top:4px}
+@media(min-width:760px){
+  .facts{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .facts li{padding:24px 16px 22px 0}
+  .facts li:nth-child(n+3){border-top:0}
+  .facts li+li{padding-left:24px;border-left:1px solid var(--rule)}
+}
+
+/* ---------- bands and headings ---------- */
+.band{padding:clamp(56px,8vw,104px) 0}
+.band.alt{background:var(--alt)}
+.band.alt2{background:var(--alt2)}
+.band.on-band{background:var(--band);color:var(--on-band)}
+.band.on-band h2,.band.on-band h3{color:var(--on-band)}
+.band.deep{background:var(--band-deep)}
+.sec-h{max-width:44em;margin-bottom:clamp(28px,4vw,48px)}
+.kick{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
+.on-band .kick{color:var(--on-band-mute)}
+h2{font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-.02em}
+.lead{font-size:clamp(17px,1.7vw,19px);line-height:1.55;color:var(--mute);margin-top:14px}
+.on-band .lead{color:var(--on-band-mute)}
+.grid{display:grid;gap:20px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:6px;min-width:0}
+
+/* ---------- who we work with ---------- */
+.sit{grid-template-columns:minmax(0,1fr)}
+@media(min-width:640px){.sit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:960px){.sit{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.sit .card{display:flex;flex-direction:column;overflow:hidden}
+.c-art{background:#EEE9DE;line-height:0;aspect-ratio:1.2/1;position:relative;overflow:hidden}
+.c-art svg{position:absolute;left:0;top:0;width:100%;height:100%}
+.sit .body{padding:20px 22px 12px;display:flex;flex-direction:column;flex:1}
+.sit h3{font-size:20px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
+.sit p{color:var(--mute);margin-top:8px;font-size:16px}
+.sit .body .tlink{margin-top:auto;padding-top:10px}
+.sit .body p+.tlink{margin-top:12px}
+
+/* ---------- benefits ---------- */
+.ben{grid-template-columns:minmax(0,1fr)}
+@media(min-width:640px){.ben{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:960px){.ben{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ben .card{padding:26px 24px 22px;display:flex;flex-direction:column}
+.ben .n{font:500 13px/1 var(--font-mono);color:var(--accent-text);letter-spacing:.06em}
+.ben h3{font-size:21px;line-height:1.25;font-weight:600;margin-top:14px;letter-spacing:-.01em}
+.ben p{margin-top:10px;color:var(--mute)}
+.ben .fact{margin-top:auto;padding-top:16px}
+.ben .fact>div{border-top:1px solid var(--rule);padding-top:12px;font-size:15px;color:var(--ink)}
+.ben .fact b{font-weight:600}
+.ben .fact .tbc{margin-left:4px}
+
+/* ---------- how it works ---------- */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{position:relative;padding:0 0 28px 64px;min-width:0}
+.steps li::before{content:"";position:absolute;left:21px;top:44px;bottom:0;width:2px;background:var(--rule-strong);opacity:.5}
+.steps li:last-child::before{display:none}
+.steps .nd{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--primary);color:var(--on-primary);font:600 17px/44px var(--font-text);text-align:center}
+.steps h3{font-size:19px;font-weight:600;line-height:1.3;padding-top:8px}
+.steps p{margin-top:6px;color:var(--mute);font-size:16px}
+.steps .tbc{margin-top:8px}
+@media(min-width:900px){
+  .steps{grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+  .steps li{padding:64px 0 0}
+  .steps li::before{left:44px;right:-24px;top:21px;bottom:auto;width:auto;height:2px}
+  .steps li:last-child::before{display:none}
+}
+.strip{display:grid;gap:16px;margin-top:clamp(36px,5vw,56px);grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+.shot{margin:0;min-width:0}
+.shot-img{background:#E4E1DB;line-height:0;overflow:hidden;border-radius:4px}
+.shot-img img{width:100%;height:auto}
+.shot figcaption{display:flex;flex-direction:column;gap:2px;padding-top:10px;font-size:14px;line-height:1.4;color:var(--mute)}
+.shot figcaption b{color:var(--ink);font-weight:600;display:block}
+.src2{font:400 11.5px/1.4 var(--font-mono);color:var(--faint);letter-spacing:.02em}
+.on-band .shot figcaption{color:var(--on-band-mute)}
+.on-band .shot figcaption b{color:var(--on-band)}
+.on-band .src2{color:var(--on-band-mute)}
+.strip .shot-img img{aspect-ratio:3/2;object-fit:cover}
+
+/* ---------- colours ---------- */
+.col-grid{display:grid;gap:36px}
+@media(min-width:960px){.col-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:56px;align-items:start}}
+.sw{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media(min-width:520px){.sw{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.sw button{display:flex;flex-direction:column;align-items:stretch;gap:6px;width:100%;min-height:44px;padding:0;background:transparent;border:0;cursor:pointer;font:500 12.5px/1.2 var(--font-mono);color:var(--on-band);text-align:center}
+.sw .chip{display:block;aspect-ratio:1/1;min-height:44px;border-radius:4px;border:2px solid rgba(255,255,255,.35);position:relative}
+.sw button[aria-pressed="true"] .chip{border-color:#FFFFFF;box-shadow:0 0 0 3px var(--band),0 0 0 5px #FFFFFF}
+.sw button[aria-pressed="true"]{font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.sw button:hover .chip{border-color:#FFFFFF}
+.note{margin-top:20px;font-size:15px;line-height:1.55;color:var(--on-band-mute);max-width:36em}
+.note b{color:var(--on-band);font-weight:600}
+.pair{display:grid;gap:20px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:559px){.pair{grid-template-columns:minmax(0,1fr)}}
+.cb-art{background:#EEE9DE;line-height:0;aspect-ratio:4/5;overflow:hidden;border-radius:4px}
+.cb-art{position:relative}
+.cb-art svg{position:absolute;left:0;top:0;width:100%;height:100%}
+.cbc{margin:0}
+.cbc figcaption{padding-top:10px;font-size:14px;line-height:1.45;color:var(--on-band-mute)}
+.cbc figcaption b{color:var(--on-band);font-weight:600}
+.cb-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.cb-tools button{min-height:44px;padding:0 14px;border-radius:4px;background:transparent;color:var(--on-band);border:1px solid var(--on-band-mute);font:500 14px/1 var(--font-text);cursor:pointer}
+.cb-tools button[aria-pressed="true"]{background:var(--on-band);color:var(--band)}
+.cb-sel{font:500 13px/1.4 var(--font-mono);color:var(--on-band);margin-top:8px;min-height:20px}
+.on-band .shot-img{background:#E4E1DB}
+.cbc .shot-img{aspect-ratio:4/5}
+.cbc .shot-img img{height:100%;object-fit:cover}
+
+/* ---------- gallery ---------- */
+.tabrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tabrow button{min-height:44px;padding:0 20px;border-radius:4px;background:transparent;color:var(--ink);border:1px solid var(--rule-strong);font:500 15px/1 var(--font-text);cursor:pointer}
+.tabrow button:hover{background:var(--alt2)}
+.tabrow button[aria-selected="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.gal{display:grid;gap:20px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.gal{grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:24px}}
+.gal .shot-img{aspect-ratio:4/5;background:#E4E1DB;border-radius:4px}
+.gal .shot-img img{height:100%;object-fit:cover;filter:brightness(1.1) contrast(1.05)}
+@media(prefers-color-scheme:light){.gal .shot-img{background:var(--alt2)}.gal .shot-img img{mix-blend-mode:multiply}}
+:root[data-theme="light"] .gal .shot-img{background:var(--alt2)}
+:root[data-theme="light"] .gal .shot-img img{mix-blend-mode:multiply}
+:root[data-theme="dark"] .gal .shot-img img{mix-blend-mode:normal}
+.gal figcaption{padding-top:12px;font-size:15px}
+.gal-note{margin-top:28px;font-size:14px;color:var(--faint);max-width:44em}
+
+/* ---------- FAQ ---------- */
+.faq-grid{display:grid;gap:8px}
+@media(min-width:960px){.faq-grid{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:64px;align-items:start}.faq-grid .sec-h{margin-bottom:0;position:sticky;top:calc(var(--hh) + 24px)}}
+.faq-more{margin-top:20px;font-size:16px;color:var(--mute)}
+.faq{border-top:1px solid var(--rule)}
+.faq h3{font-size:inherit;font-weight:inherit;line-height:inherit}
+.faq .q{display:flex;width:100%;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px 4px;background:transparent;border:0;border-bottom:1px solid var(--rule);color:var(--ink);font:600 18px/1.35 var(--font-text);text-align:left;cursor:pointer}
+.faq .q:hover{color:var(--link)}
+.faq .q::after{content:"";width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:-4px 6px 0 0;flex:none}
+.faq .q[aria-expanded="true"]::after{transform:rotate(-135deg);margin-top:4px}
+.faq .a{padding:18px 4px 24px;border-bottom:1px solid var(--rule);color:var(--mute);font-size:17px}
+.faq .a p{max-width:40em}
+.faq .a p+p{margin-top:10px}
+.faq .a .tbc{margin-left:2px}
+
+/* ---------- enquiry ---------- */
+.enq{display:grid;gap:40px}
+@media(min-width:960px){.enq{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}}
+.next{list-style:none;margin:24px 0 0;padding:0;counter-reset:n}
+.next li{counter-increment:n;position:relative;padding:0 0 14px 40px;color:var(--ink)}
+.next li::before{content:counter(n);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:50%;border:2px solid var(--primary);color:var(--primary);font:600 14px/24px var(--font-text);text-align:center}
+.slots{margin-top:18px;border:1px solid var(--rule);border-radius:6px;background:var(--card);padding:6px 18px}
+.slots div{display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.slots div:last-child{border-bottom:0}
+.slots dt{color:var(--mute)}
+.slots dd{margin:0}
+.slots{margin-bottom:0}
+.fcard{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:20px 18px 24px;box-shadow:0 20px 40px -28px rgba(0,23,57,.35)}
+@media(min-width:600px){.fcard{padding:28px 32px 32px}}
+.mode{display:flex;gap:6px;margin-bottom:22px;border-bottom:1px solid var(--rule)}
+.mode button{flex:1 1 auto;min-height:48px;padding:0 12px;background:transparent;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;color:var(--mute);font:600 15px/1.2 var(--font-text);cursor:pointer;text-align:center}
+.mode button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--primary)}
+.sitchip{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;background:var(--alt);border:1px solid var(--rule);border-radius:4px;padding:6px 6px 6px 14px;margin-bottom:20px;font-size:15px}
+.sitchip button{min-height:44px;background:none;border:0;color:var(--link);font:600 14px/1 var(--font-text);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0 8px}
+.fld{margin:0 0 20px;border:0;padding:0;min-width:0}
+.fld>label,.fld>legend{display:block;font:600 15px/1.35 var(--font-text);margin-bottom:8px;padding:0;color:var(--ink)}
+.hint{font-size:14px;color:var(--mute);margin-top:6px}
+.opt{font:400 12px var(--font-mono);color:var(--faint);margin-left:6px;text-transform:uppercase;letter-spacing:.04em}
+input[type=text],input[type=email],input[type=date],select,textarea{width:100%;min-height:48px;padding:10px 14px;font:400 16px/1.3 var(--font-text);color:var(--ink);background:var(--field);border:1px solid var(--rule-strong);border-radius:4px}
+textarea{min-height:96px;resize:vertical}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 22px) 21px,calc(100% - 16px) 21px;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.two{display:grid;gap:16px}
+@media(min-width:600px){.two{grid-template-columns:1fr 1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.cp{position:relative}
+.cp input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.cp span{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 16px;border:1px solid var(--rule-strong);border-radius:4px;background:var(--field);color:var(--ink);font-size:15px;font-weight:500}
+.cp input:checked+span{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.cp input:focus-visible+span{outline:3px solid var(--focus);outline-offset:2px}
+.picked{font:500 13px/1.4 var(--font-mono);color:var(--mute);margin-top:8px}
+.err{display:none;color:var(--error);font-size:14.5px;font-weight:500;margin-top:6px}
+.fld.bad .err{display:block}
+.fld.bad input[type=text],.fld.bad input[type=email],.fld.bad input[type=date],.fld.bad select,.fld.bad textarea{border-color:var(--error);border-width:2px}
+.sumerr{border:2px solid var(--error);border-radius:4px;padding:14px 16px;margin-bottom:20px;color:var(--ink)}
+.sumerr b{color:var(--error)}
+.sumerr ul{margin:8px 0 0;padding-left:20px}
+.sumerr a{display:inline-block;padding:8px 0}
+.sent{border:2px solid var(--ok);border-radius:6px;padding:18px 20px;margin-top:22px;background:var(--alt)}
+.sent h3{font-size:18px;color:var(--ink)}
+.sent p{margin-top:8px;color:var(--ink)}
+.sent dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:14px 0 0;font-size:15px}
+.sent dt{color:var(--mute)}
+.sent dd{margin:0;color:var(--ink)}
+.alt-links{margin-top:18px;font-size:15px;color:var(--mute)}
+.alt-links a{display:inline-flex;align-items:center;min-height:44px}
+
+/* ---------- closing band, footer ---------- */
+.close{padding:clamp(52px,7vw,88px) 0}
+.close .bi{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between}
+.close h2{color:var(--on-band);max-width:15em}
+.close .acts{display:flex;flex-wrap:wrap;gap:12px}
+.close .btn{min-height:52px;font-size:17px}
+.foot{background:var(--band-deep);color:var(--on-band-mute);padding:48px 0 36px;font-size:15px}
+.foot .bi{display:grid;gap:28px}
+@media(min-width:800px){.foot .bi{grid-template-columns:1.3fr 1fr 1fr}}
+.foot a{color:var(--link-band);display:inline-flex;align-items:center;min-height:44px}
+.foot .ct{margin-top:-10px}
+.foot strong{color:var(--on-band)}
+.foot .legal{grid-column:1/-1;border-top:1px solid var(--band-rule);padding-top:20px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:14px}
+.foot .pn{grid-column:1/-1;font:400 12px/1.5 var(--font-mono)}
+.foot :focus-visible{outline-color:var(--focus-band)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* =========================================================
+   i7a additions: routing, header menu, inner pages
+   ========================================================= */
+.view{display:block}
+.view[hidden]{display:none!important}
+#live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.view h1:focus,.view h2:focus{outline:none}
+.view h1:focus-visible{outline:3px solid var(--focus);outline-offset:6px}
+
+/* header: menu collapses below 1080 so six links and the button fit */
+.dd{position:relative;display:flex;flex-direction:column}
+.ddb{font:500 15px/1 var(--font-text);color:var(--mute);background:transparent;border:0;padding:0 10px;min-height:44px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border-radius:3px}
+.ddb::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-3px;flex:none}
+.ddb[aria-expanded="true"]::after{transform:rotate(-135deg);margin-top:3px}
+.ddb:hover{color:var(--ink);text-decoration:underline;text-underline-offset:6px}
+.ddb[data-on]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--accent)}
+.nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--accent)}
+.btn[aria-current="page"]{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--primary)}
+.nav a{padding:0 10px}
+@media(max-width:1079px){
+  .nav{margin:0;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--rule);box-shadow:0 18px 24px -18px rgba(0,23,57,.35);padding:6px max(16px,env(safe-area-inset-left,0px)) 14px;max-height:calc(100vh - var(--hh));overflow:auto}
+  .nav.open{display:flex;flex-direction:column}
+  .nav a{min-height:48px;padding:0;border-bottom:1px solid var(--rule);font-size:16px}
+  .nav a[aria-current="page"]{box-shadow:none;font-weight:700;color:var(--ink)}
+  .nav a[aria-current="page"]::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);margin-left:10px}
+  .nav .navbtn{margin-top:12px;border:2px solid var(--primary);background:var(--primary);color:var(--on-primary);justify-content:center;border-radius:4px;font-weight:600;text-decoration:none}
+  .ddb{min-height:48px;padding:0;font-size:16px;width:100%;justify-content:space-between;border-bottom:1px solid var(--rule);border-radius:0}
+  .ddb[data-on]{box-shadow:none;color:var(--ink);font-weight:700}
+  .ddp a{padding-left:16px!important}
+}
+@media(min-width:1080px){
+  .nav{display:flex}.nav .navbtn{display:none}.menubtn{display:none}
+  .top .hbtn{display:inline-flex;margin-left:6px;min-height:44px;padding:0 20px;font-size:15px}.top .bi{gap:12px}
+  .ddp{position:absolute;left:0;top:100%;min-width:270px;background:var(--bg);border:1px solid var(--rule);border-radius:6px;box-shadow:0 18px 30px -16px rgba(0,23,57,.4);padding:6px;z-index:40}
+  .ddp a{border-radius:4px}
+  .ddp a:hover{background:var(--alt)}
+  .nav .ddp a{padding:0 14px}
+}
+.telt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(min-width:1500px){.telt{position:static;width:auto;height:auto;clip:auto;overflow:visible}}
+.nav a,.ddb,.hbtn,.tel{white-space:nowrap}
+
+/* page header with breadcrumb */
+.phead{background:var(--alt);border-bottom:1px solid var(--rule)}
+.crumb{padding-top:10px}
+.crumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--mute)}
+.crumb li{display:inline-flex;align-items:center;min-height:44px}
+.crumb li+li::before{content:"/";margin:0 8px;color:var(--faint)}
+.crumb a{display:inline-flex;align-items:center;justify-content:flex-start;min-height:44px;min-width:44px;color:var(--link)}
+.crumb [aria-current]{color:var(--ink);font-weight:500}
+.phead-grid{display:grid;gap:28px;padding:8px 0 40px}
+@media(min-width:900px){.phead-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding:12px 0 56px}}
+.phead h1{font-size:clamp(34px,5vw,56px);margin-top:10px;line-height:1.04}
+.phead .supply{margin-top:16px}
+.phead .cta{margin-top:24px}
+.phead.slim .phead-grid{display:block;padding:4px 0 36px}
+.phead.slim .supply{max-width:36em}
+.ribbon{display:flex;height:16px;margin-top:0}
+.ribbon i{flex:1;display:block}
+.phead-art{position:relative;background:#EEE9DE;aspect-ratio:5/4;overflow:hidden;border-radius:6px;line-height:0}
+.phead-art svg{position:absolute;left:0;top:0;width:100%;height:100%}
+.band.tight{padding-top:clamp(32px,4vw,56px)}
+.band.tight-b{padding-bottom:clamp(32px,4vw,56px)}
+.pill{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 14px;border:1px solid var(--rule-strong);border-radius:4px;background:var(--bg);font-size:15px;color:var(--ink);line-height:1.4;max-width:100%}
+.pill b{font-weight:600}
+
+/* intro */
+.intro-grid{display:grid;gap:32px}
+@media(min-width:900px){.intro-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:start}}
+.aud{padding:24px 24px 14px}
+.aud h3{font-size:19px;font-weight:600}
+.aud ul{list-style:none;margin:12px 0 0;padding:0}
+.aud li{padding:14px 0;border-top:1px solid var(--rule)}
+.aud li b{display:block;font-weight:600}
+.aud li span{display:block;color:var(--mute);margin-top:2px;font-size:15.5px}
+
+/* four blocks */
+@media(min-width:960px){.ben.four{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+.ben.four .card{padding:24px 22px 20px}
+.ben .tlink{margin-top:auto;padding-top:8px}
+
+/* range by type */
+@media(min-width:760px){.rng{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+.rng .c-art{aspect-ratio:1/1}
+.rng .body{padding-bottom:20px}
+.rng .tbc{margin-top:12px;align-self:flex-start}
+
+/* rules table */
+.rules{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.rules th,.rules td{text-align:left;vertical-align:top;padding:18px 22px;border-bottom:1px solid var(--rule);font-size:16px;line-height:1.55}
+.rules thead th{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);background:var(--alt2);padding:12px 22px}
+.rules tbody th{font-weight:600;width:22%;color:var(--ink)}
+.rules tbody tr:last-child>*{border-bottom:0}
+.rules td{color:var(--ink)}
+.rules td .tbc{margin:6px 6px 0 0}
+.rules td .line{display:block}
+.rules td a{display:inline-flex;align-items:center;min-height:44px}
+.rules .ml{display:none}
+@media(max-width:719px){
+  .rules thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .rules,.rules tbody,.rules tr,.rules th,.rules td{display:block;width:100%}
+  .rules tbody th{width:100%;padding:16px 18px 2px;border-bottom:0;font-size:17px}
+  .rules td{padding:4px 18px 16px}
+  .rules tbody tr{border-bottom:1px solid var(--rule)}
+  .rules tbody tr:last-child{border-bottom:0}
+}
+.rules-note{margin-top:16px;font-size:14px;color:var(--faint);max-width:44em}
+
+/* mini process strip */
+.mini{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:m}
+@media(min-width:760px){.mini{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+.mini li{counter-increment:m;background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:18px 18px 16px;min-width:0}
+.mini li::before{content:counter(m);display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--primary);color:var(--on-primary);font:600 15px/1 var(--font-text)}
+.mini h3{font-size:18px;font-weight:600;margin-top:12px;line-height:1.3}
+.mini p{margin-top:6px;color:var(--mute);font-size:15.5px}
+.mini .tbc{margin-top:8px}
+
+/* gallery on the water page */
+.gal.six{--n:3}
+
+/* closing call */
+.cta-band{padding:clamp(44px,6vw,72px) 0}
+.cta-band .bi{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.cta-band h2{max-width:20em;color:var(--on-band);font-size:clamp(26px,3vw,36px)}
+.cta-band .bi>div:first-child{flex:1 1 380px;min-width:0}
+.cta-band .acts{flex:0 1 auto;max-width:100%}
+@media(max-width:519px){.cta-band .acts,.cta-band .btn{width:100%}.cta-band .btn{flex:1 1 100%}}
+.cta-band p{margin-top:10px;color:var(--on-band-mute);max-width:36em}
+.cta-band .acts{display:flex;flex-wrap:wrap;gap:12px}
+.cta-band .btn{min-height:52px;font-size:17px}
+.cta-band .tbc{margin-left:2px}
+.on-band .tlink{color:var(--link-band)}
+
+/* colour page */
+.ctool{display:grid;gap:28px}
+@media(min-width:1000px){.ctool{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:start}.ct-view{position:sticky;top:calc(var(--hh) + 16px)}}
+@media(max-width:999px){.ct-view{order:-1}}
+.ct-head h2{font-size:clamp(24px,3vw,32px)}
+.ct-head .lead{margin-top:8px;font-size:17px}
+.chart{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(min-width:520px){.chart{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}}
+.chart button{display:flex;flex-direction:column;width:100%;padding:8px 8px 10px;gap:8px;background:var(--card);border:1px solid var(--rule);border-radius:6px;cursor:pointer;text-align:left;color:var(--ink);min-height:44px;font:inherit}
+.chart button:hover{border-color:var(--rule-strong)}
+.chart .chip{position:relative;display:block;aspect-ratio:1/.78;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.chart .code{font:600 16px/1.1 var(--font-text);display:block}
+.chart .hex{font:400 12px/1.2 var(--font-mono);color:var(--mute);display:block;margin-top:3px}
+.chart .ord{display:none;position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:var(--primary);color:var(--on-primary);font:600 14px/26px var(--font-text);text-align:center;box-shadow:0 0 0 2px var(--card)}
+.chart button[aria-pressed="true"]{border-color:var(--primary);box-shadow:0 0 0 2px var(--primary)}
+.chart button[aria-pressed="true"] .ord{display:block}
+.chart-foot{margin-top:18px;font-size:14.5px;color:var(--mute);max-width:44em}
+.chart-foot b{color:var(--ink);font-weight:600}
+.ct-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:16px}
+.cp-sel{font:500 13px/1.4 var(--font-mono);color:var(--ink);min-height:20px;margin:12px 0 10px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{min-height:44px;padding:0 16px;border:1px solid var(--rule-strong);background:var(--field);color:var(--ink);border-radius:4px;font:500 15px/1 var(--font-text);cursor:pointer}
+.seg button:hover{background:var(--alt2)}
+.seg button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.seg-l{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:0 0 8px}
+.cp-art{position:relative;margin-top:14px;background:#EEE9DE;aspect-ratio:1/1.02;overflow:hidden;border-radius:6px;line-height:0}
+@media(min-width:1000px){.cp-art{aspect-ratio:5/6}}
+.cp-art svg{position:absolute;left:0;top:0;width:100%;height:100%}
+.ct-view .seg+.seg{margin-top:10px}
+.ct-cap{margin-top:10px;font-size:14px;color:var(--mute);min-height:20px}
+
+/* honest notes */
+.notes-grid{display:grid;gap:28px}
+@media(min-width:960px){.notes-grid{grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:48px;align-items:start}}
+.notes{display:grid;gap:16px}
+@media(min-width:640px){.notes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.notes .card{padding:22px 22px 20px}
+.notes h3{font-size:19px;font-weight:600;line-height:1.3}
+.notes p{margin-top:8px;color:var(--mute);font-size:16px}
+.notes p b{color:var(--ink);font-weight:600}
+.notes .tbc{margin-top:10px}
+.cb-photo .shot-img img{aspect-ratio:4/5;object-fit:cover}
+
+/* enquiry page */
+.enq-page{display:grid;gap:36px}
+@media(min-width:960px){.enq-page{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}}
+@media(max-width:959px){.enq-side{order:2}}
+.enq-side h2{font-size:clamp(22px,2.4vw,28px);line-height:1.2}
+.enq-side section+section{margin-top:36px}
+.chk{list-style:none;margin:14px 0 0;padding:0}
+.chk li{position:relative;padding:10px 0 10px 36px;border-top:1px solid var(--rule)}
+.chk li:last-child{border-bottom:1px solid var(--rule)}
+.chk li::before{content:"";position:absolute;left:5px;top:16px;width:15px;height:8px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.ccard{margin-top:14px;padding:20px 22px;background:var(--card);border:1px solid var(--rule);border-radius:6px;font-style:normal;line-height:1.7}
+.ccard a{display:inline-flex;align-items:center;min-height:44px}
+.dp{margin-top:14px;padding:14px 16px;border:1px dashed var(--tbc-line);border-radius:4px;font-size:15px;color:var(--ink)}
+.dp .tbc{margin-top:6px}
+.replycard{margin-top:0;align-self:center}
+.phead.slim .phead-grid.two{display:grid;gap:24px}
+@media(min-width:900px){.phead.slim .phead-grid.two{grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:56px}}
+.coltags{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin:0 0 20px;padding:6px 6px 6px 14px;background:var(--alt);border:1px solid var(--rule);border-radius:4px;font-size:15px}
+.coltags .dots{display:inline-flex;gap:4px}
+.coltags .dot{width:20px;height:20px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.coltags a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;font-weight:600;font-size:14px}
+.foot .pages{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:0 18px;align-items:center;font-size:14px}
+.foot .pages a{font-size:14px;min-width:44px}
+.ben .fact a{display:inline-flex;align-items:center;min-height:44px}
+.slots a{display:inline-flex;align-items:center;min-height:44px}
+.faq-more a{display:inline-flex;align-items:center;min-height:44px}
+</style>
+
+<a class="skip" href="#top" id="skip" data-en="Skip to the content">Saltar para o conteúdo</a>
+<div id="live" role="status" aria-live="polite"></div>
+
+<header class="top">
+  <div class="bi">
+    <a class="mark" href="#top" aria-label="Cergam, início" data-al-en="Cergam, home"><i></i>CERGAM</a>
+    <nav class="nav" id="nav" aria-label="Secções" data-al-en="Sections">
+      <div class="dd" id="dd">
+        <button type="button" class="ddb" id="ddb" aria-expanded="false" aria-controls="ddp"><span data-en="Solutions">Soluções</span></button>
+        <div class="ddp" id="ddp" hidden>
+          <a href="#agua" data-page="agua" data-en="Glass for water">Vidro para água</a>
+          <a href="#solucoes" data-en="All areas and cases">Todas as áreas e casos</a>
+        </div>
+      </div>
+      <a href="#cores" data-page="cores" data-en="Colours">Cores</a>
+      <a href="#como" data-en="How it works">Como funciona</a>
+      <a href="#trabalhos" data-en="Our work">Trabalhos</a>
+      <a href="#perguntas" data-en="Questions">Perguntas</a>
+      <a href="#contactos" data-en="Contact">Contactos</a>
+      <a class="navbtn" href="#orcamento" data-page="orcamento" data-en="Request a quote">Pedir orçamento</a>
+    </nav>
+    <span class="sp"></span>
+    <a class="tel" href="tel:+351219862540" aria-label="Telefone +351 21 9862 540"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span class="telt">+351 21 9862 540</span></a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-pt" aria-pressed="true" lang="pt">PT</button>
+      <button type="button" id="lang-en" aria-pressed="false" lang="en">EN</button>
+    </div>
+    <a class="btn hbtn" href="#orcamento" data-page="orcamento" data-en="Request a quote">Pedir orçamento</a>
+    <button type="button" class="menubtn" id="menubtn" aria-expanded="false" aria-controls="nav" data-en="Menu">Menu</button>
+  </div>
+</header>
+
+<div id="views">
+<main class="view" id="top" data-view="home">
+<!-- 2. HERO -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-top">
+    <div class="bi">
+      <div class="copy">
+        <p class="eyebrow" data-en="Glass and porcelain decoration · Malveira, Portugal">Decoração de vidro e porcelana · Malveira, Portugal</p>
+        <h1 id="h1"><span data-en="Bottles with your brand.">Garrafas com a sua marca.</span> <span class="lite" data-en="Always the same.">Sempre iguais.</span></h1>
+        <p class="supply" data-en="We print your logo, in one or more colours, on glass bottles, carafes and glasses, and on porcelain mugs and plates.">Imprimimos o seu logótipo, a uma ou mais cores, em garrafas, jarros e copos de vidro e em canecas e pratos de porcelana.</p>
+        <div class="cta">
+          <a class="btn" href="#orcamento" data-en="Send your logo">Enviar o logótipo</a>
+          <a class="btn ghost" href="tel:+351219862540" data-en="Talk to a person">Falar com uma pessoa</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-art" id="hero-art" role="img" aria-label="Imagem de conceito, não fotografia: jarro de vidro com um logótipo de exemplo." data-al-en="Concept image, not a photograph: a glass carafe with a sample logo."></div>
+  </div>
+  <div class="facts-w">
+    <div class="bi">
+      <ul class="facts" aria-label="Factos" data-al-en="Facts">
+        <li><b>1968</b><span data-en="in the industry since">na indústria desde</span></li>
+        <li><b>40+</b><span data-en="countries we deliver to">países com entregas</span></li>
+        <li><b>2.500 m²</b><span data-en="covered area">de área coberta</span></li>
+        <li><b data-en="12 to 25">12 a 25</b><span><span data-en="working days.">dias úteis.</span> <span data-en="What starts the count:">Início da contagem:</span> {{tbc}}</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHO WE WORK WITH -->
+<section class="band" id="solucoes" aria-labelledby="h-sol">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="Who we work with">Para quem trabalhamos</p>
+      <h2 id="h-sol" data-en="Pick the case that looks like yours">Escolha o caso que se parece com o seu</h2>
+      <p class="lead" data-en="Each case leads to the enquiry with your case already filled in. Water has its own page.">Cada caso leva ao pedido de orçamento com o seu caso já preenchido. A água tem página própria.</p>
+    </div>
+    <div class="grid sit">
+      <article class="card">
+        <div class="c-art" data-card="0"></div>
+        <div class="body">
+          <h3 data-en="Makers of water equipment">Fabricantes de equipamento de água</h3>
+          <p data-en="Bottles and carafes with your logo for your machines. The same Cergam colours on every order.">Garrafas e jarros com o seu logótipo para os seus equipamentos. As mesmas cores Cergam em cada encomenda.</p>
+          <a class="tlink" href="#agua" data-en="See glass for water">Ver vidro para água</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="c-art" data-card="1"></div>
+        <div class="body">
+          <h3 data-en="Wine, gin and olive oil producers">Produtores de vinho, gin e azeite</h3>
+          <p data-en="Your brand printed on the bottle, in one or more of the 22 Cergam colours.">A sua marca impressa na garrafa, numa ou mais das 22 cores Cergam.</p>
+          <a class="tlink" href="#orcamento" data-sit="spirits" data-en="Request a quote for this case">Pedir orçamento para este caso</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="c-art" data-card="2"></div>
+        <div class="body">
+          <h3 data-en="Gifts with a date">Brindes com data</h3>
+          <p data-en="Mugs, glasses and bottles for an event or a campaign. Write the date in your request and we check if it fits.">Canecas, copos e garrafas para um evento ou uma campanha. Escreva a data no pedido e vemos se cabe.</p>
+          <a class="tlink" href="#orcamento" data-sit="gift" data-en="Request a quote for this case">Pedir orçamento para este caso</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="c-art" data-card="3"></div>
+        <div class="body">
+          <h3 data-en="Agencies and resellers">Agências e revendedores</h3>
+          <p data-en="Buying for a client? Send their logo and the quantities. We reply with a quote.">Compra para um cliente seu? Envie o logótipo dele e as quantidades. Respondemos com um orçamento.</p>
+          <a class="tlink" href="#orcamento" data-sit="agency" data-en="Request a quote for this case">Pedir orçamento para este caso</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="c-art" data-card="4"></div>
+        <div class="body">
+          <h3 data-en="Hotels and restaurants">Hotéis e restaurantes</h3>
+          <p>
+            <span data-en="Plates, mugs, glasses and carafes with your venue's logo. Dishwasher use:">Pratos, canecas, copos e jarros com o logótipo do espaço. Lavagem em máquina:</span> {{tbc}}</p>
+          <a class="tlink" href="#orcamento" data-sit="hotel" data-en="Request a quote for this case">Pedir orçamento para este caso</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="c-art" data-card="5"></div>
+        <div class="body">
+          <h3 data-en="Customers who reorder">Clientes que repetem</h3>
+          <p data-en="Ordered before? Tell us what you got last time and the date you need.">Já encomendou? Diga-nos o que levou da última vez e a data de que precisa.</p>
+          <a class="tlink" href="#orcamento" data-sit="repeat" data-en="Request a quote for this case">Pedir orçamento para este caso</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHY CERGAM -->
+<section class="band alt" id="porque" aria-labelledby="h-por">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="Why Cergam">Porque a Cergam</p>
+      <h2 id="h-por" data-en="Six questions every buyer asks, answered">As seis perguntas de quem compra, respondidas</h2>
+      <p class="lead" data-en="Short answers, with the number when we have it. When Cergam has not confirmed something, it says so.">Respostas curtas, com o número quando o temos. Quando a Cergam ainda não confirmou, está marcado.</p>
+    </div>
+    <div class="grid ben">
+      <article class="card">
+        <span class="n">01</span>
+        <h3 data-en="Do you print on my object?">Imprimem no meu objeto?</h3>
+        <p data-en="Yes, on glass and porcelain: bottles, carafes, glasses, mugs and plates.">Sim, em vidro e porcelana: garrafas, jarros, copos, canecas e pratos.</p>
+        <div class="fact"><div><b data-en="Decorating since 2008">Decoração desde 2008</b>, <span data-en="in the industry since 1968.">na indústria desde 1968.</span></div></div>
+      </article>
+      <article class="card">
+        <span class="n">02</span>
+        <h3 data-en="Can I order a small quantity?">Posso encomendar pouco?</h3>
+        <p data-en="Yes. Glass starts at 24 pieces. Porcelain starts at 48.">Sim. O vidro começa nas 24 peças. A porcelana começa nas 48.</p>
+        <div class="fact"><div><span data-en="Minimums, to be checked:">Mínimos, a verificar:</span> {{tbc}}</div></div>
+      </article>
+      <article class="card">
+        <span class="n">03</span>
+        <h3 data-en="Will the colour be right?">A cor vai ficar certa?</h3>
+        <p data-en="You choose from 22 Cergam colours. Pantone and CMYK are not matched exactly. Screen colours are only a guide.">Pode escolher entre 22 Cores Cergam. Pantone e CMYK não são reproduzidos de forma exata. As cores no ecrã são só uma referência.</p>
+        <div class="fact"><div><b data-en="22 Cergam colours">22 Cores Cergam</b>, <a href="#cores" data-en="see the chart">ver a tabela</a></div></div>
+      </article>
+      <article class="card">
+        <span class="n">04</span>
+        <h3 data-en="Will it be the same every time?">Vai ser igual de cada vez?</h3>
+        <p data-en="The Cergam colour system exists so that production is uniform from one order to the next.">O sistema de Cores Cergam existe para que a produção seja uniforme de encomenda para encomenda.</p>
+        <div class="fact"><div><span data-en="Colour tolerance between batches:">Tolerância de cor entre lotes:</span> {{tbc}}</div></div>
+      </article>
+      <article class="card">
+        <span class="n">05</span>
+        <h3 data-en="Who do I talk to?">Com quem falo?</h3>
+        <p data-en="With the team in Malveira, by phone or email.">Com a equipa em Malveira, por telefone ou email.</p>
+        <div class="fact"><div><a href="tel:+351219862540">+351 21 9862 540</a> · <span data-en="Named contact:">Contacto com nome:</span> {{tbc}}</div></div>
+      </article>
+      <article class="card">
+        <span class="n">06</span>
+        <h3 data-en="How long does it take?">Quanto tempo demora?</h3>
+        <p data-en="Production takes 12 to 25 working days. Transport is extra.">A produção demora 12 a 25 dias úteis. O transporte conta à parte.</p>
+        <div class="fact"><div><b data-en="12 to 25 working days.">12 a 25 dias úteis.</b> <span data-en="What starts the count:">Início da contagem:</span> {{tbc}}</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. HOW IT WORKS -->
+<section class="band" id="como" aria-labelledby="h-com">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="How it works">Como funciona</p>
+      <h2 id="h-com" data-en="From your logo to the finished bottle, in five steps">Do logótipo à garrafa pronta, em cinco passos</h2>
+      <p class="lead">{{tbc|etapas a confirmar com a Cergam|steps to be confirmed with Cergam}}</p>
+    </div>
+    <ol class="steps">
+      <li><span class="nd" aria-hidden="true">1</span><h3 data-en="Send the logo">Envio do logótipo</h3><p data-en="You send the logo and the colours you want.">Envie o logótipo e as cores que quer.</p></li>
+      <li><span class="nd" aria-hidden="true">2</span><h3 data-en="Colour proof">Prova de cor</h3><p data-en="You see how the colour will look before production.">Veja como a cor vai ficar antes da produção.</p>{{tbc|prova: a confirmar|proof: to be confirmed}}</li>
+      <li><span class="nd" aria-hidden="true">3</span><h3 data-en="Screen printing">Serigrafia</h3><p data-en="Your logo is screen-printed onto a decal, in one or more colours.">O logótipo é impresso em serigrafia num decalque, a uma ou mais cores.</p></li>
+      <li><span class="nd" aria-hidden="true">4</span><h3 data-en="Firing">Cozedura</h3><p data-en="The decal is fired onto the glass at 580 °C, so it stays fixed.">O decalque é cozido no vidro a 580 °C e fica fixo.</p>{{tbc|temperatura: a confirmar|temperature: to be confirmed}}</li>
+      <li><span class="nd" aria-hidden="true">5</span><h3 data-en="Checks and dispatch">Controlo e expedição</h3><p data-en="The pieces are checked, packed and shipped. 12 to 25 working days in all.">As peças são verificadas, embaladas e enviadas. 12 a 25 dias úteis no total.</p></li>
+    </ol>
+    <div class="strip">
+      @@PH:fabrica-corte-decalques-B|Decalques|Decals@@
+      @@PH:fabrica-serigrafia-maquina-A|Serigrafia|Screen printing@@
+      @@PH:fabrica-forno-entrada-A|Cozedura|Firing@@
+      @@PH:fabrica-paletes-B|Expedição|Dispatch@@
+    </div>
+  </div>
+</section>
+
+<!-- 6. COLOURS -->
+<section class="band on-band" id="cor-home" aria-labelledby="h-cor">
+  <div class="bi">
+    <div class="col-grid">
+      <div>
+        <p class="kick" data-en="The colours">As cores</p>
+        <h2 id="h-cor" data-en="22 Cergam colours">22 Cores Cergam</h2>
+        <p class="lead" data-en="Choose up to three to see them on the carafe. The same codes go into your quote.">Escolha até três para as ver no jarro. Os mesmos códigos seguem no seu pedido.</p>
+        <ul class="sw" id="sw" aria-label="Cores Cergam" data-al-en="Cergam colours"></ul>
+        <p class="note"><b data-en="Screen samples, not a print standard.">Amostras de ecrã, não são um padrão de impressão.</b> <span data-en="Pantone and CMYK are not matched exactly. The bottle photo shows real colours fired onto glass.">Pantone e CMYK não são reproduzidos de forma exata. A foto da garrafa mostra cores reais cozidas no vidro.</span> {{tbc|nomes das cores: a confirmar|colour names: to be confirmed}}</p>
+        <p><a class="tlink" href="#cores" data-en="See the 22 colours">Ver as 22 cores</a></p>
+      </div>
+      <div class="pair">
+        <figure class="cbc">
+          <div class="cb-art" id="cb-art"></div>
+          <figcaption><div class="cb-sel" id="cb-sel" aria-live="polite"></div>
+          <div class="cb-tools">
+            <button type="button" id="bg-l" aria-pressed="true" data-en="Light background">Fundo claro</button>
+            <button type="button" id="bg-d" aria-pressed="false" data-en="Dark background">Fundo escuro</button>
+          </div></figcaption>
+        </figure>
+        @@PH:cor-garrafa-tecnica-A|Garrafa de teste|Test bottle@@
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. REAL WORK -->
+<section class="band alt" id="trabalhos" aria-labelledby="h-trab">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="Real work">Trabalhos reais</p>
+      <h2 id="h-trab" data-en="What it looks like on the piece">Como fica na peça</h2>
+      <p class="lead" data-en="Photos of decorated pieces, by area. Customer names and quantities: to be confirmed with Cergam.">Fotografias de peças decoradas, por área. Clientes e quantidades: a confirmar com a Cergam.</p>
+    </div>
+    <div class="tabrow" role="tablist" aria-label="Áreas" data-al-en="Areas" id="gtabs">
+      <button type="button" role="tab" id="gt-1" aria-controls="gp-1" aria-selected="true" tabindex="0" data-en="Water">Água</button>
+      <button type="button" role="tab" id="gt-2" aria-controls="gp-2" aria-selected="false" tabindex="-1" data-en="Wine and spirits">Vinho e espirituosas</button>
+      <button type="button" role="tab" id="gt-3" aria-controls="gp-3" aria-selected="false" tabindex="-1" data-en="Olive oil">Azeite</button>
+      <button type="button" role="tab" id="gt-4" aria-controls="gp-4" aria-selected="false" tabindex="-1" data-en="Porcelain">Porcelana</button>
+    </div>
+    <div class="gal" id="gp-1" role="tabpanel" aria-labelledby="gt-1" style="--n:4">
+      @@PH:agua-padrao-azulejo-A@@
+      @@PH:agua-casario-fosco-A@@
+      @@PH:agua-azul-fosco-B@@
+      @@PH:agua-circulo-minimal-B@@
+    </div>
+    <div class="gal" id="gp-2" role="tabpanel" aria-labelledby="gt-2" style="--n:4" hidden>
+      @@PH:vinho-ouro-xo-A@@
+      @@PH:vinho-rosas-par-A@@
+      @@PH:vinho-ouro-preto-B@@
+      @@PH:vinho-tinto-escuro-B@@
+    </div>
+    <div class="gal" id="gp-3" role="tabpanel" aria-labelledby="gt-3" style="--n:4" hidden>
+      @@PH:azeite-folhas-A@@
+      @@PH:azeite-texto-negro-A@@
+      @@PH:azeite-arvore-ambar-A@@
+      @@PH:azeite-ramo-verde-B@@
+    </div>
+    <div class="gal" id="gp-4" role="tabpanel" aria-labelledby="gt-4" style="--n:3" hidden>
+      @@PH:porcelana-cruz-caneca-A@@
+      @@PH:porcelana-azulejo-A@@
+      @@PH:porcelana-passaro-caneca-B@@
+    </div>
+    <p class="gal-note" data-en="Provisional photos from the current Cergam site, used for this prototype only.">Fotografias provisórias do site atual da Cergam, usadas apenas neste protótipo.</p>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section class="band" id="perguntas" aria-labelledby="h-faq">
+  <div class="bi">
+    <div class="faq-grid">
+    <div class="sec-h">
+      <p class="kick" data-en="Frequently asked questions">Perguntas frequentes</p>
+      <h2 id="h-faq" data-en="Before you ask us">Antes de nos perguntar</h2>
+      <p class="faq-more"><span data-en="Not here? Call">Não está aqui? Ligue</span> <a href="tel:+351219862540">+351 21 9862 540</a> <span data-en="or">ou</span> <a href="#orcamento" data-en="request a quote.">peça um orçamento.</a></p>
+    </div>
+    <div class="faq" id="faq">
+      <h3><button type="button" class="q" id="q1" aria-expanded="true" aria-controls="a1" data-en="What is the minimum order?">Qual é a quantidade mínima?</button></h3>
+      <div class="a" id="a1" role="region" aria-labelledby="q1"><p data-en="Glass starts at 24 pieces. Porcelain starts at 48. Some pages of the current Cergam site say 12 for glass.">O vidro começa nas 24 peças. A porcelana começa nas 48. Algumas páginas do site atual da Cergam indicam 12 para vidro.</p><p><span data-en="Final minimums:">Mínimos finais:</span> {{tbc}}</p></div>
+      <h3><button type="button" class="q" id="q2" aria-expanded="false" aria-controls="a2" data-en="How long does it take, and what starts the count?">Quanto tempo demora e o que inicia a contagem?</button></h3>
+      <div class="a" id="a2" role="region" aria-labelledby="q2" hidden><p data-en="Production takes 12 to 25 working days. Transport time is added.">A produção demora 12 a 25 dias úteis. O tempo de transporte acresce.</p><p><span data-en="What starts the count (artwork approval, payment or other):">O que inicia a contagem (aprovação da arte, pagamento ou outro):</span> {{tbc}}</p></div>
+      <h3><button type="button" class="q" id="q3" aria-expanded="false" aria-controls="a3" data-en="Which colours can I choose, and what about Pantone?">Que cores posso escolher e o que acontece com o Pantone?</button></h3>
+      <div class="a" id="a3" role="region" aria-labelledby="q3" hidden><p data-en="You choose from 22 Cergam colours, in one or more colours per logo. Pantone and CMYK are not matched exactly. The colours on this page are screen samples, not a print standard.">Pode escolher entre 22 Cores Cergam, a uma ou mais cores por logótipo. Pantone e CMYK não são reproduzidos de forma exata. As cores desta página são amostras de ecrã, não um padrão de impressão.</p><p><a href="#cores" data-en="See the colour chart">Ver a tabela de cores</a></p></div>
+      <h3><button type="button" class="q" id="q4" aria-expanded="false" aria-controls="a4" data-en="Will I see a proof before production?">Vejo uma prova antes da produção?</button></h3>
+      <div class="a" id="a4" role="region" aria-labelledby="q4" hidden><p><span data-en="Whether there is a proof step, how long it takes and what it costs:">Se existe prova, quanto demora e quanto custa:</span> {{tbc}}</p><p data-en="Real samples: also to be confirmed.">Amostras reais: também por confirmar.</p></div>
+      <h3><button type="button" class="q" id="q5" aria-expanded="false" aria-controls="a5" data-en="Which file should I send?">Que ficheiro devo enviar?</button></h3>
+      <div class="a" id="a5" role="region" aria-labelledby="q5" hidden><p data-en="Send the logo in the format you have. If you have nothing ready, use the short form: an email and one line is enough.">Envie o logótipo no formato que tiver. Se não tem nada pronto, use o formulário curto: um email e uma linha chegam.</p><p><span data-en="Accepted formats and artwork rules:">Formatos aceites e regras da arte:</span> {{tbc}}</p></div>
+      <h3><button type="button" class="q" id="q6" aria-expanded="false" aria-controls="a6" data-en="Can the pieces go in the dishwasher?">As peças podem ir à máquina de lavar loiça?</button></h3>
+      <div class="a" id="a6" role="region" aria-labelledby="q6" hidden><p data-en="Cergam's texts mention industrial dishwashers. There is no confirmation for a home dishwasher.">Os textos da Cergam falam de máquinas industriais. Para máquina doméstica não há confirmação.</p><p><span data-en="Final care wording:">Texto final de cuidados:</span> {{tbc}}</p></div>
+      <h3><button type="button" class="q" id="q7" aria-expanded="false" aria-controls="a7" data-en="Do you take small orders?">Aceitam encomendas pequenas?</button></h3>
+      <div class="a" id="a7" role="region" aria-labelledby="q7" hidden><p data-en="Yes. Cergam works with small quantities, from 24 pieces on glass.">Sim. A Cergam trabalha com pequenas quantidades, a partir de 24 peças em vidro.</p><p><span data-en="Exact figure:">Valor exato:</span> {{tbc}}</p></div>
+      <h3><button type="button" class="q" id="q8" aria-expanded="false" aria-controls="a8" data-en="Do you ship to my country?">Enviam para o meu país?</button></h3>
+      <div class="a" id="a8" role="region" aria-labelledby="q8" hidden><p data-en="Cergam delivers to more than 40 countries.">A Cergam entrega em mais de 40 países.</p><p><span data-en="Shipping cost and time by country:">Custo e prazo de transporte por país:</span> {{tbc}}</p></div>
+      <h3><button type="button" class="q" id="q9" aria-expanded="false" aria-controls="a9" data-en="How much does it cost?">Quanto custa?</button></h3>
+      <div class="a" id="a9" role="region" aria-labelledby="q9" hidden><p data-en="Cergam does not publish a price list. Each enquiry gets its own quote.">A Cergam não publica tabela de preços. Cada pedido recebe um orçamento próprio.</p><p><span data-en="Price or price range, and what is included:">Preço ou intervalo, e o que está incluído:</span> {{tbc}}</p></div>
+      <h3><button type="button" class="q" id="q10" aria-expanded="false" aria-controls="a10" data-en="Is the glass recycled? Can the bottles be reused?">O vidro é reciclado? As garrafas são reutilizáveis?</button></h3>
+      <div class="a" id="a10" role="region" aria-labelledby="q10" hidden><p data-en="The glass contains up to 10% recycled glass. The bottles are reusable.">O vidro tem até 10% de vidro reciclado. As garrafas são reutilizáveis.</p><p><span data-en="Wording on the Made Blue programme:">Texto sobre o programa Made Blue:</span> {{tbc}}</p></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CLOSING BAND -->
+<section class="band on-band close" aria-labelledby="h-close">
+  <div class="bi">
+    <h2 id="h-close" data-en="Have a logo and a date? Send them today.">Tem um logótipo e uma data? Envie-os hoje.</h2>
+    <div class="acts">
+      <a class="btn" href="#orcamento" data-en="Send your logo">Enviar o logótipo</a>
+      <a class="btn ghost" href="tel:+351219862540" data-en="Talk to a person">Falar com uma pessoa</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<main class="view" id="v-agua" data-view="agua" hidden>
+<section class="phead" aria-labelledby="h-agua">
+  <div class="bi">
+    <nav class="crumb" aria-label="Localização" data-al-en="You are here">
+      <ol>
+        <li><a href="#top" data-en="Home">Início</a></li>
+        <li><a href="#solucoes" data-en="Solutions">Soluções</a></li>
+        <li><span aria-current="page" data-en="Glass for water">Vidro para água</span></li>
+      </ol>
+    </nav>
+    <div class="phead-grid">
+      <div>
+        <p class="eyebrow" data-en="Solutions · Water">Soluções · Água</p>
+        <h1 id="h-agua" tabindex="-1" data-en="Glass for water">Vidro para água</h1>
+        <p class="supply" data-en="Glass bottles and carafes with your logo, for makers of water filtration and purification equipment, for hotels and for water brands.">Garrafas e jarros de vidro com o seu logótipo, para fabricantes de equipamento de filtração e purificação de água, para hotéis e para marcas de água.</p>
+        <div class="cta">
+          <a class="btn" href="#orcamento" data-sit="agua" data-en="Request a quote for water">Pedir orçamento para água</a>
+          <a class="btn ghost" href="tel:+351219862540" data-en="Talk to a person">Falar com uma pessoa</a>
+        </div>
+      </div>
+      <div class="phead-art" id="agua-art" role="img" aria-label="Imagem de conceito, não fotografia: quatro jarros de vidro iguais com o mesmo logótipo de exemplo." data-al-en="Concept image, not a photograph: four identical glass carafes with the same sample logo."></div>
+    </div>
+  </div>
+  <div class="facts-w">
+    <div class="bi">
+      <ul class="facts" aria-label="Factos" data-al-en="Facts">
+        <li><b>24</b><span><span data-en="pieces, glass minimum.">peças, mínimo em vidro.</span> {{tbc}}</span></li>
+        <li><b data-en="12 to 25">12 a 25</b><span data-en="working days, plus transport">dias úteis, mais transporte</span></li>
+        <li><b>22</b><span data-en="Cergam colours (screen samples)">Cores Cergam (amostras de ecrã)</span></li>
+        <li><b>Malveira</b><span><span data-en="one team, by phone or email. Named contact:">uma equipa, por telefone ou email. Contacto com nome:</span> {{tbc}}</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-ag-in">
+  <div class="bi">
+    <div class="intro-grid">
+      <div>
+        <p class="kick" data-en="In short">Em resumo</p>
+        <h2 id="h-ag-in" data-en="For a water equipment maker, the bottle is part of the product">Para quem faz equipamento de água, a garrafa faz parte do produto</h2>
+        <p class="lead" data-en="A maker of filtration or purification equipment needs bottles and carafes with its own logo, the same from one order to the next. Cergam prints the logo on the glass and fires it. Hotels and water brands ask for the same thing: a bottle with their name on the table. In the industry since 1968, decorating since 2008.">Quem faz equipamento de filtração ou purificação de água precisa de garrafas e jarros com o seu logótipo, iguais de encomenda para encomenda. A Cergam imprime o logótipo no vidro e coze-o. Hotéis e marcas de água pedem o mesmo: uma garrafa com o seu nome na mesa. Na indústria desde 1968, a decorar desde 2008.</p>
+      </div>
+      <div class="card aud">
+        <h3 data-en="Who asks us for this">Quem nos pede isto</h3>
+        <ul>
+          <li><b data-en="Makers of water equipment">Fabricantes de equipamento de água</b><span data-en="Bottles and carafes with your logo, to go with your machines.">Garrafas e jarros com o seu logótipo, para acompanhar as suas máquinas.</span></li>
+          <li><b data-en="Hotels">Hotéis</b><span data-en="Bottles and carafes with the hotel name for the table.">Garrafas e jarros com o nome do hotel para a mesa.</span></li>
+          <li><b data-en="Water brands">Marcas de água</b><span data-en="A glass bottle with the brand printed on it.">Uma garrafa de vidro com a marca impressa.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="h-ag-do">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="What we do">O que fazemos</p>
+      <h2 id="h-ag-do" data-en="Four things, in plain words">Quatro coisas, em palavras simples</h2>
+    </div>
+    <div class="grid ben four">
+      <article class="card">
+        <span class="n">01</span>
+        <h3 data-en="We print your logo on glass">Imprimimos o seu logótipo no vidro</h3>
+        <p data-en="Screen printing on a decal, in one or more colours, on bottles and carafes.">Serigrafia num decalque, a uma ou mais cores, em garrafas e jarros.</p>
+      </article>
+      <article class="card">
+        <span class="n">02</span>
+        <h3 data-en="We use the 22 Cergam colours">Usamos as 22 Cores Cergam</h3>
+        <p data-en="The same codes on every order. Pantone and CMYK are not matched exactly.">Os mesmos códigos em cada encomenda. Pantone e CMYK não são reproduzidos de forma exata.</p>
+        <a class="tlink" href="#cores" data-en="See the 22 colours">Ver as 22 cores</a>
+      </article>
+      <article class="card">
+        <span class="n">03</span>
+        <h3 data-en="We fire the decoration">Cozemos a decoração</h3>
+        <p data-en="The decal is fired onto the glass at 580 °C, so it stays fixed.">O decalque é cozido no vidro a 580 °C e fica fixo.</p>
+        <div class="fact"><div>{{tbc|temperatura: a confirmar|temperature: to be confirmed}}</div></div>
+      </article>
+      <article class="card">
+        <span class="n">04</span>
+        <h3 data-en="One team in Malveira">Uma equipa em Malveira</h3>
+        <p data-en="You talk to the team by phone or email, not to a form.">Fala com a equipa por telefone ou email, não com um formulário.</p>
+        <div class="fact"><div><span data-en="Named contact:">Contacto com nome:</span> {{tbc}}</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-ag-rng">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="The range">A gama</p>
+      <h2 id="h-ag-rng" data-en="Three types of piece">Três tipos de peça</h2>
+      <p class="lead" data-en="By type only. Models, sizes and closures are not listed here until Cergam confirms them.">Só por tipo. Modelos, tamanhos e tampas não estão listados aqui até a Cergam os confirmar.</p>
+    </div>
+    <div class="grid sit rng">
+      <article class="card">
+        <div class="c-art" data-rng="0"></div>
+        <div class="body">
+          <h3 data-en="Swing-top bottle">Garrafa de fecho de mola</h3>
+          <p data-en="A glass bottle with a swing-top closure, to serve water at the table.">Garrafa de vidro com fecho de mola, para servir água à mesa.</p>
+          {{tbc|modelos a confirmar|models to be confirmed}}
+        </div>
+      </article>
+      <article class="card">
+        <div class="c-art" data-rng="1"></div>
+        <div class="body">
+          <h3 data-en="Carafe">Jarro</h3>
+          <p data-en="A tall open glass carafe, to pour water at the table.">Jarro de vidro alto e aberto, para servir água à mesa.</p>
+          {{tbc|modelos a confirmar|models to be confirmed}}
+        </div>
+      </article>
+      <article class="card">
+        <div class="c-art" data-rng="2"></div>
+        <div class="body">
+          <h3 data-en="Bottle">Garrafa</h3>
+          <p data-en="A glass bottle with a closure.">Garrafa de vidro com tampa.</p>
+          {{tbc|modelos a confirmar|models to be confirmed}}
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="h-ag-rules">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="The rules">As regras</p>
+      <h2 id="h-ag-rules" data-en="What to know before you ask">O que saber antes de pedir</h2>
+      <p class="lead" data-en="The numbers we can state today. What Cergam has not settled is marked.">Os números que podemos dar hoje. O que a Cergam ainda não fechou está marcado.</p>
+    </div>
+    <table class="rules">
+      <thead><tr><th scope="col" data-en="Rule">Regra</th><th scope="col" data-en="What we say today">O que dizemos hoje</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" data-en="Minimum">Mínimo</th><td><span class="ml" data-en="What we say today">O que dizemos hoje</span><span class="line" data-en="Glass from 24 pieces. Some pages of the current Cergam site say 12.">Vidro a partir de 24 peças. Algumas páginas do site atual da Cergam dizem 12.</span>{{tbc|mínimo final: a confirmar|final minimum: to be confirmed}}</td></tr>
+        <tr><th scope="row" data-en="Lead time">Prazo</th><td><span class="ml" data-en="What we say today">O que dizemos hoje</span><span class="line" data-en="12 to 25 working days. Transport is extra.">12 a 25 dias úteis. O transporte conta à parte.</span>{{tbc|o que inicia o prazo: a confirmar|what starts the count: to be confirmed}}</td></tr>
+        <tr><th scope="row" data-en="Colours">Cores</th><td><span class="ml" data-en="What we say today">O que dizemos hoje</span><span class="line" data-en="22 Cergam colours. We quote black, or 1, 2 or 3 colours. Other colours only above 250 units, after the sample and the quote are approved.">22 Cores Cergam. Orçamos preto, ou 1, 2 ou 3 cores. Outras cores só acima de 250 unidades, depois de aprovadas a amostra e o orçamento.</span><a href="#cores" data-en="See the 22 colours">Ver as 22 cores</a></td></tr>
+        <tr><th scope="row" data-en="Artwork files">Ficheiros da arte</th><td><span class="ml" data-en="What we say today">O que dizemos hoje</span><span class="line" data-en="Send the logo in the format you have. If you have nothing ready, an email and one line are enough.">Envie o logótipo no formato que tiver. Se não tem nada pronto, basta um email e uma linha.</span>{{tbc|formatos e regras: a confirmar|formats and rules: to be confirmed}}</td></tr>
+        <tr><th scope="row" data-en="Samples">Amostras</th><td><span class="ml" data-en="What we say today">O que dizemos hoje</span><span class="line" data-en="Real samples on request, above 250 units.">Amostras reais a pedido, acima de 250 unidades.</span>{{tbc|abaixo de 250: a confirmar|below 250: to be confirmed}}{{tbc|prova de cor: a confirmar|colour proof: to be confirmed}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-ag-gal">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="Real work">Trabalhos reais</p>
+      <h2 id="h-ag-gal" data-en="Water bottles we have decorated">Garrafas de água que já decorámos</h2>
+      <p class="lead" data-en="Photos of decorated pieces. Customer names and quantities: to be confirmed with Cergam.">Fotografias de peças decoradas. Clientes e quantidades: a confirmar com a Cergam.</p>
+    </div>
+    <div class="gal six">
+      @@PH:agua-padrao-azulejo-A@@
+      @@PH:agua-swingtop-arco-iris-B@@
+      @@PH:agua-casario-fosco-A@@
+      @@PH:agua-azul-fosco-B@@
+      @@PH:agua-circulo-minimal-B@@
+      @@PH:agua-padrao-azulejo-detalhe-A@@
+    </div>
+    <p class="gal-note" data-en="Provisional photos from the current Cergam site, used for this prototype only.">Fotografias provisórias do site atual da Cergam, usadas apenas neste protótipo.</p>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="h-ag-pr">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="How it works">Como funciona</p>
+      <h2 id="h-ag-pr" data-en="From the enquiry to the delivery, in four steps">Do pedido à entrega, em quatro passos</h2>
+    </div>
+    <ol class="mini">
+      <li><h3 data-en="Enquiry">Pedido</h3><p data-en="You send the logo, the quantity and the date.">Envia o logótipo, a quantidade e a data.</p></li>
+      <li><h3 data-en="Quote and proof">Orçamento e prova</h3><p data-en="We reply with a quote.">Respondemos com um orçamento.</p>{{tbc|prova: a confirmar|proof: to be confirmed}}</li>
+      <li><h3 data-en="Production">Produção</h3><p data-en="Screen printing and firing. 12 to 25 working days.">Serigrafia e cozedura. 12 a 25 dias úteis.</p></li>
+      <li><h3 data-en="Dispatch">Expedição</h3><p data-en="Checks, packing and shipping.">Controlo, embalagem e envio.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-ag-faq">
+  <div class="bi">
+    <div class="faq-grid">
+      <div class="sec-h">
+        <p class="kick" data-en="Questions about water">Perguntas sobre água</p>
+        <h2 id="h-ag-faq" data-en="Before you ask us">Antes de nos perguntar</h2>
+      </div>
+      <div class="faq">
+        <h3><button type="button" class="q" id="wq1" aria-expanded="true" aria-controls="wa1" data-en="Will the bottles fit my equipment?">As garrafas servem para o meu equipamento?</button></h3>
+        <div class="a" id="wa1" role="region" aria-labelledby="wq1"><p data-en="It depends on the model and the closure. Write the model of your machine and the closure you use in the enquiry.">Depende do modelo e da tampa. Escreva no pedido o modelo da sua máquina e a tampa que usa.</p><p><span data-en="Fit with equipment:">Compatibilidade com equipamentos:</span> {{tbc}}</p></div>
+        <h3><button type="button" class="q" id="wq2" aria-expanded="false" aria-controls="wa2" data-en="Is the colour the same from one order to the next?">A cor é igual de encomenda para encomenda?</button></h3>
+        <div class="a" id="wa2" role="region" aria-labelledby="wq2" hidden><p data-en="The Cergam colour system exists so that production is uniform from one order to the next. You order by colour code.">O sistema de Cores Cergam existe para que a produção seja uniforme de encomenda para encomenda. Encomenda pelo código da cor.</p><p><span data-en="Colour tolerance between batches:">Tolerância de cor entre lotes:</span> {{tbc}}</p></div>
+        <h3><button type="button" class="q" id="wq3" aria-expanded="false" aria-controls="wa3" data-en="Can the pieces go in the dishwasher?">As peças podem ir à máquina de lavar loiça?</button></h3>
+        <div class="a" id="wa3" role="region" aria-labelledby="wq3" hidden><p data-en="Cergam's texts mention industrial dishwashers. There is no confirmation for a home dishwasher.">Os textos da Cergam falam de máquinas industriais. Para máquina doméstica não há confirmação.</p><p><span data-en="Final care wording:">Texto final de cuidados:</span> {{tbc}}</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-band cta-band" aria-labelledby="h-ag-cta">
+  <div class="bi">
+    <div>
+      <h2 id="h-ag-cta" data-en="Need bottles or carafes with your logo?">Precisa de garrafas ou jarros com o seu logótipo?</h2>
+      <p data-en="The form opens with water already chosen. Six answers are enough to start.">O formulário abre com a água já escolhida. Seis respostas chegam para começar.</p>
+    </div>
+    <div class="acts">
+      <a class="btn" href="#orcamento" data-sit="agua" data-en="Request a quote for water">Pedir orçamento para água</a>
+      <a class="btn ghost" href="tel:+351219862540" data-en="Talk to a person">Falar com uma pessoa</a>
+    </div>
+  </div>
+</section>
+</main>
+<main class="view" id="v-cores" data-view="cores" hidden>
+<section class="phead slim" aria-labelledby="h-cores">
+  <div class="bi">
+    <nav class="crumb" aria-label="Localização" data-al-en="You are here">
+      <ol>
+        <li><a href="#top" data-en="Home">Início</a></li>
+        <li><span aria-current="page" data-en="The 22 Cergam colours">As 22 Cores Cergam</span></li>
+      </ol>
+    </nav>
+    <div class="phead-grid">
+      <div>
+        <h1 id="h-cores" tabindex="-1" data-en="The 22 Cergam colours">As 22 Cores Cergam</h1>
+        <p class="supply" data-en="Pick up to three colours and see them on the object. The same codes go into your quote.">Escolha até três cores e veja-as no objeto. Os mesmos códigos seguem no seu pedido.</p>
+        <p class="pill"><b data-en="Screen samples, not a print standard.">Amostras de ecrã, não um padrão de impressão.</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="ribbon" id="ribbon" aria-hidden="true"></div>
+</section>
+
+<section class="band tight" aria-labelledby="h-chart">
+  <div class="bi">
+    <div class="ctool">
+      <div class="ct-chart">
+        <div class="ct-head">
+          <h2 id="h-chart" data-en="Choose up to three colours">Escolha até três cores</h2>
+          <p class="lead" data-en="Select a tile. The code is what Cergam needs in your quote.">Toque num quadrado. O código é o que a Cergam precisa no seu pedido.</p>
+        </div>
+        <ul class="chart" id="chart" aria-label="22 Cores Cergam" data-al-en="22 Cergam colours"></ul>
+        <p class="chart-foot"><b data-en="Screen samples, not a print standard.">Amostras de ecrã, não um padrão de impressão.</b> <span data-en="The values are what the existing Cergam page shows on screen. Colour names:">Os valores são os que a página atual da Cergam mostra no ecrã. Nomes das cores:</span> {{tbc}} <span data-en="The numbering skips some codes. Reason:">A numeração salta alguns códigos. Motivo:</span> {{tbc}}</p>
+        <div class="ct-bar">
+          <a class="btn" href="#orcamento" data-en="Request a quote with these colours">Pedir orçamento com estas cores</a>
+        </div>
+      </div>
+      <aside class="ct-view" aria-label="Pré-visualização no objeto" data-al-en="Preview on the object">
+        <p class="seg-l" id="seg-obj-l" data-en="Object">Objeto</p>
+        <div class="seg" id="seg-obj" role="group" aria-labelledby="seg-obj-l">
+          <button type="button" data-obj="carafe" aria-pressed="true" data-en="Carafe">Jarro</button>
+          <button type="button" data-obj="wine" aria-pressed="false" data-en="Wine bottle">Garrafa de vinho</button>
+          <button type="button" data-obj="mug" aria-pressed="false" data-en="Mug">Caneca</button>
+          <button type="button" data-obj="plate" aria-pressed="false" data-en="Plate">Prato</button>
+        </div>
+        <div class="cp-art" id="cp-art"></div>
+        <p class="cp-sel" id="cp-sel" aria-live="polite"></p>
+        <div class="seg" id="seg-bg" role="group" aria-label="Fundo" data-al-en="Background">
+          <button type="button" id="cp-bl" aria-pressed="true" data-en="Light background">Fundo claro</button>
+          <button type="button" id="cp-bd" aria-pressed="false" data-en="Dark background">Fundo escuro</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="h-cn">
+  <div class="bi">
+    <div class="sec-h">
+      <p class="kick" data-en="Honest notes">Notas honestas</p>
+      <h2 id="h-cn" data-en="What colour can and cannot do">O que a cor pode e não pode fazer</h2>
+    </div>
+    <div class="notes-grid">
+      <div class="notes">
+        <article class="card">
+          <h3 data-en="Screen samples">Amostras de ecrã</h3>
+          <p data-en="The colours on this page are a guide on screen. They are not a print standard. The photo shows real colours fired onto glass.">As cores desta página são uma referência no ecrã. Não são um padrão de impressão. A foto mostra cores reais cozidas no vidro.</p>
+        </article>
+        <article class="card">
+          <h3 data-en="Fired at 580 °C">Cozidas a 580 °C</h3>
+          <p data-en="The decal is fired onto the glass at 580 °C. One listing says 620 °C.">O decalque é cozido no vidro a 580 °C. Uma listagem indica 620 °C.</p>
+          {{tbc|temperatura: a confirmar|temperature: to be confirmed}}
+        </article>
+        <article class="card">
+          <h3 data-en="Pantone and CMYK">Pantone e CMYK</h3>
+          <p data-en="Pantone and CMYK are not matched exactly. The process only comes close, so pick the nearest Cergam colour.">Pantone e CMYK não são reproduzidos de forma exata. O processo só chega perto, por isso escolha a Cor Cergam mais próxima.</p>
+        </article>
+        <article class="card">
+          <h3 data-en="How many colours, and which">Quantas cores e quais</h3>
+          <p data-en="We quote black, or 1, 2 or 3 colours from these 22. Other colours only above 250 units, after the sample and the quote are approved.">Orçamos preto, ou 1, 2 ou 3 cores destas 22. Outras cores só acima de 250 unidades, depois de aprovadas a amostra e o orçamento.</p>
+        </article>
+      </div>
+      <div class="cb-photo">
+        @@PH:cor-garrafa-tecnica-A|Garrafa de teste|Test bottle@@
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band on-band cta-band" aria-labelledby="h-cn-cta">
+  <div class="bi">
+    <div>
+      <h2 id="h-cn-cta" data-en="Want to see the colours printed?">Quer ver as cores impressas?</h2>
+      <p><span data-en="Ask for the printed range. Whether Cergam has one to send, and what it costs:">Peça a gama impressa. Se a Cergam tem uma para enviar, e quanto custa:</span> {{tbc}}</p>
+    </div>
+    <div class="acts">
+      <a class="btn" href="#orcamento" data-sit="chart" data-en="Ask for the printed range">Pedir a gama impressa</a>
+      <a class="btn ghost" href="tel:+351219862540" data-en="Talk to a person">Falar com uma pessoa</a>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-cn-faq">
+  <div class="bi">
+    <div class="faq-grid">
+      <div class="sec-h">
+        <p class="kick" data-en="Questions about colour">Perguntas sobre cor</p>
+        <h2 id="h-cn-faq" data-en="Before you ask us">Antes de nos perguntar</h2>
+      </div>
+      <div class="faq">
+        <h3><button type="button" class="q" id="cq1" aria-expanded="true" aria-controls="ca1" data-en="My colour is a Pantone. Will it match?">A minha cor é um Pantone. Vai ficar igual?</button></h3>
+        <div class="a" id="ca1" role="region" aria-labelledby="cq1"><p data-en="Pantone and CMYK are not matched exactly. Pick the nearest Cergam colour from the chart and write its code in your enquiry.">Pantone e CMYK não são reproduzidos de forma exata. Escolha na tabela a Cor Cergam mais próxima e escreva o código no pedido.</p><p><span data-en="Real sample, below 250 units:">Amostra real, abaixo de 250 unidades:</span> {{tbc}}</p></div>
+        <h3><button type="button" class="q" id="cq2" aria-expanded="false" aria-controls="ca2" data-en="How many colours can my logo have?">Quantas cores pode ter o meu logótipo?</button></h3>
+        <div class="a" id="ca2" role="region" aria-labelledby="cq2" hidden><p data-en="We quote black, or 1, 2 or 3 colours from the range of 22. If your logo has more, say so in the enquiry.">Orçamos preto, ou 1, 2 ou 3 cores da gama de 22. Se o seu logótipo tem mais, diga-o no pedido.</p><p><span data-en="Logos with more than 3 colours:">Logótipos com mais de 3 cores:</span> {{tbc}}</p></div>
+        <h3><button type="button" class="q" id="cq3" aria-expanded="false" aria-controls="ca3" data-en="Can I use a colour outside the 22?">Posso usar uma cor fora das 22?</button></h3>
+        <div class="a" id="ca3" role="region" aria-labelledby="cq3" hidden><p data-en="Only above 250 units, after you approve a sample and a quote.">Só acima de 250 unidades, depois de aprovar uma amostra e um orçamento.</p><p><a href="#orcamento" data-en="Request a quote">Pedir orçamento</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<main class="view" id="v-orcamento" data-view="orcamento" hidden>
+<section class="phead slim" aria-labelledby="h-orc">
+  <div class="bi">
+    <nav class="crumb" aria-label="Localização" data-al-en="You are here">
+      <ol>
+        <li><a href="#top" data-en="Home">Início</a></li>
+        <li><span aria-current="page" data-en="Request a quote">Pedir orçamento</span></li>
+      </ol>
+    </nav>
+    <div class="phead-grid two">
+      <div>
+        <h1 id="h-orc" tabindex="-1" data-en="Request a quote">Pedir orçamento</h1>
+        <p class="supply" data-en="Six answers are enough to start. If you have nothing ready, leave an email and one line. No address and no tax number now.">Seis respostas chegam para começar. Se não tem nada pronto, deixe um email e uma linha. Sem morada e sem NIF por agora.</p>
+
+      </div>
+      <dl class="slots replycard">
+        <div><dt data-en="Who replies">Quem responde</dt><dd>{{tbc|nome a confirmar|name to be confirmed}}</dd></div>
+        <div><dt data-en="Reply time">Prazo de resposta</dt><dd>{{tbc|prazo a confirmar|time to be confirmed}}</dd></div>
+        <div><dt data-en="Colour proof">Prova de cor</dt><dd>{{tbc|prova: a confirmar|proof: to be confirmed}}</dd></div>
+        <div><dt data-en="Phone">Telefone</dt><dd><a href="tel:+351219862540">+351 21 9862 540</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band alt2 tight" aria-label="Pedido de orçamento" data-al-en="Quote request">
+  <div class="bi">
+    <div class="enq-page">
+      <div class="enq-side">
+        <section aria-labelledby="h-next">
+          <h2 id="h-next" data-en="What happens next">O que acontece a seguir</h2>
+          <ol class="next">
+            <li data-en="You send the form.">Envia o formulário.</li>
+            <li data-en="Cergam reads it and replies with a quote.">A Cergam lê e responde com um orçamento.</li>
+            <li data-en="You confirm the logo, the colours and the date.">Confirma o logótipo, as cores e a data.</li>
+            <li data-en="Production starts. 12 to 25 working days.">Começa a produção. 12 a 25 dias úteis.</li>
+          </ol>
+
+        </section>
+        <section aria-labelledby="h-send">
+          <h2 id="h-send" data-en="What to send">O que enviar</h2>
+          <ul class="chk">
+            <li data-en="The logo, as a file or a photo. It can follow later by email.">O logótipo, em ficheiro ou foto. Pode seguir depois por email.</li>
+            <li data-en="What to print on: bottle, carafe, glass, mug or plate. The model, if you have it.">O objeto: garrafa, jarro, copo, caneca ou prato. O modelo, se o tiver.</li>
+            <li data-en="How many pieces, in a band. An estimate is fine.">Quantas peças, numa faixa. Uma estimativa serve.</li>
+            <li data-en="The colour codes from the colours page.">Os códigos das cores, da página das cores.</li>
+            <li data-en="The date you need them by and the delivery country.">A data de que precisa e o país de entrega.</li>
+          </ul>
+        </section>
+        <section aria-labelledby="h-ct">
+          <h2 id="h-ct" data-en="Contact">Contactos</h2>
+          <address class="ccard">
+            <strong>Cergam</strong><br>
+            Estrada Velha da Avessada N.3-A<br>2665-281 Malveira, Portugal<br>
+            <a href="tel:+351219862540">+351 21 9862 540</a><br>
+            <a href="mailto:info@cergam.pt">info@cergam.pt</a>
+          </address>
+          <div class="dp">
+            <span data-en="Data protection note:">Nota de proteção de dados:</span> {{tbc|texto a confirmar|text to be confirmed}}
+          </div>
+        </section>
+      </div>
+
+      <div class="fcard">
+        <div class="mode" role="tablist" aria-label="Tipo de pedido" data-al-en="Type of enquiry">
+          <button type="button" role="tab" id="mt-full" aria-controls="pn-full" aria-selected="true" tabindex="0" data-en="Full enquiry">Pedido completo</button>
+          <button type="button" role="tab" id="mt-quick" aria-controls="pn-quick" aria-selected="false" tabindex="-1" data-en="I have nothing ready yet">Ainda não tenho nada pronto</button>
+        </div>
+        <div class="sitchip" id="sitchip" hidden><span><span data-en="Your case:">O seu caso:</span> <b id="sit-name"></b></span><button type="button" id="sit-clear" data-en="Remove">Remover</button></div>
+        <div class="coltags" id="coltags"></div>
+        <div id="pn-full" role="tabpanel" aria-labelledby="mt-full">
+          <form id="enq-form" novalidate>
+            <div class="sumerr" id="sumerr" role="alert" tabindex="-1" hidden></div>
+            <div class="fld" id="fl-prod">
+              <label for="f-prod" data-en="What do you want to print on?">O que quer imprimir?</label>
+              <select id="f-prod" name="prod" aria-describedby="e-prod" required>
+                <option value="" data-en="Choose one">Escolha uma opção</option>
+                <option value="water" data-en="Glass bottles for water">Garrafas de vidro para água</option>
+                <option value="spirits" data-en="Glass bottles for wine or spirits">Garrafas de vidro para vinho ou espirituosas</option>
+                <option value="oil" data-en="Glass bottles for olive oil">Garrafas de vidro para azeite</option>
+                <option value="cups" data-en="Glasses">Copos de vidro</option>
+                <option value="porcelain" data-en="Porcelain (plates, mugs)">Porcelana (pratos, canecas)</option>
+                <option value="unsure" data-en="Not sure yet">Ainda não sei</option>
+              </select>
+              <p class="err" id="e-prod" data-en="Choose what you want to print on, or pick Not sure yet.">Escolha o que quer imprimir, ou Ainda não sei.</p>
+            </div>
+            <fieldset class="fld" id="fl-qty" aria-describedby="e-qty">
+              <legend data-en="How many pieces?">Quantas peças?</legend>
+              <div class="chips">
+                <label class="cp"><input type="radio" name="qty" value="to100"><span data-en="Up to 100">Até 100</span></label>
+                <label class="cp"><input type="radio" name="qty" value="100-500"><span>100 – 500</span></label>
+                <label class="cp"><input type="radio" name="qty" value="500-2000"><span>500 – 2.000</span></label>
+                <label class="cp"><input type="radio" name="qty" value="2000+"><span data-en="Over 2,000">Mais de 2.000</span></label>
+                <label class="cp"><input type="radio" name="qty" value="unsure"><span data-en="Not sure">Não sei</span></label>
+              </div>
+              <p class="err" id="e-qty" data-en="Choose a quantity band, or Not sure.">Escolha uma quantidade, ou Não sei.</p>
+            </fieldset>
+            <fieldset class="fld" id="fl-logo" aria-describedby="e-logo">
+              <legend data-en="Your logo">O seu logótipo</legend>
+              <div class="chips">
+                <label class="cp"><input type="radio" name="logo" value="file"><span data-en="I have the file">Tenho o ficheiro</span></label>
+                <label class="cp"><input type="radio" name="logo" value="later"><span data-en="I will send it later">Envio mais tarde</span></label>
+                <label class="cp"><input type="radio" name="logo" value="photo"><span data-en="I only have a photo">Só tenho uma foto</span></label>
+                <label class="cp"><input type="radio" name="logo" value="none"><span data-en="I do not have one yet">Ainda não tenho</span></label>
+              </div>
+              <p class="hint" data-en="The file can follow by email. Nothing is uploaded here.">O ficheiro pode seguir por email. Aqui não se envia nada.</p>
+              <p class="err" id="e-logo" data-en="Tell us about the logo, or choose I will send it later.">Diga-nos como está o logótipo, ou escolha Envio mais tarde.</p>
+            </fieldset>
+            <fieldset class="fld" id="fl-cols" aria-describedby="e-cols">
+              <legend data-en="How many colours in the logo?">Quantas cores tem o logótipo?</legend>
+              <div class="chips">
+                <label class="cp"><input type="radio" name="cols" value="1"><span>1</span></label>
+                <label class="cp"><input type="radio" name="cols" value="2"><span>2</span></label>
+                <label class="cp"><input type="radio" name="cols" value="3"><span>3</span></label>
+                <label class="cp"><input type="radio" name="cols" value="4+"><span data-en="4 or more">4 ou mais</span></label>
+                <label class="cp"><input type="radio" name="cols" value="unsure"><span data-en="Not sure">Não sei</span></label>
+              </div>
+              <p class="picked" id="picked" hidden></p>
+              <p class="err" id="e-cols" data-en="Choose the number of colours, or Not sure.">Escolha o número de cores, ou Não sei.</p>
+            </fieldset>
+            <div class="two">
+              <div class="fld" id="fl-date">
+                <label for="f-date"><span data-en="Date you need them by">Data de que precisa</span><span class="opt" data-en="optional">opcional</span></label>
+                <input type="date" id="f-date" name="date" aria-describedby="e-date h-date">
+                <p class="hint" id="h-date" data-en="Production takes 12 to 25 working days.">A produção demora 12 a 25 dias úteis.</p>
+                <p class="err" id="e-date" data-en="That date has passed. Choose a later date, or leave it empty.">Essa data já passou. Escolha uma data futura ou deixe vazio.</p>
+              </div>
+              <div class="fld" id="fl-country">
+                <label for="f-country" data-en="Delivery country">País de entrega</label>
+                <input type="text" id="f-country" name="country" autocomplete="country-name" aria-describedby="e-country" required>
+                <p class="err" id="e-country" data-en="Write the country where the pieces should go.">Escreva o país para onde vão as peças.</p>
+              </div>
+            </div>
+            <div class="two">
+              <div class="fld" id="fl-name">
+                <label for="f-name" data-en="Your name">O seu nome</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" aria-describedby="e-name" required>
+                <p class="err" id="e-name" data-en="Write your name.">Escreva o seu nome.</p>
+              </div>
+              <div class="fld" id="fl-email">
+                <label for="f-email" data-en="Your email">O seu email</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" aria-describedby="e-email" required>
+                <p class="err" id="e-email" data-en="Write an email like name@company.com.">Escreva um email como nome@empresa.pt.</p>
+              </div>
+            </div>
+            <button type="submit" class="btn" data-en="Send enquiry">Enviar pedido</button>
+          </form>
+        </div>
+
+        <div id="pn-quick" role="tabpanel" aria-labelledby="mt-quick" hidden>
+          <form id="quick-form" novalidate>
+            <div class="sumerr" id="qsumerr" role="alert" tabindex="-1" hidden></div>
+            <div class="fld" id="fl-qemail">
+              <label for="q-email" data-en="Your email">O seu email</label>
+              <input type="email" id="q-email" name="qemail" autocomplete="email" aria-describedby="e-qemail" required>
+              <p class="err" id="e-qemail" data-en="Write an email like name@company.com.">Escreva um email como nome@empresa.pt.</p>
+            </div>
+            <div class="fld" id="fl-qline">
+              <label for="q-line" data-en="One line on what you need">Uma linha sobre o que precisa</label>
+              <textarea id="q-line" name="qline" aria-describedby="e-qline" required></textarea>
+              <p class="err" id="e-qline" data-en="Write one line, even a short one.">Escreva uma linha, mesmo curta.</p>
+            </div>
+            <div class="fld">
+              <label for="q-link"><span data-en="Website or Instagram">Site ou Instagram</span><span class="opt" data-en="optional">opcional</span></label>
+              <input type="text" id="q-link" name="qlink" inputmode="url" autocomplete="url">
+            </div>
+            <button type="submit" class="btn" data-en="Send enquiry">Enviar pedido</button>
+            <p class="alt-links"><span data-en="Prefer to talk?">Prefere falar?</span> <a href="tel:+351219862540">+351 21 9862 540</a> · <a href="#cores" data-en="Pick colours first">Escolher cores primeiro</a></p>
+          </form>
+        </div>
+
+        <div class="sent" id="sent" role="status" tabindex="-1" hidden></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<footer class="foot on-band" id="contactos">
+  <div class="bi">
+    <div><strong>Cergam</strong><br><span data-en="Decoration of glass and porcelain since 2008. In the industry since 1968.">Decoração de vidro e porcelana desde 2008. Na indústria desde 1968.</span></div>
+    <div>Estrada Velha da Avessada N.3-A<br>2665-281 Malveira, Portugal</div>
+    <div class="ct"><a href="tel:+351219862540">+351 21 9862 540</a><br><a href="mailto:info@cergam.pt">info@cergam.pt</a></div>
+    <div class="legal">
+      <span data-en="Company name and tax number:">Firma e NIF:</span> {{tbc}}
+      <span data-en="Privacy policy:">Política de privacidade:</span> {{tbc}}
+      <span data-en="Complaints book:">Livro de reclamações:</span> {{tbc}}
+    </div>
+    <p class="pages"><span data-en="Example pages in this prototype:">Páginas de exemplo neste protótipo:</span> <a href="#top" data-en="Home">Início</a> <a href="#agua" data-en="Glass for water">Vidro para água</a> <a href="#cores" data-en="The 22 Cergam colours">As 22 Cores Cergam</a> <a href="#orcamento" data-en="Request a quote">Pedir orçamento</a></p>
+    <p class="pn" data-en="Page prototype. No form sends any data. Items marked to be confirmed depend on an answer from Cergam. Photos are provisional.">Protótipo de página. Nenhum formulário envia dados. Os itens marcados a confirmar dependem de resposta da Cergam. As fotografias são provisórias.</p>
+  </div>
+</footer>
+<noscript><style>.view[hidden]{display:block!important}</style><p style="padding:16px">Cergam, +351 21 9862 540, info@cergam.pt</p></noscript>
+
+<script>
+@@LIB@@
+</script>
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return(r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var lang="pt";
+function S(p,e){return lang==="pt"?p:e}
+var CG=window.CergamGlass;
+var COLORS=[["C1","#221F20"],["C3","#929497"],["C4","#BBBDBF"],["C5","#DBDDDE"],["C6","#FEFEFE"],["C7","#C4AA78"],["C8","#551E11"],["C9","#A14726"],["C10","#CC936E"],["C11","#952A2E"],["C12","#D02129"],["C14","#F36E28"],["C15","#F3AD27"],["C16","#F4D033"],["C21","#1F5A32"],["C22","#00786E"],["C24","#318B40"],["C25","#9AC13B"],["C27","#68B9DD"],["C28","#5990CC"],["C29","#0087B4"],["C31","#003D6E"]];
+
+/* ---------- language ---------- */
+$$("[data-en]").forEach(function(e){e.setAttribute("data-pt",e.innerHTML)});
+$$("[data-alt-en]").forEach(function(e){e.setAttribute("data-alt-pt",e.getAttribute("alt"))});
+$$("[data-al-en]").forEach(function(e){e.setAttribute("data-al-pt",e.getAttribute("aria-label"))});
+function setLang(l){
+  lang=l;document.documentElement.lang=l==="pt"?"pt-PT":"en";
+  $$("[data-en]").forEach(function(e){e.innerHTML=l==="pt"?e.getAttribute("data-pt"):e.getAttribute("data-en")});
+  $$("[data-alt-en]").forEach(function(e){e.setAttribute("alt",l==="pt"?e.getAttribute("data-alt-pt"):e.getAttribute("data-alt-en"))});
+  $$("[data-al-en]").forEach(function(e){e.setAttribute("aria-label",l==="pt"?e.getAttribute("data-al-pt"):e.getAttribute("data-al-en"))});
+  $("#lang-pt").setAttribute("aria-pressed",l==="pt");$("#lang-en").setAttribute("aria-pressed",l==="en");
+  renderAll();renderPickers();renderSel();updateSit();clearErrors();applyTitle();
+  if(sentOn)showSent(lastSent);
+}
+$("#lang-pt").addEventListener("click",function(){setLang("pt")});
+$("#lang-en").addEventListener("click",function(){setLang("en")});
+
+/* ---------- menu and Solutions disclosure ---------- */
+var mb=$("#menubtn"),nav=$("#nav"),ddb=$("#ddb"),ddp=$("#ddp");
+function closeMenu(){nav.classList.remove("open");mb.setAttribute("aria-expanded","false")}
+function closeDd(){ddp.hidden=true;ddb.setAttribute("aria-expanded","false")}
+mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+ddb.addEventListener("click",function(){var o=ddp.hidden;ddp.hidden=!o;ddb.setAttribute("aria-expanded",o)});
+$$("a",nav).forEach(function(a){a.addEventListener("click",function(){closeMenu();closeDd()})});
+document.addEventListener("click",function(e){if(!ddp.hidden&&!$("#dd").contains(e.target))closeDd()});
+$("#dd").addEventListener("focusout",function(e){if(!ddp.hidden&&e.relatedTarget&&!$("#dd").contains(e.relatedTarget))closeDd()});
+document.addEventListener("keydown",function(e){
+  if(e.key!=="Escape")return;
+  if(!ddp.hidden){closeDd();ddb.focus();return}
+  if(nav.classList.contains("open")){closeMenu();mb.focus()}
+});
+
+/* ---------- concept renders ---------- */
+var CARDS=[
+ {o:{object:"carafe",glass:"clear",liquid:"water",fill:.7,colours:["C31"],logo:"geometric",text:["A SUA MARCA","YOUR BRAND"]},pt:"jarro de água com um logótipo de exemplo a uma cor",en:"water carafe with a sample logo in one colour"},
+ {o:{object:"bordeaux",glass:"green",colours:["C16"],logo:"script",text:["Quinta","Estate"]},pt:"garrafa de vinho verde com um logótipo de exemplo a dourado",en:"green wine bottle with a sample logo in gold"},
+ {o:{object:"mug",colours:["C12"],logo:"crest",text:["Evento","Event"]},pt:"caneca de porcelana com um emblema de exemplo a vermelho",en:"porcelain mug with a sample emblem in red"},
+ {o:{object:"flask",glass:"clear",colours:["C29","C14"],logo:"text",text:["AGÊNCIA","AGENCY"]},pt:"garrafa de vidro com um nome de exemplo a duas cores",en:"glass bottle with a sample name in two colours"},
+ {o:{object:"plate",colours:["C31"],logo:"crest",text:["Mesa","Table"]},pt:"prato de porcelana com um emblema de exemplo a azul",en:"porcelain plate with a sample emblem in blue"},
+ {o:{object:"swing",glass:"clear",colours:["C14"],logo:"geometric",text:["A SUA MARCA","YOUR BRAND"]},pt:"garrafa de fecho de mola com um logótipo de exemplo a laranja",en:"swing-top bottle with a sample logo in orange"}
+];
+var LBL=function(){return S("Imagem de conceito, não fotografia","Concept image, not a photograph")};
+function box(el){var r=el.getBoundingClientRect();return[Math.round(r.width),Math.round(r.height)]}
+var renderedW={};
+function fit(host){var s=$("svg",host);if(s){s.setAttribute("preserveAspectRatio","xMidYMid slice");s.removeAttribute("height");s.style.width="100%";s.style.height="100%"}}
+function renderHero(){
+  if(!CG)return;var h=$("#hero-art"),b=box(h);if(!b[0]||!b[1])return;
+  CG.render(h,{object:"carafe",glass:"clear",liquid:"water",fill:.72,colours:["C6","C14"],logo:"geometric",text:S("A SUA MARCA","YOUR BRAND"),
+    backdrop:"colour",backdropColour:"C31",size:b[0],aspect:b[0]/b[1],logoScale:1.15,label:LBL(),
+    alt:S("Imagem de conceito, não fotografia: jarro de vidro com um logótipo de exemplo a duas cores.","Concept image, not a photograph: a glass carafe with a sample logo in two colours.")});
+  fit(h);h.removeAttribute("role");h.removeAttribute("aria-label");
+}
+function renderCards(){
+  if(!CG)return;
+  $$("[data-card]").forEach(function(h){
+    var c=CARDS[+h.getAttribute("data-card")],b=box(h);if(!b[0])return;
+    var o={backdrop:"paper",size:b[0],aspect:b[0]/b[1],label:LBL(),alt:S("Imagem de conceito, não fotografia: ","Concept image, not a photograph: ")+S(c.pt,c.en)+"."};
+    for(var k in c.o)o[k]=c.o[k];
+    o.text=S(c.o.text[0],c.o.text[1]);
+    CG.render(h,o);
+    fit(h);
+  });
+}
+var sel=["C31","C14"],cbBg="paper",touched=false;
+function hexOf(c){for(var i=0;i<COLORS.length;i++)if(COLORS[i][0]===c)return COLORS[i][1]}
+function renderColour(){
+  if(!CG)return;var h=$("#cb-art"),b=box(h);if(!b[0])return;
+  CG.render(h,{object:"carafe",glass:"clear",liquid:"water",fill:.72,colours:sel.slice(),logo:"geometric",text:S("A SUA MARCA","YOUR BRAND"),
+    backdrop:cbBg,size:b[0],aspect:b[0]/b[1],logoScale:1.2,label:LBL(),
+    alt:S("Imagem de conceito, não fotografia: jarro com um logótipo de exemplo nas cores "+sel.join(", ")+".","Concept image, not a photograph: carafe with a sample logo in colours "+sel.join(", ")+".")});
+  fit(h);
+}
+var RNG=[
+ {o:{object:"swing",glass:"clear",liquid:"water",fill:.7,colours:["C29"],logo:"geometric",text:["A SUA MARCA","YOUR BRAND"]},pt:"garrafa de fecho de mola com um logótipo de exemplo a azul",en:"swing-top bottle with a sample logo in blue"},
+ {o:{object:"carafe",glass:"clear",liquid:"water",fill:.7,colours:["C31"],logo:"geometric",text:["A SUA MARCA","YOUR BRAND"]},pt:"jarro de vidro com um logótipo de exemplo a azul-escuro",en:"glass carafe with a sample logo in dark blue"},
+ {o:{object:"flask",glass:"clear",liquid:"water",fill:.7,colours:["C14"],logo:"geometric",text:["A SUA MARCA","YOUR BRAND"]},pt:"garrafa de vidro com um logótipo de exemplo a laranja",en:"glass bottle with a sample logo in orange"}
+];
+function renderRange(){
+  if(!CG)return;
+  $$("[data-rng]").forEach(function(h){
+    var c=RNG[+h.getAttribute("data-rng")],b=box(h);if(!b[0])return;
+    var o={backdrop:"paper",size:b[0],aspect:b[0]/b[1],label:LBL(),alt:S("Imagem de conceito, não fotografia: ","Concept image, not a photograph: ")+S(c.pt,c.en)+"."};
+    for(var k in c.o)o[k]=c.o[k];o.text=S(c.o.text[0],c.o.text[1]);
+    CG.render(h,o);fit(h);
+  });
+}
+function renderAgua(){
+  if(!CG)return;var h=$("#agua-art"),b=box(h);if(!b[0]||!b[1])return;
+  CG.render(h,{object:"carafe",count:4,glass:"clear",liquid:"water",fill:.72,colours:["C31","C14"],logo:"geometric",text:S("A SUA MARCA","YOUR BRAND"),
+    backdrop:"paper",size:b[0],aspect:b[1]/b[0],logoScale:1.1,label:LBL(),
+    alt:S("Imagem de conceito, não fotografia: quatro jarros de vidro iguais com o mesmo logótipo de exemplo.","Concept image, not a photograph: four identical glass carafes with the same sample logo.")});
+  fit(h);h.removeAttribute("role");h.removeAttribute("aria-label");
+}
+var OBJ={
+ carafe:{o:{object:"carafe",glass:"clear",liquid:"water",fill:.72,logo:"geometric",text:["A SUA MARCA","YOUR BRAND"],logoScale:1.2},pt:"jarro",en:"carafe"},
+ wine:{o:{object:"bordeaux",glass:"green",logo:"script",text:["Quinta","Estate"],logoScale:1.15},pt:"garrafa de vinho",en:"wine bottle"},
+ mug:{o:{object:"mug",logo:"crest",text:["Evento","Event"],logoScale:1.1},pt:"caneca",en:"mug"},
+ plate:{o:{object:"plate",logo:"crest",text:["Mesa","Table"],logoScale:1.1},pt:"prato",en:"plate"}
+};
+var cpObj="carafe",cpBg="paper";
+function renderCores(){
+  if(!CG)return;var h=$("#cp-art"),b=box(h);if(!b[0]||!b[1])return;
+  var d=OBJ[cpObj],o={colours:sel.slice(),backdrop:cpBg,size:b[0],aspect:b[0]/b[1],label:LBL(),
+    alt:S("Imagem de conceito, não fotografia: "+d.pt+" com um logótipo de exemplo nas cores "+sel.join(", ")+".","Concept image, not a photograph: "+d.en+" with a sample logo in colours "+sel.join(", ")+".")};
+  for(var k in d.o)o[k]=d.o[k];o.text=S(d.o.text[0],d.o.text[1]);
+  CG.render(h,o);fit(h);
+}
+function renderAll(){renderHero();renderCards();renderColour();renderAgua();renderRange();renderCores()}
+var rzT=0,lastW=window.innerWidth;
+window.addEventListener("resize",function(){clearTimeout(rzT);rzT=setTimeout(function(){if(window.innerWidth!==lastW){lastW=window.innerWidth;renderAll()}},150)});
+
+/* ---------- colour pickers (home swatches and the colour page chart share one selection) ---------- */
+function toggleCol(code){
+  var i=sel.indexOf(code);
+  if(i>-1){if(sel.length>1)sel.splice(i,1)}else{sel.push(code);if(sel.length>3)sel.shift()}
+  touched=true;
+}
+function buildPicker(ul,chart){
+  ul.innerHTML="";
+  COLORS.forEach(function(c,idx){
+    var li=document.createElement("li"),b=document.createElement("button"),on=sel.indexOf(c[0])>-1;
+    b.type="button";b.setAttribute("aria-pressed",on);
+    b.setAttribute("aria-label",S("Cor ","Colour ")+c[0]+", "+c[1]);
+    b.innerHTML=chart?'<span class="chip" style="background:'+c[1]+'"><span class="ord" aria-hidden="true">'+(sel.indexOf(c[0])+1)+'</span></span><span><span class="code">'+c[0]+'</span><span class="hex">'+c[1]+'</span></span>'
+      :'<span class="chip" style="background:'+c[1]+'"></span><span>'+c[0]+'</span>';
+    b.addEventListener("click",function(){
+      toggleCol(c[0]);renderPickers();renderSel();renderColour();renderCores();
+      var nb=$$("button",ul)[idx];if(nb)nb.focus();
+    });
+    li.appendChild(b);ul.appendChild(li);
+  });
+}
+function renderPickers(){var rb=$("#ribbon");rb.innerHTML=COLORS.map(function(c){return'<i style="background:'+c[1]+'"></i>'}).join("");buildPicker($("#sw"),false);buildPicker($("#chart"),true)}
+function renderSel(){
+  var t=S("No jarro: ","On the carafe: ")+sel.join(", ")+S(" · máx. 3"," · max 3");
+  $("#cb-sel").textContent=t;
+  $("#cp-sel").textContent=S("No objeto: ","On the object: ")+sel.join(", ")+S(" · máx. 3"," · max 3");
+  var p=$("#picked");p.hidden=false;p.textContent=(touched?S("Cores escolhidas na tabela: ","Colours picked in the chart: "):S("Cores de exemplo, ainda não escolheu: ","Sample colours, not chosen yet: "))+sel.join(", ");
+  var ct=$("#coltags"),dots=sel.map(function(c){return'<span class="dot" style="background:'+hexOf(c)+'"></span>'}).join("");
+  ct.innerHTML='<span class="dots" aria-hidden="true">'+dots+"</span><span>"+(touched?S("Cores escolhidas: ","Colours chosen: "):S("Cores de exemplo: ","Sample colours: "))+"<b>"+sel.join(", ")+'</b></span><a href="#cores">'+S("Alterar nas cores","Change in colours")+"</a>";
+}
+$("#bg-l").addEventListener("click",function(){cbBg="paper";$("#bg-l").setAttribute("aria-pressed","true");$("#bg-d").setAttribute("aria-pressed","false");renderColour()});
+$("#bg-d").addEventListener("click",function(){cbBg="navy";$("#bg-d").setAttribute("aria-pressed","true");$("#bg-l").setAttribute("aria-pressed","false");renderColour()});
+$("#cp-bl").addEventListener("click",function(){cpBg="paper";$("#cp-bl").setAttribute("aria-pressed","true");$("#cp-bd").setAttribute("aria-pressed","false");renderCores()});
+$("#cp-bd").addEventListener("click",function(){cpBg="navy";$("#cp-bd").setAttribute("aria-pressed","true");$("#cp-bl").setAttribute("aria-pressed","false");renderCores()});
+$$("#seg-obj button").forEach(function(b){b.addEventListener("click",function(){
+  cpObj=b.getAttribute("data-obj");$$("#seg-obj button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});renderCores();
+})});
+
+/* ---------- roving tabs (gallery and form mode) ---------- */
+function tabs(list,onShow){
+  var tb=$$('[role="tab"]',list);
+  function show(t,focus){
+    tb.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",on);x.tabIndex=on?0:-1;var p=document.getElementById(x.getAttribute("aria-controls"));if(p)p.hidden=!on});
+    if(focus)t.focus();if(onShow)onShow(t);
+  }
+  tb.forEach(function(t,i){
+    t.addEventListener("click",function(){show(t,false)});
+    t.addEventListener("keydown",function(e){
+      var n=-1;if(e.key==="ArrowRight")n=(i+1)%tb.length;else if(e.key==="ArrowLeft")n=(i-1+tb.length)%tb.length;else if(e.key==="Home")n=0;else if(e.key==="End")n=tb.length-1;
+      if(n>-1){e.preventDefault();show(tb[n],true)}
+    });
+  });
+  return show;
+}
+tabs($("#gtabs"));
+var showMode=tabs($(".mode"),function(){$("#sent").hidden=true;sentOn=false});
+
+/* ---------- accordions (one per FAQ list) ---------- */
+$$(".faq").forEach(function(list){
+  var qs=$$(".q",list);
+  qs.forEach(function(q,i){
+    q.addEventListener("click",function(){var o=q.getAttribute("aria-expanded")==="true";q.setAttribute("aria-expanded",!o);document.getElementById(q.getAttribute("aria-controls")).hidden=o});
+    q.addEventListener("keydown",function(e){
+      var n=-1;if(e.key==="ArrowDown")n=(i+1)%qs.length;else if(e.key==="ArrowUp")n=(i-1+qs.length)%qs.length;else if(e.key==="Home")n=0;else if(e.key==="End")n=qs.length-1;
+      if(n>-1){e.preventDefault();qs[n].focus()}
+    });
+  });
+  $$(".a a",list).forEach(function(a){a.style.display="inline-block";a.style.padding="10px 0"});
+});
+
+/* ---------- situation prefill ---------- */
+var SIT={
+ water:["Fabricantes de equipamento de água","Makers of water equipment","water"],
+ spirits:["Produtores de vinho, gin e azeite","Wine, gin and olive oil producers","spirits"],
+ gift:["Brindes com data","Gifts with a date","unsure"],
+ agency:["Agências e revendedores","Agencies and resellers","unsure"],
+ hotel:["Hotéis e restaurantes","Hotels and restaurants","porcelain"],
+ repeat:["Clientes que repetem","Customers who reorder","unsure"],
+ agua:["Vidro para água","Glass for water","water"],
+ chart:["Gama de cores impressa","Printed colour range","unsure"]
+};
+var sitKey="";
+function updateSit(){
+  var c=$("#sitchip");if(!sitKey){c.hidden=true;return}
+  c.hidden=false;$("#sit-name").textContent=S(SIT[sitKey][0],SIT[sitKey][1]);
+}
+document.addEventListener("click",function(ev){
+  var a=ev.target.closest&&ev.target.closest("[data-sit]");if(!a)return;
+  sitKey=a.getAttribute("data-sit");$("#f-prod").value=SIT[sitKey][2];showMode($("#mt-full"),false);updateSit();
+});
+$("#sit-clear").addEventListener("click",function(){sitKey="";$("#f-prod").value="";updateSit()});
+
+/* ---------- validation ---------- */
+var sentOn=false,lastSent=null;
+var today=new Date();today.setHours(0,0,0,0);
+function pad(n){return(n<10?"0":"")+n}
+$("#f-date").min=today.getFullYear()+"-"+pad(today.getMonth()+1)+"-"+pad(today.getDate());
+function clearErrors(){$$(".fld.bad").forEach(function(f){f.classList.remove("bad")});["#sumerr","#qsumerr"].forEach(function(s){$(s).hidden=true;$(s).innerHTML=""})}
+function bad(id,list,focusId,labelPt,labelEn){document.getElementById(id).classList.add("bad");list.push({f:focusId,l:S(labelPt,labelEn)})}
+function summary(box,list){
+  box.hidden=false;
+  box.innerHTML="<b>"+S("Falta corrigir "+list.length+(list.length>1?" campos":" campo")+":","Please fix "+list.length+(list.length>1?" fields":" field")+":")+"</b><ul>"+list.map(function(x){return'<li><a href="#'+x.f+'">'+x.l+"</a></li>"}).join("")+"</ul>";
+  $$("a",box).forEach(function(a){a.addEventListener("click",function(ev){ev.preventDefault();var t=document.getElementById(a.getAttribute("href").slice(1));if(t)t.focus()})});
+  box.focus();
+}
+function radioVal(n){var r=$('input[name="'+n+'"]:checked');return r?r.value:""}
+function radioLabel(n){var r=$('input[name="'+n+'"]:checked');return r?r.nextElementSibling.textContent:""}
+var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+$("#enq-form").addEventListener("submit",function(ev){
+  ev.preventDefault();clearErrors();$("#sent").hidden=true;sentOn=false;var L=[];
+  if(!$("#f-prod").value)bad("fl-prod",L,"f-prod","O que quer imprimir","What to print on");
+  if(!radioVal("qty"))bad("fl-qty",L,$('input[name="qty"]').id||"fl-qty","Quantas peças","How many pieces");
+  if(!radioVal("logo"))bad("fl-logo",L,"fl-logo","O seu logótipo","Your logo");
+  if(!radioVal("cols"))bad("fl-cols",L,"fl-cols","Número de cores","Number of colours");
+  var d=$("#f-date").value;if(d){var dd=new Date(d+"T00:00:00");if(dd<today)bad("fl-date",L,"f-date","Data já passou","Date has passed")}
+  if(!$("#f-country").value.trim())bad("fl-country",L,"f-country","País de entrega","Delivery country");
+  if(!$("#f-name").value.trim())bad("fl-name",L,"f-name","O seu nome","Your name");
+  if(!EMAIL.test($("#f-email").value.trim()))bad("fl-email",L,"f-email","O seu email","Your email");
+  if(L.length){
+    /* radio groups: focus the first radio of the group */
+    L.forEach(function(x){if(x.f.indexOf("fl-")===0){var g=document.getElementById(x.f),r=$("input",g);if(r){if(!r.id)r.id=x.f+"-first";x.f=r.id}}});
+    summary($("#sumerr"),L);return}
+  var snap={prod:$("#f-prod").value,qty:radioVal("qty"),logo:radioVal("logo"),cols:radioVal("cols"),codes:touched?sel.join(", "):"",d:d,country:$("#f-country").value.trim(),sit:sitKey};
+  function opt(v,n){var r=$('input[name="'+n+'"][value="'+v+'"]');return r?r.nextElementSibling.textContent:v}
+  lastSent=function(){var rows=[[S("Imprimir em","Print on"),$('#f-prod option[value="'+snap.prod+'"]').textContent],[S("Quantidade","Quantity"),opt(snap.qty,"qty")],[S("Logótipo","Logo"),opt(snap.logo,"logo")],[S("Cores","Colours"),opt(snap.cols,"cols")],[S("Códigos das cores","Colour codes"),snap.codes||S("ainda não escolhidos","not chosen yet")],[S("Data","Date"),snap.d||S("sem data","no date")],[S("País","Country"),snap.country]];
+    if(snap.sit)rows.unshift([S("Caso","Case"),S(SIT[snap.sit][0],SIT[snap.sit][1])]);return rows};
+  showSent(lastSent,true);
+});
+$("#quick-form").addEventListener("submit",function(ev){
+  ev.preventDefault();clearErrors();$("#sent").hidden=true;sentOn=false;var L=[];
+  if(!EMAIL.test($("#q-email").value.trim()))bad("fl-qemail",L,"q-email","O seu email","Your email");
+  if(!$("#q-line").value.trim())bad("fl-qline",L,"q-line","Uma linha sobre o que precisa","One line on what you need");
+  if(L.length){summary($("#qsumerr"),L);return}
+  var qe=$("#q-email").value.trim(),ql=$("#q-line").value.trim(),lk=$("#q-link").value.trim();
+  lastSent=function(){var rows=[[S("Email","Email"),qe],[S("O que precisa","What you need"),ql]];if(lk)rows.push([S("Site ou Instagram","Website or Instagram"),lk]);return rows};
+  showSent(lastSent,true);
+});
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function showSent(fn,focus){
+  if(!fn)return;var rows=fn();sentOn=true;var s=$("#sent");s.hidden=false;
+  s.innerHTML="<h3>"+S("Nada foi enviado.","Nothing was sent.")+"</h3><p>"+S("Esta página é um protótipo. O formulário foi validado, mas não envia dados a ninguém. O resumo abaixo é o que seguiria para a Cergam.","This page is a prototype. The form passed the checks, but it sends no data to anyone. The summary below is what would go to Cergam.")+"</p><dl>"+
+    rows.map(function(r){return"<dt>"+esc(r[0])+"</dt><dd>"+esc(r[1])+"</dd>"}).join("")+
+    "<dt>"+S("Quem responde","Who replies")+'</dt><dd><span class="tbc">'+S("nome a confirmar","name to be confirmed")+"</span></dd><dt>"+S("Prazo de resposta","Reply time")+'</dt><dd><span class="tbc">'+S("prazo a confirmar","time to be confirmed")+"</span></dd></dl>";
+  if(focus)s.focus();
+}
+$$("input[type=radio]").forEach(function(r){r.addEventListener("change",function(){var f=r.closest(".fld");if(f)f.classList.remove("bad")})});
+
+/* images used more than once are defined once (first occurrence holds the data), later ones copy it */
+$$("img[data-dup]").forEach(function(i){var f=$('img[data-img="'+i.getAttribute("data-dup")+'"]');if(f)i.src=f.getAttribute("src")});
+
+/* ---------- routing ---------- */
+var VIEWS={agua:"v-agua",cores:"v-cores",orcamento:"v-orcamento"};
+var TITLES={
+ home:["Cergam Garrafas Personalizadas","Cergam Custom Bottles"],
+ agua:["Vidro para água · Cergam","Glass for water · Cergam"],
+ cores:["As 22 Cores Cergam","The 22 Cergam colours"],
+ orcamento:["Pedir orçamento · Cergam","Request a quote · Cergam"]
+};
+var NAMES={home:["Início","Home"],agua:["Vidro para água","Glass for water"],cores:["As 22 Cores Cergam","The 22 Cergam colours"],orcamento:["Pedir orçamento","Request a quote"]};
+var cur="home";
+function hashId(){var h=location.hash.replace(/^#/,"");try{h=decodeURIComponent(h)}catch(e){}return h}
+function applyTitle(){document.title=S(TITLES[cur][0],TITLES[cur][1])}
+function markNav(){
+  $$("[data-page]").forEach(function(a){if(a.getAttribute("data-page")===cur)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  if(cur==="agua")ddb.setAttribute("data-on","");else ddb.removeAttribute("data-on");
+}
+function mainOf(p){return document.getElementById(p==="home"?"top":VIEWS[p])}
+function focusHead(p,id){
+  var t=id&&document.getElementById(id);
+  if(!t){t=$("h1",mainOf(p))}
+  if(!t)return;if(!t.hasAttribute("tabindex"))t.setAttribute("tabindex","-1");
+  try{t.focus({preventScroll:true})}catch(e){t.focus()}
+}
+function route(init){
+  var h=hashId();
+  if(h==="contactos")return;
+  var next=VIEWS[h]?h:"home",changed=next!==cur;
+  if(changed||init){
+    ["home","agua","cores","orcamento"].forEach(function(p){mainOf(p).hidden=p!==next});
+    cur=next;markNav();applyTitle();closeMenu();closeDd();
+    renderAll();
+  }
+  if(next==="home"){
+    var el=h&&h!=="top"?document.getElementById(h):null;
+    if(el&&mainOf("home").contains(el)){if(changed)el.scrollIntoView({behavior:"instant",block:"start"})}
+    else if(changed||!h||h==="top")window.scrollTo({top:0,left:0,behavior:"instant"});
+    if(changed&&!init)focusHead("home",el?h:"");
+  }else if(changed||init){
+    window.scrollTo({top:0,left:0,behavior:"instant"});
+    if(!init)focusHead(next);
+  }
+  if(changed&&!init){
+    var lv=$("#live");lv.textContent="";
+    setTimeout(function(){lv.textContent=S("Página aberta: ","Page opened: ")+S(NAMES[cur][0],NAMES[cur][1])},60);
+  }
+}
+if("scrollRestoration" in history)history.scrollRestoration="manual";
+window.addEventListener("hashchange",function(){route(false)});
+$("#skip").addEventListener("click",function(ev){ev.preventDefault();focusHead(cur)});
+
+renderPickers();renderSel();updateSit();
+var go=function(){renderAll()};
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go);
+route(true);
+window.addEventListener("load",go);
+})();
+</script>
