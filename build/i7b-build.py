@@ -68,6 +68,13 @@ for name in sorted(used):
     src = src.replace("@@ALTPT:%s@@" % name, html.escape(m["alt_pt"], quote=True))
     src = src.replace("@@ALTEN:%s@@" % name, html.escape(m["alt_en"], quote=True))
     src = src.replace("@@W:%s@@" % name, str(w)).replace("@@H:%s@@" % name, str(h))
+# 3. brand wordmark. Two themed PNGs derived from the supplied lockup by
+#    assets/cergam-brand/derive.py; see the README there.
+for _tone in ("ink", "paper"):
+    _p = os.path.join(HERE, "assets", "cergam-brand", "cergam-wordmark-%s.png" % _tone)
+    with open(_p, "rb") as _f:
+        src = src.replace("@@LOGO:%s@@" % _tone,
+                          "data:image/png;base64," + base64.b64encode(_f.read()).decode())
 assert "@@" not in src, re.findall(r"@@[^@]{0,40}@@", src)[:5]
 out = os.path.join(HERE, "i7b.html")
 open(out, "w", encoding="utf-8").write(src)

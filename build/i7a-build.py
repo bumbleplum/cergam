@@ -72,6 +72,13 @@ total = 0
 for name in sorted(used):
     data = open(CUR + name + ".jpg", "rb").read(); total += len(data)
     src = src.replace("@@IMG:%s@@" % name, "data:image/jpeg;base64," + base64.b64encode(data).decode())
+# 3. brand wordmark. Two themed PNGs derived from the supplied lockup by
+#    assets/cergam-brand/derive.py; see the README there.
+for _tone in ("ink", "paper"):
+    _p = os.path.join(HERE, "assets", "cergam-brand", "cergam-wordmark-%s.png" % _tone)
+    with open(_p, "rb") as _f:
+        src = src.replace("@@LOGO:%s@@" % _tone,
+                          "data:image/png;base64," + base64.b64encode(_f.read()).decode())
 assert "@@" not in src, re.findall(r"@@[^@]{0,40}@@", src)[:5]
 out = os.path.join(HERE, "i7a.html")
 open(out, "w", encoding="utf-8").write(src)
