@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Cergam, protótipos de site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA;--ink:#0B1B33;--ink-mute:#3F4B5C;--ink-faint:#566172;
+  --rule:#CBC5B6;--link:#00569A;--ground:#001739;--on-ground:#F2EFE8;--accent:#F05A28;
+  --warn-bg:#FBE9A8;--warn-ink:#553900;--warn-line:#8F6700;
+  --font-text:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--font-text);-webkit-font-smoothing:antialiased}
+.bi{max-width:860px;margin:0 auto;padding:0 24px}
+header{background:var(--ground);color:var(--on-ground);padding:56px 0 48px}
+header .kick{font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#AEBBD0;margin:0 0 18px}
+header h1{font-size:clamp(30px,5vw,44px);line-height:1.1;margin:0 0 14px;font-weight:700;letter-spacing:-.01em}
+header p{margin:0;max-width:52ch;color:#C9D3E4}
+main{padding:44px 0 72px}
+h2{font-size:13px;font-family:var(--font-mono);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 18px}
+.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin:0 0 48px;padding:0;list-style:none}
+.card{border:1px solid var(--rule);background:#FBF9F3;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card .tag{font:500 11px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.card h3{margin:0;font-size:21px;line-height:1.25;font-weight:700}
+.card h3 a{color:var(--ink);text-decoration:none;background-image:linear-gradient(var(--link),var(--link));background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:2px}
+.card h3 a:hover,.card h3 a:focus{color:var(--link)}
+.card p{margin:0;font-size:15px;color:var(--ink-mute)}
+.card .chosen{display:inline-block;align-self:flex-start;font:500 11px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--ground);color:#fff;padding:5px 8px}
+.note{border:1px solid var(--warn-line);background:var(--warn-bg);color:var(--warn-ink);padding:20px 22px;margin:0 0 36px}
+.note h2{color:var(--warn-ink);margin-bottom:10px}
+.note p{margin:0 0 10px;font-size:15px;line-height:1.5}
+.note p:last-child{margin-bottom:0}
+.note a{color:var(--warn-ink)}
+.meta{border-top:1px solid var(--rule);padding-top:22px;font-size:14px;color:var(--ink-faint)}
+.meta p{margin:0 0 6px}
+a{color:var(--link)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:560px){header{padding:40px 0 34px}main{padding:32px 0 56px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bi">
+    <p class="kick">Protótipos de site</p>
+    <h1>Cergam</h1>
+    <p>Dois protótipos independentes do mesmo briefing, para comparação lado a lado. Decoração de vidro e porcelana.</p>
+  </div>
+</header>
+
+<main class="bi">
+
+  <h2>As duas páginas</h2>
+  <ul class="cards">
+    <li class="card">
+      <span class="chosen">Proposta escolhida</span>
+      <span class="tag">01 · Trade desk</span>
+      <h3><a href="chosen-landing/cergam-site-trade-desk.html">Balcão de encomenda</a></h3>
+      <p>Entra pela situação de quem compra. Sete portas, uma ficha de encomenda que se preenche sozinha, e páginas para fabricantes, amostra e ficha de produto.</p>
+    </li>
+    <li class="card">
+      <span class="tag">02 · Tradicional</span>
+      <h3><a href="traditional-landing/cergam-site-traditional.html">Página clássica</a></h3>
+      <p>A leitura convencional do mesmo briefing: secções por área, galeria, as 22 cores, perguntas frequentes e um pedido de orçamento.</p>
+    </li>
+  </ul>
+
+  <div class="note">
+    <h2>Leia antes</h2>
+    <p><strong>Trabalho de conceito, não um site da Cergam.</strong> Estas páginas foram feitas de forma independente como proposta de desenho. Não são operadas, revistas nem aprovadas pela Cergam, e não substituem <a href="https://www.cergam.pt">cergam.pt</a>.</p>
+    <p><strong>Os números não são oficiais.</strong> Medidas, capacidades, mínimos, prazos e regras foram assumidos para completar o desenho. Não vieram da Cergam e não devem ser citados como factos. A lista completa está no <a href="https://github.com/bumbleplum/cergam#assumed-values-that-cergam-must-verify">README</a>.</p>
+    <p><strong>Os formulários não enviam nada.</strong> Validam os campos e mostram um resumo, mas nenhum dado sai da página.</p>
+    <p><strong>Fotografias.</strong> São propriedade da Cergam, recolhidas de cergam.pt para este estudo. Algumas mostram marcas de clientes da Cergam. Pedidos de remoção: <a href="https://github.com/bumbleplum/cergam/issues">abrir um pedido</a>.</p>
+  </div>
+
+  <div class="meta">
+    <p>Código e notas: <a href="https://github.com/bumbleplum/cergam">github.com/bumbleplum/cergam</a></p>
+    <p>As páginas são ficheiros únicos, sem dependências. Só os tipos de letra vêm de fora.</p>
+  </div>
+
+</main>
+
+</body>
+</html>

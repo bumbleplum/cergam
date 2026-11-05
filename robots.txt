@@ -1,0 +1,6 @@
+# These are concept prototypes, not a Cergam site. They state assumed values
+# that Cergam has not confirmed, so they are kept out of search results.
+# The pages stay reachable to anyone with the link.
+# Delete this file to allow indexing.
+User-agent: *
+Disallow: /
