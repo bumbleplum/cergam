@@ -45,6 +45,48 @@ Two comparison artifacts for the corporate first screen (navy and light) are sti
 
 Buyer and design thinking: `cergam-buyer-situations.md`, `cergam-buyer-questions.md`, `cergam-landing-narratives.md`, `cergam-landing-red-team.md`, `cergam-journey-consumption-map.md`, `cergam-design-brief.md`. Imagery: `cergam-image-audit.md`, `cergam-imagery-brief.md`. Company and market: `cergam-company-analysis.md`, `cergam-competitor-analysis.md`, `cergam-design-system-proposal.md`.
 
-## What the chosen page still needs from Cergam
+## Assumed values that Cergam must verify
 
-The minimum per product (12, 24 or 48), the firing temperature (580 or 620 ºC), the dishwasher wording, the recycled-glass and Made Blue wording, a reply time and a named contact, whether a proof or mock-up step exists, price drivers or a range, artwork rules, what starts the lead time, how equipment makers reorder today, what the reserved area does, permission for named jobs and photos, and the real values of the 22 colours from fired samples.
+On 2026-11-05, on Tiago's instruction, both prototypes were changed to read as finished sites: the visible `a confirmar` tags, the prototype badges and the open-item lists were removed, and every gap was filled with a plausible value. **Nothing in the list below came from Cergam.** The pages no longer show where the gaps are, so this list is the only record of them. Check every line before anything here is shown as fact or reused as copy.
+
+Contradictions on cergam.pt, resolved by picking one side:
+
+| Item | Value now stated | The other published value |
+|---|---|---|
+| Minimum, glass | 24 pieces | the site also says 12 |
+| Minimum, porcelain | 48 pieces | — |
+| Decal firing | 580 ºC | another listing says 620 ºC |
+| Dishwasher | industrial only | domestic never confirmed, now simply not claimed |
+
+Values invented outright, with no source:
+
+| Item | Value now stated |
+|---|---|
+| What starts the lead time | artwork approval |
+| Reply time | 1 working day |
+| Who replies | "Equipa comercial" (a role, no person named) |
+| Colour tolerance between batches | judged against the approved sample |
+| Packing | cardboard box with dividers, pallets on request |
+| Samples and proof | digital proof before production, fired sample on request |
+| Price | varies with colours, quantity and product; every enquiry gets its own quote (no figure) |
+| Logo file | vector (AI, EPS, PDF), or PNG at 300 dpi |
+| Neck and cap fit | confirmed with the quote, from the buyer's equipment model |
+| Recommended notice for a repeat order | 20 working days |
+| Shipping cost and time | stated in the quote |
+| Batch reference on the swatch card | L-2611 |
+| Example product `CG-AQ-500` | 500 ml, 228 mm high, 68 mm diameter, 420 g, GPI 28 mm thread, clear glass |
+| Three "similar models" | bottle 750 ml, carafe 1.000 ml, swing-top 500 ml |
+| Data protection note (i7a) | data sent is used only to answer the enquiry |
+
+Deliberately **not** invented, and removed instead:
+
+- Company tax number (NIF) and the privacy-policy link. Legal identifiers are not guessable; the complaints book now links to the public `livroreclamacoes.pt`.
+- The Made Blue programme wording and figure. A third-party charity claim.
+- Any individual's name. Replaced by the role.
+- Client names and quantities on photos. The pages now say these are not identified; the consent problem in `cergam-image-audit.md` is unchanged.
+- The product datasheet PDF and 3D drawing. The files do not exist, so the Documents block was removed rather than given dead buttons.
+- Any price. `$VAULT/rates.md` is still the only source and the prototypes still carry no figure.
+
+One behaviour now reads as untrue to a visitor: submitting a form shows "Pedido enviado. Respondemos por email em 1 dia útil." The forms still send nothing.
+
+Colour names are gone rather than invented: the 22 colours are identified by code, C1 to C31. The real values still need fired samples.

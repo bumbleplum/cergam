@@ -42,8 +42,8 @@ def fig(m):
     pt, en = CAPS[key]
     return ('<figure class="job" data-k="%s" data-cap-pt="%s" data-cap-en="%s">'
             '<div class="print"><div class="ph %s">%s</div>%s</div>'
-            '<figcaption class="cap"><span class="jcap">%s</span><span class="src2" data-i="photo_tag">Foto Cergam, provisória</span>'
-            '<span class="meta"><span data-i="jmeta">Cliente e quantidade:</span> <span class="tbc">a confirmar</span></span></figcaption></figure>'
+            '<figcaption class="cap"><span class="jcap">%s</span><span class="src2" data-i="photo_tag">Foto Cergam</span>'
+            '</figcaption></figure>'
             % (key, html.escape(pt, quote=True), html.escape(en, quote=True), cls, img(key), loupe, html.escape(pt)))
 manifest = {i["file"][:-4]: i for i in json.load(open(CUR + "manifest.json", encoding="utf-8"))["items"]}
 src = open(os.path.join(HERE, "i7b-src.html"), encoding="utf-8").read()

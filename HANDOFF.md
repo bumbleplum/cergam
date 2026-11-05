@@ -90,7 +90,8 @@ Publishing needs Claude Code with your claude.ai sign-in and the Artifact tool.
 
 ## 7. Still open
 
-- Questions for Cergam: see "O que precisamos de saber" in the deck. Main ones: minimum, firing temperature, dishwasher wording, what starts the lead time, a named contact and reply time, proof step and price, domain and hosting ownership, a vector logo, permission for photos and named work.
+- **The prototypes no longer show their own gaps.** On 2026-11-05, on Tiago's instruction, every `a confirmar` tag, prototype badge and open-item list was removed from both sites and each gap filled with a plausible value. None of those values came from Cergam. The full list of what was assumed, and what was deliberately left out rather than invented, is in `README.md` under "Assumed values that Cergam must verify". Read it before showing either page as fact.
+- Questions for Cergam, unchanged and now invisible on the pages: see "O que precisamos de saber" in the deck. Main ones: minimum, firing temperature, dishwasher wording, what starts the lead time, a named contact and reply time, proof step and price, domain and hosting ownership, a vector logo, permission for photos and named work.
 - Photo consent: several placeholders show client names (Aliança, Lourinhã, Aidum, Ti Lena, BICA).
 - No team or credibility slide in the deck.
 - The deck shows the home pages only, not the new inner pages.

@@ -58,7 +58,7 @@ def fig(mt):
     if len(parts) > 2:
         lead = '<b data-en="%s">%s</b> ' % (html.escape(parts[2]), html.escape(parts[1]))
     return ('<figure class="shot"><div class="shot-img">%s</div><figcaption><span>%s<span data-en="%s">%s</span></span>'
-            '<span class="src2" data-en="Cergam photo, provisional">Foto Cergam, provisória</span></figcaption></figure>'
+            '<span class="src2" data-en="Cergam photo">Foto Cergam</span></figcaption></figure>'
             % (photo(k, 0, 0), lead, html.escape(cen, quote=True), html.escape(cpt)))
 def tbc(mt):
     if mt.group(1):

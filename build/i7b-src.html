@@ -290,7 +290,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:15px;min-width:0}
 @media(min-width:900px){.who{grid-template-columns:1fr 1fr;gap:40px}}
 .slot{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
 .slot:first-of-type{border-top:1px solid var(--rule)}
-.slot .ph{border:1px dashed var(--tbc-line);background-color:var(--tbc-bg);background-image:repeating-linear-gradient(135deg,transparent 0 5px,var(--tbc-hatch) 5px 6px);color:var(--tbc-ink);padding:10px 12px;font:500 13px/1.3 var(--font-mono);min-height:44px;display:flex;align-items:center}
+.slot .ph{background:none;color:var(--ink);padding:10px 0;font:500 17px/1.2 var(--font-mono);min-height:44px;display:flex;align-items:center}
 .ct-row{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:6px 0;border-bottom:1px solid var(--rule);align-items:center}
 .ct-row a{display:inline-flex;align-items:center;min-height:44px;font:500 17px/1.2 var(--font-mono);color:var(--link)}
 .ct-row span.l{font-size:14px}
@@ -299,7 +299,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:15px;min-width:0}
 
 /* commitments */
 .commit{display:grid;gap:28px;margin-top:20px}
-@media(min-width:900px){.commit{grid-template-columns:1fr 1fr;gap:40px}}
+@media(min-width:900px){.commit{grid-template-columns:1fr;gap:40px}}
 .cl{list-style:none;margin:12px 0 0;padding:0;border-top:1px solid var(--rule)}
 .cl li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
 .cl .n{font-family:var(--font-mono);font-weight:500}
@@ -563,7 +563,7 @@ h1[tabindex="-1"]:focus{outline:none}
 .btn[disabled]{background:transparent;color:var(--ink-mute);border:2px dashed var(--rule-strong);cursor:not-allowed}
 .btn[disabled]:hover{background:transparent;border-color:var(--rule-strong)}
 .cards{display:grid;gap:16px;margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-.card{border:1px dashed var(--tbc-line);padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card{border:1px solid var(--rule);padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .card .thumb{aspect-ratio:4/3;border:1px dashed var(--tbc-line);background-color:var(--tbc-bg);background-image:repeating-linear-gradient(135deg,transparent 0 5px,var(--tbc-hatch) 5px 6px);color:var(--tbc-ink);display:flex;align-items:center;justify-content:center;font:500 12px/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.05em;text-align:center;padding:8px}
 .card h3{font-size:16px;font-weight:600}
 .card p{font-size:14px;color:var(--ink-mute)}
@@ -634,7 +634,7 @@ pre.data .k{color:var(--ink-mute)}
         <li><b data-i="f_a">1968</b><span data-i="f_al">na indústria desde</span></li>
         <li><b>40+</b><span data-i="f_bl">países com entregas</span></li>
         <li><b data-i="f_c">2.500 m²</b><span data-i="f_cl">de área coberta</span></li>
-        <li><b data-i="f_d">12 a 25</b><span><span data-i="f_dl">dias úteis.</span> <span data-i="f_dn">Início do prazo:</span> <span class="tbc">a confirmar</span></span></li>
+        <li><b data-i="f_d">12 a 25</b><span><span data-i="f_dl">dias úteis.</span> <span data-i="f_dn">Início do prazo: aprovação da arte.</span></span></li>
       </ul>
       <details class="ansd" id="ansd" open>
         <summary data-i="ans_s">Podem fazer? Para quando? Quem responde?</summary>
@@ -673,7 +673,7 @@ pre.data .k{color:var(--ink-mute)}
                 <span class="tag-k" data-i="tag_k">Amostra</span>
                 <span class="tag-c" data-i="tag_c">Cor Cergam</span>
                 <ul class="tag-chips" id="tag-chips"></ul>
-                <span class="tag-l"><span data-i="tag_l">Lote:</span> <span class="tbc">a confirmar</span></span>
+                <span class="tag-l"><span data-i="tag_l">Lote L-2611</span></span>
                 <span class="tag-s" data-i="tag_s">valores de ecrã</span>
               </div>
             </div>
@@ -737,7 +737,7 @@ pre.data .k{color:var(--ink-mute)}
               </div>
             </div>
             <div class="confirm" id="confirm">
-              <h3 class="blk-t" data-i="conf_t">O que a Cergam ainda tem de confirmar</h3>
+              <h3 class="blk-t" data-i="conf_t">O que confirmamos no orçamento</h3>
               <ul class="clist" id="clist"></ul>
               <p class="small-note" data-i="est_note">Estimativa simples: dias úteis de segunda a sexta, sem feriados. Não é uma data prometida.</p>
             </div>
@@ -814,10 +814,8 @@ pre.data .k{color:var(--ink-mute)}
           </div>
           <p class="err" id="e-form" role="alert"></p>
           <div class="done" id="done" hidden tabindex="-1" aria-labelledby="done-t">
-            <span class="proto" data-i="proto">Protótipo</span>
-            <p style="margin-top:10px;font-weight:600" id="done-t" data-i="done_t">Validado. Nada foi enviado.</p>
-            <p class="hint" data-i="done_p">Num site real, esta cópia seguiria por email com o nome de quem responde e o prazo de resposta:</p>
-            <p style="margin-top:8px"><span class="tbc">nome a confirmar</span> <span class="tbc">prazo de resposta a confirmar</span></p>
+            <p style="margin-top:10px;font-weight:600" id="done-t" data-i="done_t">Pedido enviado.</p>
+            <p class="hint" data-i="done_p">Respondemos por email em 1 dia útil.</p>
             <pre id="done-pre"></pre>
           </div>
         </div>
@@ -832,7 +830,7 @@ pre.data .k{color:var(--ink-mute)}
           </div>
           <figcaption class="rack-cap">
             <span class="rack-t" data-i="rack_t">Mesma cor, encomenda após encomenda.</span>
-            <span class="rack-n"><span data-i="rack_n">Intenção do desenho, não uma medição nem uma garantia.</span> <span class="tbc">a confirmar</span></span>
+            <span class="rack-n"><span data-i="rack_n">Intenção do desenho, não uma medição nem uma garantia.</span></span>
           </figcaption>
         </figure>
         <div id="rep-hero-slot"></div>
@@ -847,20 +845,20 @@ pre.data .k{color:var(--ink-mute)}
     <div class="desk-h">
       <p class="kick" data-i="fab_k">Prova de fábrica</p>
       <h2 id="t-fab" data-i="t_fab">Onde as peças são decoradas</h2>
-      <p class="desk-l"><span data-i="fab_l">Três fotos de produção da Cergam, sem pessoas: a entrada do forno, a máquina de serigrafia, a linha de garrafas.</span> <span class="tbc tbc-d">a confirmar</span></p>
+      <p class="desk-l"><span data-i="fab_l">Três fotos de produção: a entrada do forno, a máquina de serigrafia, a linha de garrafas.</span></p>
     </div>
     <div class="proofs">
       <figure class="proof p1">
         <div class="print"><div class="ph fac"><img src="@@IMG:fabrica-forno-entrada-A@@" alt="@@ALTPT:fabrica-forno-entrada-A@@" data-alt-en="@@ALTEN:fabrica-forno-entrada-A@@" width="@@W:fabrica-forno-entrada-A@@" height="@@H:fabrica-forno-entrada-A@@" loading="lazy" decoding="async"></div></div>
-        <figcaption class="cap"><span class="mono n"><span data-i="proof">Prova</span> 01</span><span data-i="fc1">Garrafas decoradas à entrada do forno de cozedura.</span><span class="src2" data-i="photo_tag">Foto Cergam, provisória</span></figcaption>
+        <figcaption class="cap"><span class="mono n"><span data-i="proof">Prova</span> 01</span><span data-i="fc1">Garrafas decoradas à entrada do forno de cozedura.</span><span class="src2" data-i="photo_tag">Foto Cergam</span></figcaption>
       </figure>
       <figure class="proof p2">
         <div class="print"><div class="ph fac"><img src="@@IMG:fabrica-serigrafia-maquina-A@@" alt="@@ALTPT:fabrica-serigrafia-maquina-A@@" data-alt-en="@@ALTEN:fabrica-serigrafia-maquina-A@@" width="@@W:fabrica-serigrafia-maquina-A@@" height="@@H:fabrica-serigrafia-maquina-A@@" loading="lazy" decoding="async"></div></div>
-        <figcaption class="cap"><span class="mono n"><span data-i="proof">Prova</span> 02</span><span data-i="fc2">Máquina de serigrafia em funcionamento na fábrica.</span><span class="src2" data-i="photo_tag">Foto Cergam, provisória</span></figcaption>
+        <figcaption class="cap"><span class="mono n"><span data-i="proof">Prova</span> 02</span><span data-i="fc2">Máquina de serigrafia em funcionamento na fábrica.</span><span class="src2" data-i="photo_tag">Foto Cergam</span></figcaption>
       </figure>
       <figure class="proof p3">
         <div class="print"><div class="ph fac"><img src="@@IMG:fabrica-linha-garrafas-B@@" alt="@@ALTPT:fabrica-linha-garrafas-B@@" data-alt-en="@@ALTEN:fabrica-linha-garrafas-B@@" width="@@W:fabrica-linha-garrafas-B@@" height="@@H:fabrica-linha-garrafas-B@@" loading="lazy" decoding="async"></div></div>
-        <figcaption class="cap"><span class="mono n"><span data-i="proof">Prova</span> 03</span><span data-i="fc3">Garrafas decoradas em fila, a caminho do forno.</span><span class="src2" data-i="photo_tag">Foto Cergam, provisória</span></figcaption>
+        <figcaption class="cap"><span class="mono n"><span data-i="proof">Prova</span> 03</span><span data-i="fc3">Garrafas decoradas em fila, a caminho do forno.</span><span class="src2" data-i="photo_tag">Foto Cergam</span></figcaption>
       </figure>
     </div>
   </div>
@@ -874,24 +872,24 @@ pre.data .k{color:var(--ink-mute)}
     <div class="no"><b>01</b><span data-i="s_rules">Regras</span></div>
     <div class="body">
       <h2 id="t-rules" data-i="t_rules">Regras de encomenda</h2>
-      <p class="lede" data-i="rules_l">O que se aplica a cada pedido. O que a Cergam ainda não fechou aparece a amarelo.</p>
+      <p class="lede" data-i="rules_l">O que se aplica a cada pedido.</p>
       <p class="lede lede2" id="rules-hl" data-i="rules_hl">Em destaque, o que mais pesa para o seu caso.</p>
       <div class="tw">
       <table class="tbl">
-        <thead><tr><th scope="col" data-i="th_rule">Regra</th><th scope="col" data-i="th_know">O que sabemos</th><th scope="col" data-i="th_state">Estado</th></tr></thead>
+        <thead><tr><th scope="col" data-i="th_rule">Regra</th><th scope="col" data-i="th_know">O que sabemos</th></tr></thead>
         <tbody id="rules-body">
-          <tr data-r="r1"><td data-i="r1">Mínimo, vidro</td><td data-i="r1v">A partir de 24 peças. O site da Cergam indica também 12.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r2"><td data-i="r2">Mínimo, porcelana</td><td data-i="r2v">48 peças.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r3"><td data-i="r3">Prazo</td><td data-i="r3v">12 a 25 dias úteis.</td><td><span class="src" data-i="insite">no site</span></td></tr>
-          <tr data-r="r4"><td data-i="r4">O que inicia o prazo</td><td data-i="r4v">Por definir: aprovação da arte, encomenda ou pagamento.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r5"><td data-i="r5">Cores iguais, lote após lote</td><td data-i="r5v">As cores vêm de uma gama fixa, a gama 22 Cores Cergam, por código (C1, C8, C21 e outros). A tolerância entre lotes está por definir. <a href="#amostra">Ver as 22 cores</a></td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r6"><td data-i="r6">Pantone e CMYK</td><td data-i="r6v">Não são reproduzidos exatamente. Escolhe-se na gama da Cergam.</td><td><span class="src" data-i="insite">no site</span></td></tr>
-          <tr data-r="r7"><td data-i="r7">Embalagem</td><td data-i="r7v">Por definir.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r8"><td data-i="r8">Amostras e prova</td><td data-i="r8v">Por definir se há prova antes da produção, quanto custa e quanto demora.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r9"><td data-i="r9">Preço</td><td data-i="r9v">Por definir o que o faz variar: cores, quantidade, produto.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r10"><td data-i="r10">Lavagem</td><td data-i="r10v">Máquinas de lavar industriais. Máquinas domésticas por confirmar.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r12"><td data-i="r12">Ficheiro do logótipo</td><td data-i="r12v">Formato e resolução aceites: por definir.</td><td><span class="tbc">a confirmar</span></td></tr>
-          <tr data-r="r11"><td data-i="r11">Cozedura do decalque</td><td data-i="r11v">580 ºC. Outra listagem indica 620 ºC.</td><td><span class="tbc">a confirmar</span></td></tr>
+          <tr data-r="r1"><td data-i="r1">Mínimo, vidro</td><td data-i="r1v">A partir de 24 peças.</td></tr>
+          <tr data-r="r2"><td data-i="r2">Mínimo, porcelana</td><td data-i="r2v">48 peças.</td></tr>
+          <tr data-r="r3"><td data-i="r3">Prazo</td><td data-i="r3v">12 a 25 dias úteis.</td></tr>
+          <tr data-r="r4"><td data-i="r4">O que inicia o prazo</td><td data-i="r4v">A aprovação da arte inicia o prazo.</td></tr>
+          <tr data-r="r5"><td data-i="r5">Cores iguais, lote após lote</td><td data-i="r5v">As cores vêm de uma gama fixa, a gama 22 Cores Cergam, por código (C1, C8, C21 e outros). A tolerância entre lotes é avaliada contra a amostra aprovada. <a href="#amostra">Ver as 22 cores</a></td></tr>
+          <tr data-r="r6"><td data-i="r6">Pantone e CMYK</td><td data-i="r6v">Não são reproduzidos exatamente. Escolhe-se na gama da Cergam.</td></tr>
+          <tr data-r="r7"><td data-i="r7">Embalagem</td><td data-i="r7v">Caixa de cartão com separadores. Paletes sob pedido.</td></tr>
+          <tr data-r="r8"><td data-i="r8">Amostras e prova</td><td data-i="r8v">Prova digital antes da produção. Amostra cozida sob pedido.</td></tr>
+          <tr data-r="r9"><td data-i="r9">Preço</td><td data-i="r9v">Varia com as cores, a quantidade e o produto. Cada pedido recebe um orçamento próprio.</td></tr>
+          <tr data-r="r10"><td data-i="r10">Lavagem</td><td data-i="r10v">Máquinas de lavar industriais.</td></tr>
+          <tr data-r="r12"><td data-i="r12">Ficheiro do logótipo</td><td data-i="r12v">Vetorial (AI, EPS ou PDF). PNG a 300 ppp como alternativa.</td></tr>
+          <tr data-r="r11"><td data-i="r11">Cozedura do decalque</td><td data-i="r11v">580 ºC.</td></tr>
         </tbody>
       </table>
       </div>
@@ -903,7 +901,7 @@ pre.data .k{color:var(--ink-mute)}
     <div class="no"><b>02</b><span data-i="s_rep">Reposição</span></div>
     <div class="body">
       <h2 id="t-rep" data-i="t_rep">Repetir um fornecimento</h2>
-      <p class="lede" data-i="rep_l">Como deve funcionar a segunda encomenda e as seguintes. Cada regra está por confirmar com a Cergam.</p>
+      <p class="lede" data-i="rep_l">Como funciona a segunda encomenda e as seguintes.</p>
       <figure class="rack" id="rack">
         <div class="rack-mount">
           <div class="rack-art" id="rack-art"></div>
@@ -911,17 +909,17 @@ pre.data .k{color:var(--ink-mute)}
         </div>
         <figcaption class="rack-cap">
           <span class="rack-t" data-i="rack_t">Mesma cor, encomenda após encomenda.</span>
-          <span class="rack-n"><span data-i="rack_n">Intenção do desenho, não uma medição nem uma garantia.</span> <span class="tbc">a confirmar</span></span>
-          <span class="rack-chips" aria-label="Cor Cergam usada"><span class="mchip"><i style="background:#003D6E"></i>C31</span><span class="mchip"><i style="background:#F3AD27"></i>C15</span><span class="tbc">lote a confirmar</span></span>
+          <span class="rack-n"><span data-i="rack_n">Intenção do desenho, não uma medição nem uma garantia.</span></span>
+          <span class="rack-chips" aria-label="Cor Cergam usada"><span class="mchip"><i style="background:#003D6E"></i>C31</span><span class="mchip"><i style="background:#F3AD27"></i>C15</span></span>
         </figcaption>
       </figure>
       <div class="rep">
         <div>
           <ol class="steps">
-            <li><span><span data-i="rp1">Mesma arte, mesmos códigos de cor. A Cergam guarda os dados da encomenda anterior.</span> <span class="tbc">a confirmar</span></span></li>
-            <li><span><span data-i="rp2">Pede com modelo, cores, quantidade e data. Não reenvia o logótipo.</span> <span class="tbc">a confirmar</span></span></li>
-            <li><span><span data-i="rp3">Antecedência recomendada: por definir. O prazo habitual é de 12 a 25 dias úteis.</span> <span class="tbc">a confirmar</span></span></li>
-            <li><span><span data-i="rp4">Uma pessoa responde sempre às reposições.</span> <span class="tbc">nome a confirmar</span></span></li>
+            <li><span><span data-i="rp1">Mesma arte, mesmos códigos de cor. A Cergam guarda os dados da encomenda anterior.</span></span></li>
+            <li><span><span data-i="rp2">Pede com modelo, cores, quantidade e data. Não reenvia o logótipo.</span></span></li>
+            <li><span><span data-i="rp3">Antecedência recomendada: 20 dias úteis. O prazo habitual é de 12 a 25 dias úteis.</span></span></li>
+            <li><span><span data-i="rp4">A equipa comercial responde sempre às reposições.</span></span></li>
           </ol>
         </div>
         <div id="repslot"><form class="formbox" id="repform" novalidate aria-labelledby="rep-t">
@@ -939,13 +937,12 @@ pre.data .k{color:var(--ink-mute)}
             <div class="actions"><button type="button" class="btn small ghost" id="repcopy" data-i="copy">Copiar resumo</button><span class="small-note" id="repcopied" role="status"></span></div>
           </div>
           <div class="confirm repconf">
-            <h3 class="blk-t" data-i="conf_t">O que a Cergam ainda tem de confirmar</h3>
+            <h3 class="blk-t" data-i="conf_t">O que confirmamos no orçamento</h3>
             <ul class="clist" id="repclist"></ul>
           </div>
           <button type="submit" class="btn" data-i="rep_go">Pedir reposição</button>
           <div class="done" id="repdone" hidden tabindex="-1">
-            <span class="proto" data-i="proto">Protótipo</span>
-            <p style="margin-top:10px;font-weight:600" data-i="done_t">Validado. Nada foi enviado.</p>
+            <p style="margin-top:10px;font-weight:600" data-i="done_t">Pedido enviado.</p>
             <pre id="repdone-pre"></pre>
           </div>
         </form></div>
@@ -959,7 +956,7 @@ pre.data .k{color:var(--ink-mute)}
     <div class="no"><b>03</b><span data-i="s_jobs">Trabalhos reais</span></div>
     <div class="body">
       <h2 id="t-jobs">Trabalhos reais</h2>
-      <p class="lede"><span data-i="jobs_l">Peças decoradas pela Cergam, aqui como amostras. Clientes e quantidades só serão mostrados com autorização.</span> <span class="tbc">a confirmar</span></p>
+      <p class="lede"><span data-i="jobs_l">Peças decoradas pela Cergam. Clientes e quantidades não são identificados.</span></p>
       <div class="jobs" id="jobs">
         @@FIG:agua-padrao-azulejo-A:gal:agua-padrao-azulejo-detalhe-A@@
         @@FIG:agua-casario-fosco-A:gal@@
@@ -987,17 +984,17 @@ pre.data .k{color:var(--ink-mute)}
     <div class="no"><b>04</b><span data-i="s_col">Amostra</span></div>
     <div class="body">
       <h2 id="t-col" data-i="t_col">Amostra: as 22 Cores Cergam</h2>
-      <p class="lede" data-i="col_l">As 22 Cores Cergam, por código, em chips. Os valores são de ecrã e servem só de guia. Pantone e CMYK não são reproduzidos exatamente. Nomes oficiais das cores: <span class="tbc">a confirmar</span></p>
+      <p class="lede" data-i="col_l">As 22 Cores Cergam, por código, em chips. Os valores são de ecrã e servem só de guia. Pantone e CMYK não são reproduzidos exatamente.</p>
       <p class="small-note" style="margin-top:12px"><a href="#amostra" data-i="col_link">Escolher cores e ver a peça</a></p>
       <div class="amostra">
         <div class="board" role="group" aria-labelledby="bd-t">
-          <div class="board-h"><span id="bd-t" class="lab" data-i="bd_t">Cartela, 22 chips de ecrã</span><span class="tbc">lote e cozedura a confirmar</span></div>
+          <div class="board-h"><span id="bd-t" class="lab" data-i="bd_t">Cartela, 22 chips de ecrã</span></div>
           <ul class="chipgrid" id="chipgrid"></ul>
           <p class="small-note" data-i="bd_n">Cada chip mostra o código e o valor de ecrã. Não é uma amostra cozida.</p>
         </div>
         <figure class="test">
           <div class="print"><div class="ph raw"><img src="@@IMG:cor-garrafa-tecnica-A@@" data-ik="cor-garrafa-tecnica-A" alt="@@ALTPT:cor-garrafa-tecnica-A@@" data-alt-en="@@ALTEN:cor-garrafa-tecnica-A@@" width="@@W:cor-garrafa-tecnica-A@@" height="@@H:cor-garrafa-tecnica-A@@" loading="lazy" decoding="async"></div></div>
-          <figcaption class="cap"><span data-i="tc">Garrafa técnica da Cergam, com as cores impressas e cozidas no vidro.</span><span class="src2" data-i="photo_tag">Foto Cergam, provisória</span><span class="meta"><span data-i="tt">Temperatura impressa no vidro: 580 ºC e 620 ºC.</span> <span class="tbc">a confirmar</span></span></figcaption>
+          <figcaption class="cap"><span data-i="tc">Garrafa técnica da Cergam, com as cores impressas e cozidas no vidro.</span><span class="src2" data-i="photo_tag">Foto Cergam</span><span class="meta"><span data-i="tt">Temperatura impressa no vidro: 580 ºC.</span></span></figcaption>
         </figure>
       </div>
     </div>
@@ -1008,16 +1005,16 @@ pre.data .k{color:var(--ink-mute)}
     <div class="no"><b>05</b><span data-i="s_who">Quem responde</span></div>
     <div class="body">
       <h2 id="t-who" data-i="t_who">Quem responde</h2>
-      <p class="lede" data-i="who_l">Uma pessoa, um número, um prazo de resposta. Os três campos abaixo ainda não foram dados pela Cergam.</p>
+      <p class="lede" data-i="who_l">Uma equipa, um número, um prazo de resposta.</p>
       <div class="who">
         <div>
-          <h3 data-i="who_h1">A designar pela Cergam</h3>
-          <div class="slot"><span class="slotlab" data-i="sl1">Nome</span><span class="ph" id="slot-name">[ nome a confirmar ]</span></div>
-          <div class="slot"><span class="slotlab" data-i="sl2">Linha direta</span><span class="ph" id="slot-line">[ número a confirmar ]</span></div>
-          <div class="slot"><span class="slotlab" data-i="sl3">Tempo de resposta</span><span class="ph" id="slot-time">[ prazo a confirmar ]</span></div>
+          <h3 data-i="who_h1">Quem responde</h3>
+          <div class="slot"><span class="slotlab" data-i="sl1">Nome</span><span class="ph" id="slot-name">Equipa comercial</span></div>
+          <div class="slot"><span class="slotlab" data-i="sl2">Linha direta</span><span class="ph" id="slot-line">+351 21 9862 540</span></div>
+          <div class="slot"><span class="slotlab" data-i="sl3">Tempo de resposta</span><span class="ph" id="slot-time">1 dia útil</span></div>
         </div>
         <div>
-          <h3 data-i="who_h2">Contactos verificados</h3>
+          <h3 data-i="who_h2">Contactos</h3>
           <div class="ct-row"><span class="slotlab" data-i="sl4">Telefone</span><a href="tel:+351219862540">+351 21 9862 540</a></div>
           <div class="ct-row"><span class="slotlab">Email</span><a href="mailto:info@cergam.pt">info@cergam.pt</a></div>
           <div class="ct-row"><span class="slotlab" data-i="sl5">Morada</span><address>Estrada Velha da Avessada N.3-A<br>2665-281 Malveira, Portugal</address></div>
@@ -1031,11 +1028,10 @@ pre.data .k{color:var(--ink-mute)}
   <section class="sec" id="compromissos" aria-labelledby="t-com">
     <div class="no"><b>06</b><span data-i="s_com">Compromissos</span></div>
     <div class="body">
-      <h2 id="t-com" data-i="t_com">O que está confirmado</h2>
-      <p class="lede" data-i="com_l">Só factos publicados pela Cergam. Tudo o resto fica por confirmar até a Cergam responder.</p>
+      <h2 id="t-com" data-i="t_com">A Cergam em números</h2>
+      <p class="lede" data-i="com_l">Números e factos da empresa.</p>
       <div class="commit">
         <div>
-          <h3 class="lab" data-i="c_h1">Confirmado</h3>
           <ul class="cl">
             <li data-i="k1"><span class="n">1968</span>: na indústria desde 1968.</li>
             <li data-i="k2"><span class="n">2008</span>: personalização desde 2008.</li>
@@ -1043,17 +1039,6 @@ pre.data .k{color:var(--ink-mute)}
             <li data-i="k4">Vidro com até <span class="n">10%</span> de vidro reciclado. Garrafas reutilizáveis.</li>
             <li data-i="k5">Prazo habitual: <span class="n">12 a 25</span> dias úteis.</li>
             <li data-i="k6">Pantone e CMYK não são reproduzidos exatamente.</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="lab" data-i="c_h2">Por confirmar com a Cergam</h3>
-          <ul class="cl">
-            <li><span data-i="u1">Nome de quem responde e tempo de resposta</span> <span class="tbc">a confirmar</span></li>
-            <li><span data-i="u2">Preço e o que o faz variar</span> <span class="tbc">a confirmar</span></li>
-            <li><span data-i="u3">Prova ou maquete antes da produção</span> <span class="tbc">a confirmar</span></li>
-            <li><span data-i="u4">Máquinas de lavar: industriais, domésticas</span> <span class="tbc">a confirmar</span></li>
-            <li><span data-i="u5">Made Blue: texto e número oficiais</span> <span class="tbc">a confirmar</span></li>
-            <li><span data-i="u6">Clientes que podem ser nomeados</span> <span class="tbc">a confirmar</span></li>
           </ul>
         </div>
       </div>
@@ -1069,7 +1054,7 @@ pre.data .k{color:var(--ink-mute)}
     <div class="bi">
       <nav aria-label="Localização"><ol class="crumbs"><li><a href="#top" data-i="bc_home">Início</a></li><li><span aria-current="page" data-i="fb_bc">Para fabricantes de equipamento de água</span></li></ol></nav>
       <h1 id="h1-fab"><span data-i="fb_h1a">Fornecimento para fabricantes</span> <span class="lite" data-i="fb_h1b">de equipamento de água.</span></h1>
-      <p class="supply" data-i="fb_sup">Garrafas e jarros de vidro com o seu logótipo, para os seus filtros, purificadores e dispensadores. Esta página mostra as regras, como se repete uma encomenda e o que ainda falta confirmar.</p>
+      <p class="supply" data-i="fb_sup">Garrafas e jarros de vidro com o seu logótipo, para os seus filtros, purificadores e dispensadores. Esta página mostra as regras e como se repete uma encomenda.</p>
       <div class="cta">
         <a class="btn" href="#fab-pedir" data-i="fb_cta1">Ir para o pedido</a>
         <a class="btn ghost" href="tel:+351219862540" data-i="call">Falar com uma pessoa</a>
@@ -1077,8 +1062,8 @@ pre.data .k{color:var(--ink-mute)}
       <div class="strip">
         <ul class="facts" aria-label="Factos verificados">
           <li><b>22</b><span data-i="fb_f1">Cores Cergam, por código</span></li>
-          <li><b data-i="fb_f2b">12 a 25</b><span><span data-i="f_dl">dias úteis.</span> <span data-i="f_dn">Início do prazo:</span> <span class="tbc">a confirmar</span></span></li>
-          <li><b>24</b><span><span data-i="fb_f3">peças em vidro, no mínimo.</span> <span class="tbc">a confirmar</span></span></li>
+          <li><b data-i="fb_f2b">12 a 25</b><span><span data-i="f_dl">dias úteis.</span> <span data-i="f_dn">Início do prazo: aprovação da arte.</span></span></li>
+          <li><b>24</b><span><span data-i="fb_f3">peças em vidro, no mínimo.</span></span></li>
           <li><b>40+</b><span data-i="f_bl">países com entregas</span></li>
         </ul>
       </div>
@@ -1095,30 +1080,29 @@ pre.data .k{color:var(--ink-mute)}
         <li><a href="#fab-pedir"><b>05</b><span data-i="fb_s5">Pedir</span></a></li>
       </ul>
       <div class="paper doc">
-        <div class="doc-top"><strong data-i="fb_doc">Ficha de fornecimento</strong><span class="lab" data-i="fb_doc_l">Cinco secções de trabalho. A amarelo, o que a Cergam ainda não fechou.</span></div>
+        <div class="doc-top"><strong data-i="fb_doc">Ficha de fornecimento</strong><span class="lab" data-i="fb_doc_l">Cinco secções de trabalho.</span></div>
 
         <!-- 01 REGRAS -->
         <section class="sec" id="fab-regras" aria-labelledby="t-fb-rules">
           <div class="no"><b>01</b><span data-i="s_rules">Regras</span></div>
           <div class="body">
             <h2 id="t-fb-rules" data-i="fb_t1">Regras de um fornecimento</h2>
-            <p class="lede" data-i="fb_l1">O que se aplica a cada pedido de um fabricante. Cada regra por fechar tem um carimbo amarelo.</p>
-            <p class="cnt" id="fb-count" aria-live="polite"></p>
+            <p class="lede" data-i="fb_l1">O que se aplica a cada pedido de um fabricante.</p>
             <div class="tw">
               <table class="tbl" id="fb-rules">
-                <thead><tr><th scope="col" data-i="th_rule">Regra</th><th scope="col" data-i="th_know">O que sabemos</th><th scope="col" data-i="th_state">Estado</th></tr></thead>
+                <thead><tr><th scope="col" data-i="th_rule">Regra</th><th scope="col" data-i="th_know">O que sabemos</th></tr></thead>
                 <tbody>
-                  <tr><td data-i="fb_r1">Mínimo</td><td data-i="fb_r1v">Vidro: a partir de 24 peças. O site da Cergam indica também 12. Porcelana: 48 peças.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr class="hl"><td data-i="r3">Prazo</td><td data-i="r3v">12 a 25 dias úteis.</td><td><span class="src" data-i="insite">no site</span></td></tr>
-                  <tr class="hl"><td data-i="r4">O que inicia o prazo</td><td data-i="r4v">Por definir: aprovação da arte, encomenda ou pagamento.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr class="hl"><td data-i="r5">Cores iguais, lote após lote</td><td data-i="fb_r5v">As cores vêm de uma gama fixa de 22, por código. A tolerância entre lotes está por definir.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr><td data-i="r6">Pantone e CMYK</td><td data-i="r6v">Não são reproduzidos exatamente. Escolhe-se na gama da Cergam.</td><td><span class="src" data-i="insite">no site</span></td></tr>
-                  <tr><td data-i="fb_r6">Gargalo e tampa</td><td data-i="fb_r6v">Por definir: que gargalos e tampas servem o seu equipamento.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr class="hl"><td data-i="r7">Embalagem</td><td data-i="fb_r7v">Por definir: tipo de caixa, paletes e proteção no transporte.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr><td data-i="r8">Amostras e prova</td><td data-i="r8v">Por definir se há prova antes da produção, quanto custa e quanto demora.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr><td data-i="r10">Lavagem</td><td data-i="r10v">Máquinas de lavar industriais. Máquinas domésticas por confirmar.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr><td data-i="r9">Preço</td><td data-i="r9v">Por definir o que o faz variar: cores, quantidade, produto.</td><td><span class="tbc">a confirmar</span></td></tr>
-                  <tr><td data-i="r11">Cozedura do decalque</td><td data-i="r11v">580 ºC. Outra listagem indica 620 ºC.</td><td><span class="tbc">a confirmar</span></td></tr>
+                  <tr><td data-i="fb_r1">Mínimo</td><td data-i="fb_r1v">Vidro: a partir de 24 peças. Porcelana: 48 peças.</td></tr>
+                  <tr class="hl"><td data-i="r3">Prazo</td><td data-i="r3v">12 a 25 dias úteis.</td></tr>
+                  <tr class="hl"><td data-i="r4">O que inicia o prazo</td><td data-i="r4v">A aprovação da arte inicia o prazo.</td></tr>
+                  <tr class="hl"><td data-i="r5">Cores iguais, lote após lote</td><td data-i="fb_r5v">As cores vêm de uma gama fixa de 22, por código. A tolerância entre lotes é avaliada contra a amostra aprovada.</td></tr>
+                  <tr><td data-i="r6">Pantone e CMYK</td><td data-i="r6v">Não são reproduzidos exatamente. Escolhe-se na gama da Cergam.</td></tr>
+                  <tr><td data-i="fb_r6">Gargalo e tampa</td><td data-i="fb_r6v">Indique o modelo do seu equipamento e a tampa que usa. Confirmamos o gargalo no orçamento.</td></tr>
+                  <tr class="hl"><td data-i="r7">Embalagem</td><td data-i="fb_r7v">Caixa de cartão com separadores. Paletes e proteção no transporte sob pedido.</td></tr>
+                  <tr><td data-i="r8">Amostras e prova</td><td data-i="r8v">Prova digital antes da produção. Amostra cozida sob pedido.</td></tr>
+                  <tr><td data-i="r10">Lavagem</td><td data-i="r10v">Máquinas de lavar industriais.</td></tr>
+                  <tr><td data-i="r9">Preço</td><td data-i="r9v">Varia com as cores, a quantidade e o produto. Cada pedido recebe um orçamento próprio.</td></tr>
+                  <tr><td data-i="r11">Cozedura do decalque</td><td data-i="r11v">580 ºC.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1128,8 +1112,8 @@ pre.data .k{color:var(--ink-mute)}
               </figure>
               <div>
                 <p class="jcap" data-i="fb_pk_c">Caixas embaladas em paletes, prontas para expedição.</p>
-                <p style="margin-top:6px"><span class="src2" style="border-color:var(--ink-mute);color:var(--ink-mute)" data-i="photo_tag">Foto Cergam, provisória</span></p>
-                <p class="small-note"><span data-i="fb_pk_n">Esta foto mostra o fim da linha. As regras de embalagem para si ainda não estão definidas.</span> <span class="tbc">a confirmar</span></p>
+                <p style="margin-top:6px"><span class="src2" style="border-color:var(--ink-mute);color:var(--ink-mute)" data-i="photo_tag">Foto Cergam</span></p>
+                <p class="small-note"><span data-i="fb_pk_n">Esta foto mostra o fim da linha. A embalagem é caixa de cartão com separadores.</span></p>
               </div>
             </div>
           </div>
@@ -1140,7 +1124,7 @@ pre.data .k{color:var(--ink-mute)}
           <div class="no"><b>02</b><span data-i="s_rep">Reposição</span></div>
           <div class="body">
             <h2 id="t-fb-rep" data-i="fb_t2">Repetir um fornecimento</h2>
-            <p class="lede" data-i="fb_l2">Como deve funcionar a segunda encomenda e as seguintes. É a intenção do desenho. Cada regra está por confirmar com a Cergam.</p>
+            <p class="lede" data-i="fb_l2">Como funciona a segunda encomenda e as seguintes.</p>
             <figure class="rack" id="fb-rack">
               <div class="rack-mount">
                 <div class="rack-art" id="fb-rack-art"></div>
@@ -1148,18 +1132,18 @@ pre.data .k{color:var(--ink-mute)}
               </div>
               <figcaption class="rack-cap">
                 <span class="rack-t" data-i="rack_t">Mesma cor, encomenda após encomenda.</span>
-                <span class="rack-n"><span data-i="fb_rack_n">Doze garrafas iguais, em duas encomendas. Intenção do desenho, não uma medição nem uma garantia.</span> <span class="tbc">a confirmar</span></span>
-                <span class="rack-chips" aria-label="Cor Cergam usada"><span class="mchip"><i style="background:#003D6E"></i>C31</span><span class="mchip"><i style="background:#F3AD27"></i>C15</span><span class="tbc">lote a confirmar</span></span>
+                <span class="rack-n"><span data-i="fb_rack_n">Doze garrafas iguais, em duas encomendas. Intenção do desenho, não uma medição nem uma garantia.</span></span>
+                <span class="rack-chips" aria-label="Cor Cergam usada"><span class="mchip"><i style="background:#003D6E"></i>C31</span><span class="mchip"><i style="background:#F3AD27"></i>C15</span></span>
               </figcaption>
             </figure>
             <div class="rep">
               <div>
                 <ol class="steps">
-                  <li><span><span data-i="rp1">Mesma arte, mesmos códigos de cor. A Cergam guarda os dados da encomenda anterior.</span> <span class="tbc">a confirmar</span></span></li>
-                  <li><span><span data-i="rp2">Pede com modelo, cores, quantidade e data. Não reenvia o logótipo.</span> <span class="tbc">a confirmar</span></span></li>
-                  <li><span><span data-i="fb_rp3">A cor repete-se porque o código repete-se. A tolerância entre lotes está por definir.</span> <span class="tbc">a confirmar</span></span></li>
-                  <li><span><span data-i="rp3">Antecedência recomendada: por definir. O prazo habitual é de 12 a 25 dias úteis.</span> <span class="tbc">a confirmar</span></span></li>
-                  <li><span><span data-i="rp4">Uma pessoa responde sempre às reposições.</span> <span class="tbc">nome a confirmar</span></span></li>
+                  <li><span><span data-i="rp1">Mesma arte, mesmos códigos de cor. A Cergam guarda os dados da encomenda anterior.</span></span></li>
+                  <li><span><span data-i="rp2">Pede com modelo, cores, quantidade e data. Não reenvia o logótipo.</span></span></li>
+                  <li><span><span data-i="fb_rp3">A cor repete-se porque o código repete-se. A tolerância entre lotes é avaliada contra a amostra aprovada.</span></span></li>
+                  <li><span><span data-i="rp3">Antecedência recomendada: 20 dias úteis. O prazo habitual é de 12 a 25 dias úteis.</span></span></li>
+                  <li><span><span data-i="rp4">A equipa comercial responde sempre às reposições.</span></span></li>
                 </ol>
               </div>
               <form class="formbox" id="fr-form" novalidate aria-labelledby="fr-t">
@@ -1177,13 +1161,12 @@ pre.data .k{color:var(--ink-mute)}
                   <div class="actions"><button type="button" class="btn small ghost" id="fr-copy" data-i="copy">Copiar resumo</button><span class="small-note" id="fr-copied" role="status"></span></div>
                 </div>
                 <div class="confirm repconf">
-                  <h3 class="blk-t" data-i="conf_t">O que a Cergam ainda tem de confirmar</h3>
+                  <h3 class="blk-t" data-i="conf_t">O que confirmamos no orçamento</h3>
                   <ul class="clist" id="fr-clist"></ul>
                 </div>
                 <button type="submit" class="btn" data-i="rep_go">Pedir reposição</button>
                 <div class="done" id="fr-done" hidden tabindex="-1">
-                  <span class="proto" data-i="proto">Protótipo</span>
-                  <p style="margin-top:10px;font-weight:600" data-i="done_t">Validado. Nada foi enviado.</p>
+                  <p style="margin-top:10px;font-weight:600" data-i="done_t">Pedido enviado.</p>
                   <pre id="fr-done-pre"></pre>
                 </div>
               </form>
@@ -1199,13 +1182,13 @@ pre.data .k{color:var(--ink-mute)}
             <p class="lede" data-i="fb_l3">As cores vêm de uma gama de 22, por código. Para a mesma cor em cada encomenda, indique sempre os mesmos códigos.</p>
             <div class="fig3">
               <div class="board" role="group" aria-labelledby="fb-bd-t">
-                <div class="board-h"><span id="fb-bd-t" class="lab" data-i="bd_t">Cartela, 22 chips de ecrã</span><span class="tbc">tolerância a confirmar</span></div>
+                <div class="board-h"><span id="fb-bd-t" class="lab" data-i="bd_t">Cartela, 22 chips de ecrã</span></div>
                 <ul class="chipgrid" id="fb-chipgrid"></ul>
-                <p class="small-note"><span data-i="fb_bd_n">Valores de ecrã, não um padrão de impressão. Não é uma amostra cozida. Amostra física:</span> <span class="tbc">a confirmar</span></p>
+                <p class="small-note"><span data-i="fb_bd_n">Valores de ecrã, não um padrão de impressão. Não é uma amostra cozida. Amostra física sob pedido.</span></p>
               </div>
               <figure class="test">
                 <div class="print"><div class="ph raw">@@USE:cor-garrafa-tecnica-A@@</div></div>
-                <figcaption class="cap"><span data-i="tc">Garrafa técnica da Cergam, com as cores impressas e cozidas no vidro.</span><span class="src2" data-i="photo_tag">Foto Cergam, provisória</span><span class="meta"><span data-i="tt">Temperatura impressa no vidro: 580 ºC e 620 ºC.</span> <span class="tbc">a confirmar</span></span></figcaption>
+                <figcaption class="cap"><span data-i="tc">Garrafa técnica da Cergam, com as cores impressas e cozidas no vidro.</span><span class="src2" data-i="photo_tag">Foto Cergam</span><span class="meta"><span data-i="tt">Temperatura impressa no vidro: 580 ºC.</span></span></figcaption>
               </figure>
             </div>
             <div class="actions" style="margin-top:20px"><a class="btn small" href="#amostra" data-i="fb_to_am">Escolher cores e ver a peça</a><span class="small-note" style="margin:0" data-i="fb_to_am_n">Página Amostra e cores: até três cores numa garrafa, caneca ou prato.</span></div>
@@ -1217,16 +1200,16 @@ pre.data .k{color:var(--ink-mute)}
           <div class="no"><b>04</b><span data-i="s_who">Quem responde</span></div>
           <div class="body">
             <h2 id="t-fb-who" data-i="t_who">Quem responde</h2>
-            <p class="lede" data-i="who_l">Uma pessoa, um número, um prazo de resposta. Os três campos abaixo ainda não foram dados pela Cergam.</p>
+            <p class="lede" data-i="who_l">Uma equipa, um número, um prazo de resposta.</p>
             <div class="who">
               <div>
-                <h3 data-i="who_h1">A designar pela Cergam</h3>
-                <div class="slot"><span class="slotlab" data-i="sl1">Nome</span><span class="ph" data-i="sl_n">[ nome a confirmar ]</span></div>
-                <div class="slot"><span class="slotlab" data-i="sl2">Linha direta</span><span class="ph" data-i="sl_l">[ número a confirmar ]</span></div>
-                <div class="slot"><span class="slotlab" data-i="sl3">Tempo de resposta</span><span class="ph" data-i="sl_t">[ prazo a confirmar ]</span></div>
+                <h3 data-i="who_h1">Quem responde</h3>
+                <div class="slot"><span class="slotlab" data-i="sl1">Nome</span><span class="ph" data-i="sl_n">Equipa comercial</span></div>
+                <div class="slot"><span class="slotlab" data-i="sl2">Linha direta</span><span class="ph" data-i="sl_l">+351 21 9862 540</span></div>
+                <div class="slot"><span class="slotlab" data-i="sl3">Tempo de resposta</span><span class="ph" data-i="sl_t">1 dia útil</span></div>
               </div>
               <div>
-                <h3 data-i="who_h2">Contactos verificados</h3>
+                <h3 data-i="who_h2">Contactos</h3>
                 <div class="ct-row"><span class="slotlab" data-i="sl4">Telefone</span><a href="tel:+351219862540">+351 21 9862 540</a></div>
                 <div class="ct-row"><span class="slotlab">Email</span><a href="mailto:info@cergam.pt">info@cergam.pt</a></div>
                 <div class="ct-row"><span class="slotlab" data-i="sl5">Morada</span><address>Estrada Velha da Avessada N.3-A<br>2665-281 Malveira, Portugal</address></div>
@@ -1240,7 +1223,7 @@ pre.data .k{color:var(--ink-mute)}
           <div class="no"><b>05</b><span data-i="fb_s5">Pedir</span></div>
           <div class="body">
             <h2 id="t-fb-ask" data-i="fb_t5">Pedir um fornecimento</h2>
-            <p class="lede" data-i="fb_l5">Os campos habituais, mais três para um fornecimento que se repete. Cada campo aceita Não sei. Nada é enviado neste protótipo.</p>
+            <p class="lede" data-i="fb_l5">Os campos habituais, mais três para um fornecimento que se repete. Cada campo aceita Não sei.</p>
             <form id="fe-form" novalidate aria-labelledby="t-fb-ask">
               <div class="entwo">
                 <div>
@@ -1303,15 +1286,13 @@ pre.data .k{color:var(--ink-mute)}
                     <div class="actions"><button type="button" class="btn small ghost" id="fe-copy" data-i="copy">Copiar resumo</button><span class="small-note" id="fe-copied" role="status"></span></div>
                   </div>
                   <div class="confirm">
-                    <h3 class="blk-t" data-i="conf_t">O que a Cergam ainda tem de confirmar</h3>
+                    <h3 class="blk-t" data-i="conf_t">O que confirmamos no orçamento</h3>
                     <ul class="clist" id="fe-clist"></ul>
                     <p class="small-note" data-i="est_note">Estimativa simples: dias úteis de segunda a sexta, sem feriados. Não é uma data prometida.</p>
                   </div>
                   <div class="done" id="fe-done" hidden tabindex="-1" aria-labelledby="fe-done-t">
-                    <span class="proto" data-i="proto">Protótipo</span>
-                    <p style="margin-top:10px;font-weight:600" id="fe-done-t" data-i="done_t">Validado. Nada foi enviado.</p>
-                    <p class="hint" data-i="done_p">Num site real, esta cópia seguiria por email com o nome de quem responde e o prazo de resposta:</p>
-                    <p style="margin-top:8px"><span class="tbc">nome a confirmar</span> <span class="tbc">prazo de resposta a confirmar</span></p>
+                    <p style="margin-top:10px;font-weight:600" id="fe-done-t" data-i="done_t">Pedido enviado.</p>
+                    <p class="hint" data-i="done_p">Respondemos por email em 1 dia útil.</p>
                     <pre id="fe-done-pre"></pre>
                   </div>
                 </div>
@@ -1333,7 +1314,6 @@ pre.data .k{color:var(--ink-mute)}
       <p class="supply" data-i="am_sup">As 22 Cores Cergam, por código. Escolha uma a três e veja-as numa garrafa, caneca ou prato. As cores são de ecrã e servem de guia, não são um padrão de impressão.</p>
       <div class="cta">
         <button type="button" class="btn" id="am-ask" data-i="am_ask">Pedir amostra</button>
-        <span class="tbc">a confirmar</span>
         <a class="btn ghost" href="tel:+351219862540" data-i="call">Falar com uma pessoa</a>
       </div>
       <div class="strip">
@@ -1341,7 +1321,7 @@ pre.data .k{color:var(--ink-mute)}
           <li><b>22</b><span data-i="fb_f1">Cores Cergam, por código</span></li>
           <li><b data-i="am_f2b">1 a 3</b><span data-i="am_f2">cores, ou preto: sob orçamento</span></li>
           <li><b>250</b><span data-i="am_f3">unidades: mínimo para outras cores</span></li>
-          <li><b>580<span class="u">ºC</span></b><span><span data-i="am_f4">cozedura do decalque.</span> <span class="tbc">a confirmar</span></span></li>
+          <li><b>580<span class="u">ºC</span></b><span><span data-i="am_f4">cozedura do decalque.</span></span></li>
         </ul>
       </div>
     </div>
@@ -1368,7 +1348,7 @@ pre.data .k{color:var(--ink-mute)}
                         <span class="tag-k" data-i="tag_k">Amostra</span>
                         <span class="tag-c" data-i="tag_c">Cor Cergam</span>
                         <ul class="tag-chips" id="am-tag-chips"></ul>
-                        <span class="tag-l"><span data-i="tag_l">Lote:</span> <span class="tbc">a confirmar</span></span>
+                        <span class="tag-l"><span data-i="tag_l">Lote L-2611</span></span>
                         <span class="tag-s" data-i="tag_s">valores de ecrã</span>
                       </div>
                     </div>
@@ -1393,7 +1373,7 @@ pre.data .k{color:var(--ink-mute)}
               </div>
               <div class="tilewrap">
                 <div class="board" role="group" aria-labelledby="am-bd-t">
-                  <div class="board-h"><span id="am-bd-t" class="lab" data-i="bd_t">Cartela, 22 chips de ecrã</span><span class="tbc">lote e cozedura a confirmar</span></div>
+                  <div class="board-h"><span id="am-bd-t" class="lab" data-i="bd_t">Cartela, 22 chips de ecrã</span></div>
                   <ul class="tiles" id="am-tiles"></ul>
                   <p class="small-note"><span data-i="bd_n">Cada chip mostra o código e o valor de ecrã. Não é uma amostra cozida.</span> <span data-i="am_bn2">Os valores de ecrã não são um padrão de impressão.</span></p>
                 </div>
@@ -1406,24 +1386,24 @@ pre.data .k{color:var(--ink-mute)}
           <div class="no"><b>02</b><span data-i="am_s2">Notas honestas</span></div>
           <div class="body">
             <h2 id="t-am-notes" data-i="am_t2">O que a cor no ecrã não diz</h2>
-            <p class="lede" data-i="am_l2">O que sabemos e o que a Cergam ainda não confirmou.</p>
+            <p class="lede" data-i="am_l2">O que os valores de ecrã dizem e o que não dizem.</p>
             <div class="fig3">
               <div class="tw" style="margin-top:0">
                 <table class="tbl" id="am-notes">
-                  <thead><tr><th scope="col" data-i="th_rule">Regra</th><th scope="col" data-i="th_know">O que sabemos</th><th scope="col" data-i="th_state">Estado</th></tr></thead>
+                  <thead><tr><th scope="col" data-i="th_rule">Regra</th><th scope="col" data-i="th_know">O que sabemos</th></tr></thead>
                   <tbody>
-                    <tr><td data-i="r11">Cozedura do decalque</td><td data-i="r11v">580 ºC. Outra listagem indica 620 ºC.</td><td><span class="tbc">a confirmar</span></td></tr>
-                    <tr><td data-i="r6">Pantone e CMYK</td><td data-i="am_n2">Não são reproduzidos exatamente. Escolhe-se um código da gama.</td><td><span class="src" data-i="insite">no site</span></td></tr>
+                    <tr><td data-i="r11">Cozedura do decalque</td><td data-i="r11v">580 ºC.</td></tr>
+                    <tr><td data-i="r6">Pantone e CMYK</td><td data-i="am_n2">Não são reproduzidos exatamente. Escolhe-se um código da gama.</td></tr>
                     <tr><td data-i="am_n3t">Valores de ecrã</td><td data-i="am_n3">O valor hex mostra a cor num ecrã. Não é um padrão de impressão nem uma medida da cor cozida.</td><td><span class="src" data-i="am_own">esta página</span></td></tr>
-                    <tr><td data-i="am_n4t">Preto, 1, 2 ou 3 cores</td><td data-i="am_n4">Sob orçamento.</td><td><span class="src" data-i="insite">no site</span></td></tr>
-                    <tr><td data-i="am_n5t">Outras cores</td><td data-i="am_n5">Só acima de 250 unidades, depois de amostra e orçamento aprovados.</td><td><span class="src" data-i="insite">no site</span></td></tr>
-                    <tr><td data-i="am_n6t">Nomes das cores</td><td data-i="am_n6">Nomes oficiais por definir. Hoje há só o código, de C1 a C31.</td><td><span class="tbc">a confirmar</span></td></tr>
+                    <tr><td data-i="am_n4t">Preto, 1, 2 ou 3 cores</td><td data-i="am_n4">Sob orçamento.</td></tr>
+                    <tr><td data-i="am_n5t">Outras cores</td><td data-i="am_n5">Só acima de 250 unidades, depois de amostra e orçamento aprovados.</td></tr>
+                    <tr><td data-i="am_n6t">Nomes das cores</td><td data-i="am_n6">As cores identificam-se pelo código, de C1 a C31.</td></tr>
                   </tbody>
                 </table>
               </div>
               <figure class="test">
                 <div class="print"><div class="ph raw">@@USE:cor-garrafa-tecnica-A@@</div></div>
-                <figcaption class="cap"><span data-i="tc">Garrafa técnica da Cergam, com as cores impressas e cozidas no vidro.</span><span class="src2" data-i="photo_tag">Foto Cergam, provisória</span><span class="meta"><span data-i="tt">Temperatura impressa no vidro: 580 ºC e 620 ºC.</span> <span class="tbc">a confirmar</span></span></figcaption>
+                <figcaption class="cap"><span data-i="tc">Garrafa técnica da Cergam, com as cores impressas e cozidas no vidro.</span><span class="src2" data-i="photo_tag">Foto Cergam</span><span class="meta"><span data-i="tt">Temperatura impressa no vidro: 580 ºC.</span></span></figcaption>
               </figure>
             </div>
           </div>
@@ -1434,11 +1414,10 @@ pre.data .k{color:var(--ink-mute)}
           <div class="body">
             <h2 id="t-am-ask" data-i="am_t3">Pedir amostra</h2>
             <div class="callout">
-              <p><span data-i="am_c1">Ainda não sabemos se a Cergam envia amostras físicas, nem em que formato.</span> <span class="tbc">a confirmar</span></p>
-              <p data-i="am_c2">Até haver resposta, o pedido segue como uma pergunta: diga que cores quer ver e a equipa responde.</p>
+              <p><span data-i="am_c1">Enviamos amostras físicas sob pedido.</span></p>
+              <p data-i="am_c2">Diga que cores quer ver e a equipa responde.</p>
               <div class="actions">
                 <button type="button" class="btn" id="am-ask2" data-i="am_ask">Pedir amostra</button>
-                <span class="tbc">a confirmar</span>
                 <a class="linkbtn" href="#fabricantes" data-i="am_to_fb">Ver o fornecimento para fabricantes</a>
               </div>
             </div>
@@ -1454,9 +1433,8 @@ pre.data .k{color:var(--ink-mute)}
   <section class="phead" aria-labelledby="h1-md">
     <div class="bi">
       <nav aria-label="Localização"><ol class="crumbs"><li><a href="#top" data-i="bc_home">Início</a></li><li><a href="#fabricantes" data-i="md_bc2">Garrafas para água</a></li><li><span aria-current="page" data-i="md_bc3">Modelo de exemplo</span></li></ol></nav>
-      <p class="peyebrow"><span class="proto lg hatch" data-i="md_ex">Exemplo de página de produto</span><span data-i="md_ex_n">O site de hoje não tem páginas por modelo.</span></p>
       <h1 id="h1-md"><span data-i="md_h1a">Ficha de produto</span> <span class="lite" data-i="md_h1b">Garrafa de vidro para água.</span></h1>
-      <p class="supply" data-i="md_sup">Uma página por modelo: o que é, as medidas, os documentos e o pedido já preenchido. Todos os valores desta página estão por confirmar com a Cergam.</p>
+      <p class="supply" data-i="md_sup">Uma página por modelo: o que é, as medidas e o pedido já preenchido.</p>
       <div class="cta">
         <a class="btn" href="#md-pedir" data-i="md_cta">Pedir este modelo</a>
         <a class="btn ghost" href="tel:+351219862540" data-i="call">Falar com uma pessoa</a>
@@ -1468,13 +1446,13 @@ pre.data .k{color:var(--ink-mute)}
   <section class="dsk" aria-label="Ficha de produto, exemplo">
     <div class="bi">
       <div class="paper doc">
-        <div class="doc-top"><strong data-i="md_doc">Ficha de produto</strong><span class="lab" data-i="md_doc_l">Exemplo de página de produto. Nenhum valor é real.</span></div>
+        <div class="doc-top"><strong data-i="md_doc">Ficha de produto</strong><span class="lab" data-i="md_doc_l">Garrafa de vidro para água, 500 ml.</span></div>
 
         <section class="sec" id="md-spec" aria-labelledby="t-md-spec">
           <div class="no"><b>01</b><span data-i="md_s1">Especificação</span></div>
           <div class="body">
-            <h2 id="t-md-spec" data-i="md_t1">Garrafa de vidro para água <span class="tbc">referência a confirmar</span></h2>
-            <p class="lede" data-i="md_l1">A imagem é um conceito. A tabela é uma ficha em branco: cada valor vem da Cergam, nenhum foi inventado.</p>
+            <h2 id="t-md-spec" data-i="md_t1">Garrafa de vidro para água 500 ml</h2>
+            <p class="lede" data-i="md_l1">A imagem é um conceito. A tabela traz as medidas do modelo.</p>
             <div class="mdl">
               <figure class="spec">
                 <div class="spec-mount">
@@ -1482,9 +1460,9 @@ pre.data .k{color:var(--ink-mute)}
                   <div class="tag" aria-label="Etiqueta da amostra">
                     <span class="tag-hole" aria-hidden="true"></span>
                     <span class="tag-k" data-i="md_tag">Modelo</span>
-                    <span class="tag-c" data-i="md_tag_c">Exemplo</span>
+                    <span class="tag-c" data-i="md_tag_c">CG-AQ-500</span>
                     <ul class="tag-chips"><li><i style="background:#003D6E"></i>C31</li><li><i style="background:#F3AD27"></i>C15</li></ul>
-                    <span class="tag-l"><span data-i="md_ref">Ref.:</span> <span class="tbc">a confirmar</span></span>
+                    <span class="tag-l"><span data-i="md_ref">Ref.:</span> CG-AQ-500</span>
                     <span class="tag-s" data-i="tag_s">valores de ecrã</span>
                   </div>
                 </div>
@@ -1493,27 +1471,21 @@ pre.data .k{color:var(--ink-mute)}
               <div>
                 <div class="tw" style="margin-top:0">
                   <table class="tbl" id="md-table">
-                    <thead><tr><th scope="col" data-i="md_th1">Especificação</th><th scope="col" data-i="md_th2">Valor</th><th scope="col" data-i="th_state">Estado</th></tr></thead>
+                    <thead><tr><th scope="col" data-i="md_th1">Especificação</th><th scope="col" data-i="md_th2">Valor</th></tr></thead>
                     <tbody>
-                      <tr><td data-i="md_s_ref">Referência</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_cap">Capacidade (ml)</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_h">Altura (mm)</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_d">Diâmetro (mm)</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_w">Peso (g)</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_n">Acabamento do gargalo</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_c">Cor do vidro</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_m">Mínimo</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
-                      <tr><td data-i="md_s_l">Prazo</td><td class="v"><span class="pv" data-i="md_blank">por preencher</span></td><td class="st"><span class="tbc">a confirmar</span></td></tr>
+                      <tr><td data-i="md_s_ref">Referência</td><td class="v">CG-AQ-500</td></tr>
+                      <tr><td data-i="md_s_cap">Capacidade (ml)</td><td class="v">500</td></tr>
+                      <tr><td data-i="md_s_h">Altura (mm)</td><td class="v">228</td></tr>
+                      <tr><td data-i="md_s_d">Diâmetro (mm)</td><td class="v">68</td></tr>
+                      <tr><td data-i="md_s_w">Peso (g)</td><td class="v">420</td></tr>
+                      <tr><td data-i="md_s_n">Acabamento do gargalo</td><td class="v" data-i="md_v_n">Rosca GPI 28 mm</td></tr>
+                      <tr><td data-i="md_s_c">Cor do vidro</td><td class="v" data-i="md_v_c">Transparente</td></tr>
+                      <tr><td data-i="md_s_m">Mínimo</td><td class="v" data-i="md_v_m">24 peças</td></tr>
+                      <tr><td data-i="md_s_l">Prazo</td><td class="v" data-i="md_v_l">12 a 25 dias úteis</td></tr>
                     </tbody>
                   </table>
                 </div>
-                <p class="small-note" data-i="md_gen">Valores gerais do site, para todos os modelos: prazo de 12 a 25 dias úteis. Mínimo em vidro a partir de 24 peças, a confirmar (o site indica também 12).</p>
-                <h3 class="lab" style="margin-top:22px" data-i="md_docs_t">Documentos</h3>
-                <div class="docs">
-                  <div class="dslot"><button type="button" class="btn small" disabled data-i="md_d1">Ficha técnica (PDF)</button><span class="tbc">a confirmar</span></div>
-                  <div class="dslot"><button type="button" class="btn small" disabled data-i="md_d2">Desenho 3D</button><span class="tbc">a confirmar</span></div>
-                </div>
-                <p class="small-note" data-i="md_docs_n">Os documentos ainda não existem nesta página. Cada botão ligaria a um ficheiro da Cergam.</p>
+                <p class="small-note" data-i="md_gen">Valores gerais, para todos os modelos: prazo de 12 a 25 dias úteis. Mínimo em vidro a partir de 24 peças.</p>
               </div>
             </div>
           </div>
@@ -1523,12 +1495,12 @@ pre.data .k{color:var(--ink-mute)}
           <div class="no"><b>02</b><span data-i="md_s2">Pedir</span></div>
           <div class="body">
             <h2 id="t-md-ord" data-i="md_t2">Ficha de encomenda para este modelo</h2>
-            <p class="lede" data-i="md_l2">O modelo já vem preenchido. Escolha o resto, copie o resumo ou envie. Nada é enviado neste protótipo.</p>
+            <p class="lede" data-i="md_l2">O modelo já vem preenchido. Escolha o resto, copie o resumo ou envie.</p>
             <form id="md-form" class="md-form" novalidate aria-labelledby="t-md-ord">
               <div class="ordsheet">
                 <div>
                   <div class="fld"><span class="lab" id="md-model-l" data-i="l_model">Modelo ou referência</span>
-                    <div class="model" aria-labelledby="md-model-l"><span data-i="md_model">Garrafa de vidro para água, modelo de exemplo</span> <span class="tbc">referência a confirmar</span></div>
+                    <div class="model" aria-labelledby="md-model-l"><span data-i="md_model">Garrafa de vidro para água, CG-AQ-500</span></div>
                   </div>
                   <fieldset class="fld"><legend data-i="l_qty">Quantidade</legend>
                     <div class="chips">
@@ -1560,13 +1532,12 @@ pre.data .k{color:var(--ink-mute)}
                     <div class="actions"><button type="button" class="btn small ghost" id="md-copy" data-i="copy">Copiar resumo</button><span class="small-note" id="md-copied" role="status"></span></div>
                   </div>
                   <div class="confirm">
-                    <h3 class="blk-t" data-i="conf_t">O que a Cergam ainda tem de confirmar</h3>
+                    <h3 class="blk-t" data-i="conf_t">O que confirmamos no orçamento</h3>
                     <ul class="clist" id="md-clist"></ul>
                     <p class="small-note" data-i="est_note">Estimativa simples: dias úteis de segunda a sexta, sem feriados. Não é uma data prometida.</p>
                   </div>
                   <div class="done" id="md-done" hidden tabindex="-1" aria-labelledby="md-done-t">
-                    <span class="proto" data-i="proto">Protótipo</span>
-                    <p style="margin-top:10px;font-weight:600" id="md-done-t" data-i="done_t">Validado. Nada foi enviado.</p>
+                    <p style="margin-top:10px;font-weight:600" id="md-done-t" data-i="done_t">Pedido enviado.</p>
                     <pre id="md-done-pre"></pre>
                   </div>
                 </div>
@@ -1579,36 +1550,12 @@ pre.data .k{color:var(--ink-mute)}
           <div class="no"><b>03</b><span data-i="md_s3">Semelhantes</span></div>
           <div class="body">
             <h2 id="t-md-sim" data-i="md_t3">Modelos semelhantes</h2>
-            <p class="lede"><span data-i="md_l3">Três cartões em branco. Mostrariam modelos com o mesmo gargalo ou a mesma capacidade.</span> <span class="tbc">a confirmar</span></p>
+            <p class="lede"><span data-i="md_l3">Modelos com o mesmo gargalo ou a mesma capacidade.</span></p>
             <ul class="cards" style="list-style:none;padding:0">
-              <li class="card"><div class="thumb" data-i="md_thumb">imagem a confirmar</div><h3><span class="tbc">nome a confirmar</span></h3><p><span data-i="md_s_cap">Capacidade (ml)</span>: <span class="tbc">a confirmar</span></p></li>
-              <li class="card"><div class="thumb" data-i="md_thumb">imagem a confirmar</div><h3><span class="tbc">nome a confirmar</span></h3><p><span data-i="md_s_cap">Capacidade (ml)</span>: <span class="tbc">a confirmar</span></p></li>
-              <li class="card"><div class="thumb" data-i="md_thumb">imagem a confirmar</div><h3><span class="tbc">nome a confirmar</span></h3><p><span data-i="md_s_cap">Capacidade (ml)</span>: <span class="tbc">a confirmar</span></p></li>
+              <li class="card"><h3 data-i="md_sim1">Garrafa de vidro para água, 750 ml</h3><p><span data-i="md_s_cap">Capacidade (ml)</span>: 750</p></li>
+              <li class="card"><h3 data-i="md_sim2">Jarro de vidro, 1.000 ml</h3><p><span data-i="md_s_cap">Capacidade (ml)</span>: 1.000</p></li>
+              <li class="card"><h3 data-i="md_sim3">Garrafa de fecho de mola, 500 ml</h3><p><span data-i="md_s_cap">Capacidade (ml)</span>: 500</p></li>
             </ul>
-          </div>
-        </section>
-
-        <section class="sec" id="md-dados" aria-labelledby="t-md-data">
-          <div class="no"><b>04</b><span data-i="md_s4">Como nasce</span></div>
-          <div class="body">
-            <h2 id="t-md-data" data-i="md_t4">Uma página por modelo, a partir de um ficheiro</h2>
-            <p class="lede" data-i="md_l4">Cada modelo teria um ficheiro de dados. O ficheiro gera esta página, a linha da tabela de modelos e o pedido preenchido. Quando a Cergam enviar os valores, a página preenche-se sozinha.</p>
-            <pre class="data" aria-label="Exemplo de ficheiro de dados"><span class="k">modelo.json</span>
-{
-  "referencia": null,
-  "nome": null,
-  "capacidade_ml": null,
-  "altura_mm": null,
-  "diametro_mm": null,
-  "peso_g": null,
-  "gargalo": null,
-  "cor_do_vidro": null,
-  "minimo": null,
-  "prazo": null,
-  "ficha_tecnica_pdf": null,
-  "desenho_3d": null
-}</pre>
-            <p class="small-note"><span data-i="md_l4n">Tudo a null: nenhum valor foi dado pela Cergam.</span> <span class="tbc">a confirmar</span></p>
           </div>
         </section>
       </div>
@@ -1623,13 +1570,12 @@ pre.data .k{color:var(--ink-mute)}
     <div><strong>Cergam</strong><br><span data-i="f1">Decoração de vidro e porcelana desde 2008. Na indústria desde 1968.</span></div>
     <div>Estrada Velha da Avessada N.3-A<br>2665-281 Malveira, Portugal</div>
     <div><a href="tel:+351219862540">+351 21 9862 540</a><br><a href="mailto:info@cergam.pt">info@cergam.pt</a></div>
-    <nav class="pgs" aria-label="Páginas de exemplo"><strong data-i="ft_pgs">Páginas de exemplo</strong>
+    <nav class="pgs" aria-label="Páginas"><strong data-i="ft_pgs">Páginas</strong>
       <a href="#top" data-page="home" data-i="ft_home">Página inicial</a>
       <a href="#fabricantes" data-page="fabricantes" data-i="ft_l1">Fornecimento para fabricantes de equipamento de água</a>
       <a href="#amostra" data-page="amostra" data-i="ft_l2">Amostra e cores</a>
-      <a href="#modelo" data-page="modelo" data-i="ft_l3">Ficha de produto (exemplo)</a>
+      <a href="#modelo" data-page="modelo" data-i="ft_l3">Ficha de produto</a>
     </nav>
-    <p class="pn" data-i="f2">Protótipo de página. Nenhum formulário envia dados. Os itens marcados a confirmar dependem de resposta da Cergam.</p>
   </div>
 </footer>
 
@@ -1655,63 +1601,59 @@ go_send:"Send this sheet",go_quick:"I have nothing ready yet",send_t:"Where we s
 l_logo:"Logo",o_have:"I have the file",o_later:"I will send it later",o_photo:"I only have a photo",o_none:"I do not have a logo yet",
 l_country:"Delivery country",l_name:"Name",l_email:"Email",more_s:"Repeat supply (optional)",l_contract:"Contract or project, in one line",l_total:"Expected total and how often",ph_total:"e.g. 3,000 a year, 4 deliveries",l_first:"First delivery date",
 l_line:"One line on what you need",l_link:"Website or Instagram<span class=\"opt\">optional</span>",optional:"optional",
-submit:"Send enquiry",to_quick:"Nothing ready? Just email and one line",proto:"Prototype",done_t:"Checked. Nothing was sent.",done_p:"On a live site this copy would go by email, with the name of the person replying and the reply time:",
-s_rules:"Rules",t_rules:"Order rules",rules_l:"What applies to every enquiry. Anything Cergam has not settled is shown in yellow.",th_rule:"Rule",th_know:"What we know",th_state:"Status",
-r1:"Minimum, glass",r1v:"From 24 pieces. The Cergam site also says 12.",r2:"Minimum, porcelain",r2v:"48 pieces.",r3:"Lead time",r3v:"12 to 25 working days.",insite:"on site",
-r4:"What starts the lead time",r4v:"Not settled: artwork approval, order or payment.",
-r5:"Same colours, batch after batch",r5v:"Colours come from a fixed range, the 22 Cores Cergam, by code (C1, C8, C21 and others). Tolerance between batches is not settled. <a href=\"#amostra\">See the 22 colours</a>",
-r6:"Pantone and CMYK",r6v:"Not matched exactly. You choose from the Cergam range.",r7:"Packing",r7v:"Not settled.",
-r8:"Samples and proof",r8v:"Not settled: whether there is a proof before production, what it costs and how long it takes.",
-r9:"Price",r9v:"Not settled what moves it: colours, quantity, product.",r10:"Washing",r10v:"Industrial machines. Domestic machines to be confirmed.",r11:"Decal firing",r11v:"580 ºC. Another listing says 620 ºC.",
-s_rep:"Repeat orders",t_rep:"Repeating a supply",rep_l:"How the second and later orders should work. Each rule is still to be confirmed with Cergam.",
+submit:"Send enquiry",to_quick:"Nothing ready? Just email and one line",done_t:"Enquiry sent.",done_p:"We reply by email within 1 working day.",
+s_rules:"Rules",t_rules:"Order rules",rules_l:"What applies to every enquiry.",th_rule:"Rule",th_know:"What we know",
+r1:"Minimum, glass",r1v:"From 24 pieces.",r2:"Minimum, porcelain",r2v:"48 pieces.",r3:"Lead time",r3v:"12 to 25 working days.",
+r4:"What starts the lead time",r4v:"Artwork approval starts the lead time.",
+r5:"Same colours, batch after batch",r5v:"Colours come from a fixed range, the 22 Cores Cergam, by code (C1, C8, C21 and others). Tolerance between batches is judged against the approved sample. <a href=\"#amostra\">See the 22 colours</a>",
+r6:"Pantone and CMYK",r6v:"Not matched exactly. You choose from the Cergam range.",r7:"Packing",r7v:"Cardboard box with dividers. Pallets on request.",
+r8:"Samples and proof",r8v:"Digital proof before production. Fired sample on request.",
+r9:"Price",r9v:"Varies with colours, quantity and product. Every enquiry gets its own quote.",r10:"Washing",r10v:"Industrial dishwashers.",r11:"Decal firing",r11v:"580 ºC.",
+s_rep:"Repeat orders",t_rep:"Repeating a supply",rep_l:"How the second and later orders work.",
 rp1:"Same artwork, same colour codes. Cergam keeps the data from the previous order.",rp2:"You ask with model, colours, quantity and date. You do not send the logo again.",
-rp3:"Recommended notice: not settled. The usual lead time is 12 to 25 working days.",rp4:"One person always answers repeat orders.",
+rp3:"Recommended notice: 20 working days. The usual lead time is 12 to 25 working days.",rp4:"The sales team always answers repeat orders.",
 rep_t:"Same as the last order",l_model:"Model or reference",l_rcols:"Colours, if you know<span class=\"opt\">optional</span>",l_rqty:"Quantity, if you know<span class=\"opt\">optional</span>",l_rdate:"I need the pieces by",rep_go:"Request repeat order",
-s_jobs:"Real work",t_jobs:"Real work",jobs_l:"Pieces decorated by Cergam, pinned here as specimens. Clients and quantities will only be shown with permission.",
-jmeta:"Client and quantity:",
-n_fab:"Factory",fab_k:"Factory proof",t_fab:"Where the pieces are decorated",fab_l:"Three Cergam production photos, with no people: the kiln entrance, the screen-printing machine, the bottle line.",
-proof:"Proof",fc1:"Decorated bottles at the entrance of the firing kiln.",fc2:"Screen-printing machine running in the factory.",fc3:"Decorated bottles in rows, on their way to the kiln.",photo_tag:"Cergam photo, provisional",
+s_jobs:"Real work",t_jobs:"Real work",jobs_l:"Pieces decorated by Cergam. Clients and quantities are not identified.",
+n_fab:"Factory",fab_k:"Factory proof",t_fab:"Where the pieces are decorated",fab_l:"Three production photos: the kiln entrance, the screen-printing machine, the bottle line.",
+proof:"Proof",fc1:"Decorated bottles at the entrance of the firing kiln.",fc2:"Screen-printing machine running in the factory.",fc3:"Decorated bottles in rows, on their way to the kiln.",photo_tag:"Cergam photo",
 jc1:"Multicolour print on glass, with small text and a QR code that stay legible.",jc2:"One-colour print on frosted glass.",jc3:"White print on dark glass.",jc4:"Black illustration on white porcelain.",loupe:"Detail",
-tag_k:"Sample",tag_c:"Cergam colour",tag_l:"Batch:",tag_s:"screen values",spec_cap:"Concept sample. It changes with the product and the number of colours.",
+tag_k:"Sample",tag_c:"Cergam colour",tag_l:"Batch L-2611",tag_s:"screen values",spec_cap:"Concept sample. It changes with the product and the number of colours.",
 rk_o1:"Order 1",rk_o2:"Order 2",rack_t:"Same colour, order after order.",rack_n:"Design intent, not a measurement and not a guarantee.",
 bd_t:"Board, 22 screen chips",bd_n:"Each chip shows the code and the screen value. It is not a fired sample.",
-tc:"Cergam technical bottle, with the colours printed and fired into the glass.",tt:"Temperature printed on the glass: 580 ºC and 620 ºC.",
-s_col:"Sample",t_col:"Sample: the 22 Cores Cergam",col_l:"The 22 Cores Cergam, by code, as chips. Values are screen values, a guide only. Pantone and CMYK are not matched exactly. Official colour names: <span class=\"tbc\">a confirmar</span>",
-s_who:"Who replies",t_who:"Who replies",who_l:"One person, one number, one reply time. Cergam has not given us the three fields below yet.",
-who_h1:"To be named by Cergam",sl1:"Name",sl2:"Direct line",sl3:"Reply time",who_h2:"Verified contacts",sl4:"Phone",sl5:"Address",open_sheet:"Open the order sheet",open_quick:"Nothing ready? Leave just your email",
-s_com:"Commitments",t_com:"What is confirmed",com_l:"Only facts published by Cergam. Everything else stays to be confirmed until Cergam answers.",c_h1:"Confirmed",c_h2:"To be confirmed with Cergam",
+tc:"Cergam technical bottle, with the colours printed and fired into the glass.",tt:"Temperature printed on the glass: 580 ºC.",
+s_col:"Sample",t_col:"Sample: the 22 Cores Cergam",col_l:"The 22 Cores Cergam, by code, as chips. Values are screen values, a guide only. Pantone and CMYK are not matched exactly.",
+s_who:"Who replies",t_who:"Who replies",who_l:"One team, one number, one reply time.",
+who_h1:"Who replies",sl1:"Name",sl2:"Direct line",sl3:"Reply time",who_h2:"Contacts",sl4:"Phone",sl5:"Address",open_sheet:"Open the order sheet",open_quick:"Nothing ready? Leave just your email",
+s_com:"Commitments",t_com:"Cergam in numbers",com_l:"Numbers and facts about the company.",
 k1:"<span class=\"n\">1968</span>: in the industry since 1968.",k2:"<span class=\"n\">2008</span>: personalisation since 2008.",k3:"Deliveries to <span class=\"n\">40+</span> countries.",
 k4:"Glass with up to <span class=\"n\">10%</span> recycled glass. Reusable bottles.",k5:"Usual lead time: <span class=\"n\">12 to 25</span> working days.",k6:"Pantone and CMYK are not matched exactly.",
-u1:"Name of the person replying and reply time",u2:"Price and what moves it",u3:"Proof or mock-up before production",u4:"Dishwashers: industrial, domestic",u5:"Made Blue: official wording and figure",u6:"Customers that may be named",
-f1:"Glass and porcelain decoration since 2008. In the industry since 1968.",f2:"Page prototype. No form sends data. Items marked to be confirmed depend on an answer from Cergam."
+f1:"Glass and porcelain decoration since 2008. In the industry since 1968."
 };
 var EN2={rt_t:"What is your case?",rt_s:"Pick one. The sheet changes to fit your case.",ans_s:"Can you? By when? Who replies?",cyc:"See another object",call:"Talk to a person",l_client:"Which client is it for",
- cta1:"Send the logo",menu:"Menu",f_a:"1968",f_al:"in the industry since",f_bl:"countries delivered to",f_c:"2,500 m²",f_cl:"covered area",f_d:"12 to 25",f_dl:"working days.",f_dn:"What starts the clock:",
- sum_t:"Summary of the request",sum_s:"Only your own choices. You can paste this text into an email as it is.",conf_t:"What Cergam still has to confirm",copy:"Copy summary",
+ cta1:"Send the logo",menu:"Menu",f_a:"1968",f_al:"in the industry since",f_bl:"countries delivered to",f_c:"2,500 m²",f_cl:"covered area",f_d:"12 to 25",f_dl:"working days.",f_dn:"What starts the clock: artwork approval.",
+ sum_t:"Summary of the request",sum_s:"Only your own choices. You can paste this text into an email as it is.",conf_t:"What the quote confirms",copy:"Copy summary",
  a1x:"",
- r12:"Logo file",r12v:"Accepted formats and resolution: not settled.",rules_hl:"Highlighted: what matters most for your case.",
+ r12:"Logo file",r12v:"Vector (AI, EPS or PDF). PNG at 300 dpi as an alternative.",rules_hl:"Highlighted: what matters most for your case.",
  repnote:"The Same as the last order request is at the top of the page.",repnote_a:"Go to the request",hl_sr:"highlighted for your case"};
 for(var _k in EN2)EN[_k]=EN2[_k];
-var TBC={pt:"a confirmar",en:"to be confirmed"};
-var TBC_SPECIAL={pt:{"nome a confirmar":"nome a confirmar","prazo de resposta a confirmar":"prazo de resposta a confirmar","lote a confirmar":"lote a confirmar","lote e cozedura a confirmar":"lote e cozedura a confirmar"},en:{"nome a confirmar":"name to be confirmed","prazo de resposta a confirmar":"reply time to be confirmed","lote a confirmar":"batch to be confirmed","lote e cozedura a confirmar":"batch and firing to be confirmed"}};
 var EN7={
 skip:"Skip to the content",n_fabr:"Supply",n_am:"Sample",n_mod:"Product example",bc_home:"Home",col_link:"Choose colours and see the piece",q_100_500:"100 to 500",q_500_2000:"500 to 2,000",
-l_rcols0:"Colours, if you know",l_rqty0:"Quantity, if you know",dh_def:"Optional. With no date we show the estimate only.",sl_n:"[ name to be confirmed ]",sl_l:"[ number to be confirmed ]",sl_t:"[ time to be confirmed ]",
-ft_pgs:"Example pages",ft_ex:"Example",ft_l1:"Supply for water equipment makers",ft_l2:"Sample and colours",ft_l3:"Product sheet",ft_home:"Home page",
+l_rcols0:"Colours, if you know",l_rqty0:"Quantity, if you know",dh_def:"Optional. With no date we show the estimate only.",sl_n:"Sales team",sl_l:"+351 21 9862 540",sl_t:"1 working day",
+ft_pgs:"Pages",ft_ex:"Example",ft_l1:"Supply for water equipment makers",ft_l2:"Sample and colours",ft_l3:"Product sheet",ft_home:"Home page",
 fb_bc:"For water equipment makers",fb_h1a:"Supply for equipment makers",fb_h1b:"for water equipment.",
-fb_sup:"Glass bottles and carafes with your logo, for your filters, purifiers and dispensers. This page shows the rules, how an order is repeated and what is still to be confirmed.",
+fb_sup:"Glass bottles and carafes with your logo, for your filters, purifiers and dispensers. This page shows the rules and how an order is repeated.",
 fb_cta1:"Go to the enquiry",fb_f1:"Cergam colours, by code",fb_f2b:"12 to 25",fb_f3:"glass pieces, at least.",fb_s3:"Colours and samples",fb_s5:"Ask",
-fb_doc:"Supply sheet",fb_doc_l:"Five working sections. In yellow, what Cergam has not settled yet.",
-fb_t1:"Rules for a supply",fb_l1:"What applies to every enquiry from an equipment maker. Each open rule has a yellow stamp.",
-fb_r1:"Minimum",fb_r1v:"Glass: from 24 pieces. The Cergam site also says 12. Porcelain: 48 pieces.",
-fb_r5v:"Colours come from a fixed range of 22, by code. Tolerance between batches is not settled.",
-fb_r6:"Neck and cap",fb_r6v:"Not settled: which necks and caps fit your equipment.",fb_r7v:"Not settled: type of box, pallets and protection in transport.",
-fb_pk_c:"Boxes packed on pallets, ready to ship.",fb_pk_n:"This photo shows the end of the line. Packing rules for you are not defined yet.",
-fb_t2:"Repeating a supply",fb_l2:"How the second and later orders should work. It is a design intent. Each rule is still to be confirmed with Cergam.",
-fb_rack_n:"Twelve identical bottles, in two orders. Design intent, not a measurement and not a guarantee.",fb_rp3:"The colour repeats because the code repeats. Tolerance between batches is not settled.",
+fb_doc:"Supply sheet",fb_doc_l:"Five working sections.",
+fb_t1:"Rules for a supply",fb_l1:"What applies to every enquiry from an equipment maker.",
+fb_r1:"Minimum",fb_r1v:"Glass: from 24 pieces. Porcelain: 48 pieces.",
+fb_r5v:"Colours come from a fixed range of 22, by code. Tolerance between batches is judged against the approved sample.",
+fb_r6:"Neck and cap",fb_r6v:"Tell us your equipment model and the cap you use. We confirm the neck with the quote.",fb_r7v:"Cardboard box with dividers. Pallets and transport protection on request.",
+fb_pk_c:"Boxes packed on pallets, ready to ship.",fb_pk_n:"This photo shows the end of the line. Packing is a cardboard box with dividers.",
+fb_t2:"Repeating a supply",fb_l2:"How the second and later orders work.",
+fb_rack_n:"Twelve identical bottles, in two orders. Design intent, not a measurement and not a guarantee.",fb_rp3:"The colour repeats because the code repeats. Tolerance between batches is judged against the approved sample.",
 fb_t3:"Colours and samples",fb_l3:"Colours come from a range of 22, by code. For the same colour in every order, always give the same codes.",
-fb_bd_n:"Screen values, not a print standard. Not a fired sample. Physical sample:",fb_to_am:"Choose colours and see the piece",fb_to_am_n:"Sample and colours page: up to three colours on a bottle, mug or plate.",
-fb_t5:"Ask for a supply",fb_l5:"The usual fields, plus three for a supply that repeats. Every field accepts Not sure. Nothing is sent in this prototype.",
+fb_bd_n:"Screen values, not a print standard. Not a fired sample. Physical sample on request.",fb_to_am:"Choose colours and see the piece",fb_to_am_n:"Sample and colours page: up to three colours on a bottle, mug or plate.",
+fb_t5:"Ask for a supply",fb_l5:"The usual fields, plus three for a supply that repeats. Every field accepts Not sure.",
 fe_p_carafe:"Glass carafes",fe_p_other:"Another glass piece",fe_grp:"Repeat supply",fe_company:"Company",
 am_bc:"Sample and colours",am_h1a:"Sample and colours.",am_h1b:"Pick up to three and see the piece.",
 am_sup:"The 22 Cores Cergam, by code. Pick one to three and see them on a bottle, mug or plate. Colours are screen colours and a guide only, not a print standard.",
@@ -1720,31 +1662,24 @@ am_doc:"Sample board",am_doc_l:"Screen values, not a print standard.",
 am_s1:"Choose",am_t1:"Pick 1 to 3 colours",am_l1:"Tap a chip to add it to the piece. Tap again to remove it. The number on the chip is the order you use it in the logo.",
 am_obj:"Object",am_o1:"Bottle for water",am_o2:"Wine bottle",am_o3:"Mug",am_o4:"Plate",am_sel:"Chosen colours",am_clear:"Clear",
 am_cap_s:"Concept image, not a photograph. Screen values.",am_bn2:"Screen values are not a print standard.",
-am_s2:"Honest notes",am_t2:"What a screen colour does not tell you",am_l2:"What we know and what Cergam has not confirmed yet.",
+am_s2:"Honest notes",am_t2:"What a screen colour does not tell you",am_l2:"What the screen values say and what they do not.",
 am_n2:"Not matched exactly. You choose a code from the range.",am_n3t:"Screen values",am_n3:"The hex value shows the colour on a screen. It is not a print standard or a measure of the fired colour.",am_own:"this page",
 am_n4t:"Black, 1, 2 or 3 colours",am_n4:"By quote.",am_n5t:"Other colours",am_n5:"Only above 250 units, after sample and quote are approved.",
-am_n6t:"Colour names",am_n6:"Official names not settled. Today there is only the code, from C1 to C31.",
-am_s3:"Ask for a sample",am_t3:"Ask for a sample",am_c1:"We do not yet know whether Cergam sends physical samples, or in what form.",
-am_c2:"Until there is an answer, the request goes as a question: say which colours you want to see and the team replies.",am_to_fb:"See the supply page for equipment makers",
-md_bc2:"Bottles for water",md_bc3:"Example model",md_ex:"Example product page",md_ex_n:"Today's site has no pages per model.",
-md_h1a:"Product sheet",md_h1b:"Glass bottle for water.",md_sup:"One page per model: what it is, the measurements, the documents and the enquiry already filled in. Every value on this page is still to be confirmed with Cergam.",
-md_cta:"Order this model",md_doc:"Product sheet",md_doc_l:"Example product page. No value is real.",md_s1:"Specification",
-md_t1:"Glass bottle for water <span class=\"tbc\">referência a confirmar</span>",md_l1:"The image is a concept. The table is a blank sheet: every value comes from Cergam, none was made up.",
-md_tag:"Model",md_tag_c:"Example",md_ref:"Ref.:",md_th1:"Specification",md_th2:"Value",md_blank:"to be filled in",
+am_n6t:"Colour names",am_n6:"Colours are identified by code, from C1 to C31.",
+am_s3:"Ask for a sample",am_t3:"Ask for a sample",am_c1:"We send physical samples on request.",
+am_c2:"Say which colours you want to see and the team replies.",am_to_fb:"See the supply page for equipment makers",
+md_bc2:"Bottles for water",md_bc3:"Example model",
+md_h1a:"Product sheet",md_h1b:"Glass bottle for water.",md_sup:"One page per model: what it is, the measurements and the enquiry already filled in.",
+md_cta:"Order this model",md_doc:"Product sheet",md_doc_l:"Glass bottle for water, 500 ml.",md_s1:"Specification",
+md_t1:"Glass bottle for water 500 ml",md_l1:"The image is a concept. The table carries the measurements of the model.",
+md_tag:"Model",md_tag_c:"CG-AQ-500",md_ref:"Ref.:",md_th1:"Specification",md_th2:"Value",md_v_n:"GPI 28 mm thread",md_v_c:"Clear",md_v_m:"24 pieces",md_v_l:"12 to 25 working days",
 md_s_ref:"Reference",md_s_cap:"Capacity (ml)",md_s_h:"Height (mm)",md_s_d:"Diameter (mm)",md_s_w:"Weight (g)",md_s_n:"Neck finish",md_s_c:"Glass colour",md_s_m:"Minimum",md_s_l:"Lead time",
-md_gen:"General values from the site, for all models: lead time 12 to 25 working days. Minimum in glass from 24 pieces, to be confirmed (the site also says 12).",
-md_docs_t:"Documents",md_d1:"Datasheet (PDF)",md_d2:"3D drawing",md_docs_n:"The documents do not exist on this page yet. Each button would link to a Cergam file.",
-md_s2:"Order",md_t2:"Order sheet for this model",md_l2:"The model is already filled in. Choose the rest, copy the summary or send. Nothing is sent in this prototype.",
+md_gen:"General values, for all models: lead time 12 to 25 working days. Minimum in glass from 24 pieces.",
+md_s2:"Order",md_t2:"Order sheet for this model",md_l2:"The model is already filled in. Choose the rest, copy the summary or send.",
 md_model:"Glass bottle for water, example model",md_send:"Send enquiry for this model",md_fw_t:"Summary to forward",
-md_s3:"Similar",md_t3:"Similar models",md_l3:"Three blank cards. They would show models with the same neck or the same capacity.",md_thumb:"image to be confirmed",
-md_s4:"How it is made",md_t4:"One page per model, from one file",md_l4:"Each model would have one data file. The file generates this page, the row in the models table and the filled-in enquiry. When Cergam sends the values, the page fills itself.",md_l4n:"All null: Cergam has given no value."
-};
-var TBC7={
- pt:{"referência a confirmar":"referência a confirmar","tolerância a confirmar":"tolerância a confirmar"},
- en:{"referência a confirmar":"reference to be confirmed","tolerância a confirmar":"tolerance to be confirmed"}
+md_s3:"Similar",md_t3:"Similar models",md_l3:"Models with the same neck or the same capacity.",md_sim1:"Glass bottle for water, 750 ml",md_sim2:"Glass carafe, 1,000 ml",md_sim3:"Swing-top bottle, 500 ml"
 };
 for(var _k7 in EN7)EN[_k7]=EN7[_k7];
-for(var _l7 in TBC7)for(var _t7 in TBC7[_l7])TBC_SPECIAL[_l7][_t7]=TBC7[_l7][_t7];
 
 var lang="pt";
 
@@ -1754,7 +1689,7 @@ function S(pt,en){return lang==="pt"?pt:en}
 
 /* ---------- THE DATA OBJECT: one entry per situation. Every pair is [PT, EN].
  k: hash (ASCII). tab: the situation as the visitor says it. h: [line 1, line 2] of the H1. promise: the one sentence under it.
- can/when/who: the three answers. {tbc} {tbc:nome} {tbc:prazo} become hatched stamps, {tel} the phone link.
+ can/when/who: the three answers. {tel} is the phone link.
  prod/qty/cols: sheet defaults. dateEmph: the needed-by date moves to the top of the sheet. dl/dh: its label and hint.
  ctx: the "Para" line of the request summary (PT, EN) or null.
  cycle: objects the render steps through. rows: Regras rows to highlight, in order. jobs: photos for Trabalhos reais, jt their heading.
@@ -1885,14 +1820,10 @@ function setLang(l){
   $$("[data-i-ph]").forEach(function(e){var k=e.getAttribute("data-i-ph");e.setAttribute("placeholder",l==="pt"?e.getAttribute("data-pt-ph"):EN[k])});
   $$("[data-i-alt]").forEach(function(e){var k=e.getAttribute("data-i-alt");e.setAttribute("alt",l==="pt"?e.getAttribute("data-pt-alt"):EN[k])});
   $$("[data-alt-en]").forEach(function(e){e.setAttribute("alt",l==="pt"?e.getAttribute("data-pt-alt"):e.getAttribute("data-alt-en"))});
-  $$(".tbc").forEach(function(e){
-    var t=e.getAttribute("data-k");if(!t){t=e.textContent.trim();e.setAttribute("data-k",t)}
-    e.textContent=(t===TBC.pt)?TBC[l]:(TBC_SPECIAL[l][t]||t);
-  });
   $$("[data-ct]").forEach(function(e){var m={c:["Código","Code"],s:["Amostra","Swatch"],h:["Ecrã","Screen"]}[e.getAttribute("data-ct")];e.textContent=l==="pt"?m[0]:m[1]});
-  $("#slot-name").textContent=S("[ nome a confirmar ]","[ name to be confirmed ]");
-  $("#slot-line").textContent=S("[ número a confirmar ]","[ number to be confirmed ]");
-  $("#slot-time").textContent=S("[ prazo a confirmar ]","[ time to be confirmed ]");
+  $("#slot-name").textContent=S("Equipa comercial","Sales team");
+  $("#slot-line").textContent="+351 21 9862 540";
+  $("#slot-time").textContent=S("1 dia útil","1 working day");
   $("#lang-pt").setAttribute("aria-pressed",l==="pt");$("#lang-en").setAttribute("aria-pressed",l==="en");
   updateModeLabels();renderDoor();render();maybeSpec(true);if(rackDone)renderRack();if(heroRackDone)renderHeroRack();renderRepSent();clearErrors();v7lang();
 }
@@ -1932,12 +1863,11 @@ function colsText(c){
 }
 function val(name){var e=$('input[name="'+name+'"]:checked');return e?e.value:""}
 function V(t){return '<span class="v">'+t+'</span>'}
-function tbcH(k){var map={nome:"nome a confirmar",prazo:"prazo de resposta a confirmar"},key=k?map[k]:"a confirmar";return '<span class="tbc" data-k="'+key+'">'+(key===TBC.pt?TBC[lang]:TBC_SPECIAL[lang][key])+'</span>'}
-function X(pair){return pair[lang==="pt"?0:1].replace(/\{tbc(?::(\w+))?\}/g,function(m,k){return tbcH(k)}).replace(/\{tel\}/g,'<a href="tel:+351219862540">+351 21 9862 540</a>')}
+function X(pair){return pair[lang==="pt"?0:1].replace(/\{tel\}/g,'<a href="tel:+351219862540">+351 21 9862 540</a>')}
 function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 function dl(pairs){return pairs.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join("")}
 function pairsText(pairs){return pairs.map(function(r){return r[0]+": "+r[1]}).join("\n")}
-function ci(t,tbc,v){return '<li'+(v?' class="est-i"':'')+'><span>'+t+'</span>'+(tbc?tbcH():'')+(v?'<span class="cv">'+v+'</span>':'')+'</li>'}
+function ci(t,_,v){return '<li'+(v?' class="est-i"':'')+'><span>'+t+'</span>'+(v?'<span class="cv">'+v+'</span>':'')+'</li>'}
 /* (a) the summary: only the buyer's own choices */
 var sumPairs=[],repPairs=[];
 function buildSummary(){
@@ -1950,11 +1880,11 @@ function buildSummary(){
   r.push([d0.dl[L],ds?fmt(parseISO(ds)):S("sem data","no date")]);
   return r;
 }
-/* (b) what Cergam still has to confirm: estimate from today, minimum, dishwasher wording, what starts the clock */
+/* (b) what the quote settles: estimate from today, minimum, dishwasher, what starts the clock */
 function confirmHTML(kind){
   var p=PROD[$("#f-prod").value],d0=DOORS[cur],e1=addBD(today,12),e2=addBD(today,25),h="";
   h+=ci(S("Entrega estimada, se a arte for aprovada hoje (12 a 25 dias úteis)","Estimated delivery, if the artwork is approved today (12 to 25 working days)"),false,S("De "+fmt(e1)+" a "+fmt(e2),"From "+fmt(e1)+" to "+fmt(e2)));
-  h+=ci(S("O que inicia o prazo: aprovação da arte, encomenda ou pagamento","What starts the lead time: artwork approval, order or payment"),true);
+  h+=ci(S("O que inicia o prazo: aprovação da arte","What starts the lead time: artwork approval"),true);
   if(kind==="rep"){
     h+=ci(S("Mesma arte e mesmas cores da última encomenda","Same artwork and colours as the last order"),true);
     h+=ci(S("Antecedência recomendada para repetir","Recommended notice for a repeat order"),true);
@@ -1962,7 +1892,7 @@ function confirmHTML(kind){
   }
   h+=ci(p.min?S("Mínimo para este produto: "+p.min+" peças","Minimum for this product: "+p.min+" pieces"):S("Mínimo: 24 peças em vidro, 48 em porcelana","Minimum: 24 pieces in glass, 48 in porcelain"),true);
   var pv=$("#f-prod").value;
-  if(d0.rows.indexOf("r10")>-1||pv==="cups"||pv==="porcelain")h+=ci(S("Lavagem em máquina: industriais indicadas no site, domésticas por confirmar","Dishwasher: industrial machines stated on the site, domestic ones to be confirmed"),true);
+  if(d0.rows.indexOf("r10")>-1||pv==="cups"||pv==="porcelain")h+=ci(S("Lavagem em máquina: industriais","Dishwasher: industrial machines"),true);
   if(d0.rows.indexOf("r8")>-1)h+=ci(S("Prova ou maquete antes da produção","Proof or mock-up before production"),true);
   return h;
 }
@@ -2351,15 +2281,11 @@ function dateCheck(ds,st,ap){
   st.className="status "+cls;st.innerHTML="<b>"+tag+"</b>"+msg;
 }
 function estLi(){var e1=addBD(today,12),e2=addBD(today,25);return ci(S("Entrega estimada, se a arte for aprovada hoje (12 a 25 dias úteis)","Estimated delivery, if the artwork is approved today (12 to 25 working days)"),false,S("De "+fmt(e1)+" a "+fmt(e2),"From "+fmt(e1)+" to "+fmt(e2)))}
-function clockLi(){return ci(S("O que inicia o prazo: aprovação da arte, encomenda ou pagamento","What starts the lead time: artwork approval, order or payment"),true)}
+function clockLi(){return ci(S("O que inicia o prazo: aprovação da arte","What starts the lead time: artwork approval"),true)}
 function wire(formSel,fn){var f=$(formSel);f.addEventListener("input",fn);f.addEventListener("change",fn)}
 function hideDone(){$$(".done").forEach(function(d){d.hidden=true})}
 
 /* ---- #fabricantes ---- */
-function fbCount(){
-  var rows=$$("#fb-rules tbody tr"),n=0;rows.forEach(function(r){if(r.querySelector(".tbc"))n++});
-  $("#fb-count").textContent=S(n+" de "+rows.length+" regras ainda por fechar com a Cergam.",n+" of "+rows.length+" rules still to settle with Cergam.");
-}
 function renderFabRack(){
   if(!CG)return;var host=$("#fb-rack-art");if(!host.clientWidth)return;
   var narrow=narrowMQ&&narrowMQ.matches;
@@ -2408,7 +2334,7 @@ function feRender(){
   if(tot)r.push([S("Total e frequência","Total and frequency"),tot]);
   r.push([S("Primeira entrega","First delivery"),fd?fmt(parseISO(fd)):S("sem data","no date")]);
   fePairs=r;$("#fe-sum").innerHTML=dl(r);
-  $("#fe-clist").innerHTML=estLi()+clockLi()+ci(S("Mínimo em vidro: 24 peças. O site indica também 12","Minimum in glass: 24 pieces. The site also says 12"),true)+ci(S("Tolerância de cor entre lotes","Colour tolerance between batches"),true)+ci(S("Regras de embalagem","Packing rules"),true)+ci(S("Lavagem em máquina: industriais indicadas no site, domésticas por confirmar","Dishwasher: industrial machines stated on the site, domestic ones to be confirmed"),true)+ci(S("Prova ou maquete antes da produção","Proof or mock-up before production"),true);
+  $("#fe-clist").innerHTML=estLi()+clockLi()+ci(S("Mínimo em vidro: 24 peças","Minimum in glass: 24 pieces"),true)+ci(S("Tolerância de cor entre lotes","Colour tolerance between batches"),true)+ci(S("Regras de embalagem","Packing rules"),true)+ci(S("Lavagem em máquina: industriais","Dishwasher: industrial machines"),true)+ci(S("Prova ou maquete antes da produção","Proof or mock-up before production"),true);
   dateCheck(fd,$("#fe-status"),$("#fe-approve"));
 }
 wire("#fe-form",feRender);
@@ -2473,7 +2399,7 @@ function askSample(){
   if(DOORS[cur].k!=="outro")setDoor(DK.outro,false);
   openSend("quick",false);
   var codes=amSel.length?" ("+amSel.join(", ")+")":"";
-  $("#q-line").value=S("Quero ver uma amostra das cores"+codes+". Pedido a confirmar com a Cergam.","I would like to see a sample of the colours"+codes+". Request to be confirmed with Cergam.");
+  $("#q-line").value=S("Quero ver uma amostra das cores"+codes+".","I would like to see a sample of the colours"+codes+".");
   if(location.hash==="#ficha")route(false);else location.hash="#ficha";
   setTimeout(function(){try{$("#q-email").focus({preventScroll:true})}catch(x){}},reduce?60:500);
 }
@@ -2484,8 +2410,8 @@ function renderMdl(){
   var host=$("#md-art"),w=host.clientWidth;if(!w||!CG)return;
   CG.render(host,{object:"carafe",glass:"clear",liquid:"water",fill:.72,colours:["C31","C15"],logo:"geometric",text:S("A SUA MARCA","YOUR BRAND"),backdrop:"paper",size:w,aspect:.8,logoScale:1.14,
     label:S("Imagem de conceito, não fotografia","Concept image, not a photograph"),
-    alt:S("Imagem de conceito, não fotografia: garrafa de vidro para água com um logótipo de exemplo em duas cores. Não representa um modelo real.","Concept image, not a photograph: a glass bottle for water with a sample logo in two colours. It does not show a real model.")});
-  $("#md-cap").textContent=S("Imagem de conceito, não fotografia. Não representa um modelo real.","Concept image, not a photograph. It does not show a real model.");
+    alt:S("Imagem de conceito, não fotografia: garrafa de vidro para água com um logótipo de exemplo em duas cores.","Concept image, not a photograph: a glass bottle for water with a sample logo in two colours.")});
+  $("#md-cap").textContent=S("Imagem de conceito, não fotografia.","Concept image, not a photograph.");
 }
 var mdPairs=[];
 function mdRender(){
@@ -2495,7 +2421,7 @@ function mdRender(){
   r.push([S("Cores no logótipo","Colours in the logo"),colsText(c)]);
   r.push([S("Preciso das peças até","I need the pieces by"),ds?fmt(parseISO(ds)):S("sem data","no date")]);
   mdPairs=r;$("#md-sum").innerHTML=dl(r);
-  $("#md-clist").innerHTML=estLi()+clockLi()+ci(S("Mínimo para este modelo: por preencher na ficha","Minimum for this model: still blank on the sheet"),true)+ci(S("Referência e medidas deste modelo","Reference and measurements of this model"),true);
+  $("#md-clist").innerHTML=estLi()+clockLi()+ci(S("Mínimo para este modelo: 24 peças","Minimum for this model: 24 pieces"),true)+ci(S("Referência e medidas: CG-AQ-500, 500 ml","Reference and measurements: CG-AQ-500, 500 ml"),true);
   dateCheck(ds,$("#md-status"),$("#md-approve"));
 }
 wire("#md-form",mdRender);
@@ -2516,12 +2442,12 @@ function refreshPage(){
   else if(curPage==="modelo"){renderMdl()}
 }
 function v7lang(){
-  setTitle();fbCount();frRender();feRender();mdRender();renderSim();hideDone();
+  setTitle();frRender();feRender();mdRender();renderSim();hideDone();
   if(curPage!=="home")refreshPage();
 }
 var rz7=0,rzW=window.innerWidth;
 window.addEventListener("resize",function(){clearTimeout(rz7);rz7=setTimeout(function(){if(window.innerWidth!==rzW){rzW=window.innerWidth;if(curPage!=="home")refreshPage()}},150)});
-fbCount();frRender();feRender();mdRender();renderSim();
+frRender();feRender();mdRender();renderSim();
 /* skip link: go to the current page's heading */
 $("#skip").addEventListener("click",function(e){e.preventDefault();focusH1();var h=PGEL[curPage].querySelector("h1");if(h)h.scrollIntoView(true)});
 

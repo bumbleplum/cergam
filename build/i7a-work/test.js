@@ -34,10 +34,10 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++};
  await p.fill('#f-country','Portugal');await p.fill('#f-name','Teste');await p.fill('#f-email','mau');await p.click('#enq-form button[type=submit]');
  ok(await p.isVisible('#sumerr')&&(await p.locator('.fld.bad').count())===1,'only bad email flagged');
  await p.fill('#f-email','a@b.pt');await p.click('#enq-form button[type=submit]');await p.waitForTimeout(200);
- const sent=await p.textContent('#sent');ok(/Nada foi enviado/.test(sent)&&/C\d+/.test(sent),'sent notice with codes: '+sent.replace(/\s+/g,' ').slice(0,200));
+ const sent=await p.textContent('#sent');ok(/Pedido enviado/.test(sent)&&/C\d+/.test(sent),'sent notice with codes: '+sent.replace(/\s+/g,' ').slice(0,200));
  // quick mode
  await p.click('#mt-quick');await p.fill('#q-email','x@y.pt');await p.click('#quick-form button[type=submit]');ok(await p.isVisible('#qsumerr'),'quick: missing line flagged');
- await p.fill('#q-line','garrafas');await p.click('#quick-form button[type=submit]');ok(/Nada foi enviado/.test(await p.textContent('#sent')),'quick sent notice');
+ await p.fill('#q-line','garrafas');await p.click('#quick-form button[type=submit]');ok(/Pedido enviado/.test(await p.textContent('#sent')),'quick sent notice');
  // back button
  await p.goBack();await p.waitForTimeout(400);s=await state(p);ok(s.h==='#cores'&&await vis(p,'v-cores'),'back -> cores: '+s.h);
  await p.goBack();await p.waitForTimeout(400);s=await state(p);ok(await vis(p,'top'),'back -> home: "'+s.h+'"');
