@@ -9,9 +9,21 @@ created: 2026-11-05
 
 # Cergam prototypes
 
-Index of the prototype work built on 2026-11-05. The chosen page, the design system and the render lab stay published as private artifacts. Everything else is archived here as local HTML files and its published copy was deleted. Open any HTML file in a browser. Pages need an internet connection only for Google Fonts.
+Index of the prototype work built on 2026-11-05.
 
-All pages are concept prototypes. Product details, contact slots, minimums and certifications marked "a confirmar" are not confirmed by Cergam. Photos were copied from cergam.pt as placeholders, remain the property of Cergam and its customers, and several show client names that need consent. Renders are concept art, labelled "Imagem de conceito, não fotografia".
+**This repository is public, and the two prototypes are live on GitHub Pages:**
+
+| | |
+|---|---|
+| Entry page | https://bumbleplum.github.io/cergam/ |
+| Trade desk (chosen) | https://bumbleplum.github.io/cergam/chosen-landing/cergam-site-trade-desk.html |
+| Traditional | https://bumbleplum.github.io/cergam/traditional-landing/cergam-site-traditional.html |
+
+Pages builds from `main` at the root, so any push to `main` republishes the live sites. `robots.txt` keeps them out of search results while the links stay shareable.
+
+The design system and the render lab stay published as private artifacts. Everything else is archived here as local HTML files and its published copy was deleted. Open any HTML file in a browser. Pages need an internet connection only for Google Fonts.
+
+All pages are concept prototypes, made independently and neither reviewed nor approved by Cergam. Since 2026-11-05 they no longer mark their own gaps: every unconfirmed detail was replaced with an assumed value, listed under "Assumed values that Cergam must verify" below. Photos were copied from cergam.pt as placeholders, remain the property of Cergam and its customers, and nine show third-party client brands that need consent; they are public as of 2026-11-05 on Tiago's instruction, with a removal route on the entry page. Renders are concept art, labelled "Imagem de conceito, não fotografia".
 
 ## Kept (published as private artifacts)
 

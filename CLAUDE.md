@@ -136,10 +136,20 @@ Publishing goes through the Artifact tool and keeps the existing private links. 
 | Design system "Carta Cergam" | https://claude.ai/artifact/MQSMTdU9P4BgWcwnzWhmC5 |
 | Render lab | https://claude.ai/artifact/4PH3qGTPgUNLDF8qWz4VWJ |
 
-Everything stays private until Tiago shares it. The three screenshots in `pitch-deck/` are already uploaded to the deck and would need re-uploading only if the deck were recreated.
+**The repo and the two prototypes are public since 2026-11-05.** `bumbleplum/cergam` is a public GitHub repository and GitHub Pages serves it, on Tiago's instruction. The free org plan cannot serve Pages from a private repo, so the whole repo is public, `pitch-deck/` and `design-system/` included.
+
+| Public | Link |
+|---|---|
+| Entry page | https://bumbleplum.github.io/cergam/ |
+| Trade desk site (chosen) | https://bumbleplum.github.io/cergam/chosen-landing/cergam-site-trade-desk.html |
+| Traditional site | https://bumbleplum.github.io/cergam/traditional-landing/cergam-site-traditional.html |
+
+Pages builds from `main` at the root, so **any push to `main` republishes the live sites**. `index.html` carries the four warnings a stranger needs (concept work not a Cergam site, assumed numbers, forms send nothing, photo origin and a removal route). `robots.txt` keeps the site out of search results; delete it to allow indexing. `.nojekyll` stops Pages running the files through Jekyll.
+
+The artifact links above stay private until Tiago shares them. The three screenshots in `pitch-deck/` are already uploaded to the deck and would need re-uploading only if the deck were recreated.
 
 ## Decisions and open items
 
-Every brief in `$VAULT/clients/cergam/` ends with at most five decisions for Tiago (AGENTS.md T-06). When a task leaves a decision, placeholder or check for him, add a line to `$VAULT/review-queue.md` in the same write, even though that file is outside this repo. Nine Cergam items are queued there now, all dated 2026-11-05.
+Every brief in `$VAULT/clients/cergam/` ends with at most five decisions for Tiago (AGENTS.md T-06). When a task leaves a decision, placeholder or check for him, add a line to `$VAULT/review-queue.md` in the same write, even though that file is outside this repo. Thirteen Cergam checkboxes are open there, all dated 2026-11-05. Note that the vault file lists most of them *below* its `## Done` heading, which is a formatting slip in that file, not a sign they are finished.
 
-The list of what Cergam must still confirm lives in `README.md` ("What the chosen page still needs from Cergam") and in `HANDOFF.md` section 7. Do not shorten that list by filling a gap with a plausible answer.
+The record of what Cergam must still verify lives in `README.md` ("Assumed values that Cergam must verify") and in `HANDOFF.md` section 7. Since the pages no longer mark their own gaps, that table is the only record of them: keep it current, and never drop a line from it because the page now reads as finished.
