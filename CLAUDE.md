@@ -2,24 +2,31 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Where to run
+## Where this sits
 
-Open the `consulting` vault root, not this folder and not `~/dev/cergam` (which is empty):
+This repo is the canonical copy of the Cergam site prototypes. It was copied out of the consulting Obsidian vault on 2026-11-05 and the vault copy is now a frozen snapshot. Edit here, commit here. Do not edit the vault copy.
 
-```bash
-cd "/Users/globe/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidians/consulting"
+The vault still holds the things that were deliberately left behind, and it is the only place they exist:
+
+```
+VAULT="/Users/globe/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidians/consulting"
+$VAULT/AGENTS.md                      # track rules, the governing document
+$VAULT/rates.md                       # the only source of prices
+$VAULT/review-queue.md                # items waiting on Tiago
+$VAULT/clients/cergam/*.md            # the 19 briefs and analyses
+$VAULT/clients/cergam/prototypes/archive/   # six superseded generations, 21 MB
 ```
 
-The track rules in `consulting/AGENTS.md` apply to everything here and are not repeated below. `clients/cergam/` has no client-level `AGENTS.md`, so the root file is the whole chain.
+`AGENTS.md` governs this work but is not in this repo, so it is not loaded automatically. The Content rules section below is the binding extract: treat it as the rules themselves, not a summary. Read the full file when a question goes beyond it, and note that `clients/cergam/` has no client-level `AGENTS.md`, so the root file is the whole chain.
 
-Read before editing: `HANDOFF.md` and `README.md` (this folder), then `../cergam-design-brief.md` and `../cergam-journey-consumption-map.md`. For imagery decisions, `../cergam-image-audit.md` and `../cergam-imagery-brief.md`.
+Read before editing: `HANDOFF.md` and `README.md` in this repo, then `$VAULT/clients/cergam/cergam-design-brief.md` and `cergam-journey-consumption-map.md`. For imagery decisions, `cergam-image-audit.md` and `cergam-imagery-brief.md` in the same folder.
 
 ## Content rules that constrain the code
 
 These are not style preferences. They decide what may appear in markup.
 
 - Anything Cergam has not confirmed renders as a visible `a confirmar` tag (`<span class="tbc">`), never as a confident claim. There are 87 of them in `i7b-src.html` today. Never resolve one by guessing.
-- Never invent a name, price, spec, capacity, testimonial or certificate. Prices come only from `consulting/rates.md`, and the prototypes carry none.
+- Never invent a name, price, spec, capacity, testimonial or certificate. Prices come only from `$VAULT/rates.md`, and the prototypes carry none.
 - Verified facts (cergam.pt, November 2026), safe to state: since 1968, personalisation since 2008, 22 Cores Cergam as screen values, Pantone and CMYK not matched exactly, 12 to 25 working days, 40+ countries, 2.500 m2, Malveira, +351 21 9862 540, info@cergam.pt.
 - Known contradictions on cergam.pt that must stay unresolved: minimum (24, 12 or 48), firing temperature (580 or 620 C), dishwasher wording.
 - Every render carries "Imagem de conceito, nao fotografia". Every photo carries "Foto Cergam, provisoria". Photos are Cergam's property and several show client names without consent.
@@ -31,18 +38,20 @@ These are not style preferences. They decide what may appear in markup.
 All rebuilds happen in `build/`. That is the only folder whose scripts have working relative paths.
 
 ```bash
-cd clients/cergam/prototypes/build
+cd build                      # repo root is ~/dev/cergam
 python3 i7b-build.py          # trade desk (chosen) -> i7b.html
 python3 i7a-build.py          # traditional site    -> i7a.html
 python3 -m http.server 8000   # then open http://localhost:8000/i7b.html#fabricantes
 ```
 
-Both builds are deterministic and currently reproduce the published pages byte for byte. That is the regression test:
+Both builds are deterministic and currently reproduce the published pages byte for byte. That is the regression test, run from the repo root:
 
 ```bash
 cmp build/i7b.html chosen-landing/cergam-site-trade-desk.html
 cmp build/i7a.html traditional-landing/cergam-site-traditional.html
 ```
+
+`build/i7b.html` and `build/i7a.html` are git-ignored outputs. The two files they are compared against are tracked, and they are the record of what is live at the artifact links.
 
 After an intended change those will differ, so copy the new output over the finished file in `chosen-landing/` or `traditional-landing/` as part of the same change, keeping the pair in step.
 
@@ -97,7 +106,7 @@ Copy changes for the home page and the seven situations belong in `DOORS`, in bo
 
 `assets/cergam-imagery/curated/` holds 40 curated JPEGs plus `manifest.json`. The manifest is the source of truth for `alt_pt`, `alt_en`, `caption_pt`, `size_px`, tier, consent risk and `max_css_width_1x`. The build reads width and height from it and emits them on every `<img>`, so photos are used at native size and never upscaled. Adding a photo means adding a manifest entry first.
 
-The 531 images downloaded from cergam.pt during the audit were not kept. Download again if you need others, and consult `../cergam-image-audit.md` for which to use and which to avoid.
+The 531 images downloaded from cergam.pt during the audit were not kept. Download again if you need others, and consult `$VAULT/clients/cergam/cergam-image-audit.md` for which to use and which to avoid.
 
 ### Render library (CergamGlass)
 
@@ -112,7 +121,7 @@ The 531 images downloaded from cergam.pt during the audit were not kept. Downloa
 - `i7a-work/part-*.html` and `i7b-work/frag-*.html` are sliced working copies. No build script reads them. Editing a fragment alone changes nothing: the real source is the single `-src.html` file. Treat the fragments as read-only aids for navigating a 120 to 200 KB template, or re-splice deliberately.
 - `chosen-landing/*-build.py` and `traditional-landing/*-build.py` still carry absolute `/private/tmp/...` scratchpad paths from the original session and will not run. Use the copies in `build/`.
 - `build/i7b-src.html` and `chosen-landing/cergam-site-trade-desk-src.html` are byte-identical duplicates, same for the i7a pair. Edit the one in `build/` and copy across, or they drift apart silently.
-- `archive/` holds six superseded prototype generations whose published artifacts were deleted. Read them for history, do not revive them without a reason: `README.md` records why each was set aside.
+- `archive/` was not copied into this repo. Six superseded prototype generations live at `$VAULT/clients/cergam/prototypes/archive/`, and `README.md` here still describes them in its Archived table. Read them for history, do not revive them without a reason: the table records why each was set aside.
 
 ## Publishing
 
@@ -130,6 +139,6 @@ Everything stays private until Tiago shares it. The three screenshots in `pitch-
 
 ## Decisions and open items
 
-Every note in `../` ends with at most five decisions for Tiago (AGENTS.md T-06). When a task leaves a decision, placeholder or check for him, add a line to `consulting/review-queue.md` in the same write. Eight Cergam items are queued there now, all dated 2026-11-05.
+Every brief in `$VAULT/clients/cergam/` ends with at most five decisions for Tiago (AGENTS.md T-06). When a task leaves a decision, placeholder or check for him, add a line to `$VAULT/review-queue.md` in the same write, even though that file is outside this repo. Nine Cergam items are queued there now, all dated 2026-11-05.
 
 The list of what Cergam must still confirm lives in `README.md` ("What the chosen page still needs from Cergam") and in `HANDOFF.md` section 7. Do not shorten that list by filling a gap with a plausible answer.

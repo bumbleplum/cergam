@@ -25,6 +25,9 @@ All pages are concept prototypes. Product details, contact slots, minimums and c
 
 ## Archived (published copies deleted)
 
+These folders were not copied into `~/dev/cergam`. They live only in the consulting vault, under
+`/Users/globe/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidians/consulting/clients/cergam/prototypes/archive/`.
+
 | Folder | What it is | Why it was set aside |
 |---|---|---|
 | `archive/01-first-prototype/` | First Cergam site (home, products, quote), concept "Carta Cergam" | Led with process claims and had little imagery. |

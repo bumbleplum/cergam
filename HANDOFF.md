@@ -21,7 +21,7 @@ Everything built on 2026-11-05 is saved in this folder. Nothing important lives 
 | Design system "Carta Cergam" | https://claude.ai/artifact/MQSMTdU9P4BgWcwnzWhmC5 | `design-system/project/` |
 | Concept render lab (glass imagery library) | https://claude.ai/artifact/4PH3qGTPgUNLDF8qWz4VWJ | `render-lab/` |
 | Finished HTML of each site | | `chosen-landing/cergam-site-trade-desk.html`, `traditional-landing/cergam-site-traditional.html` |
-| Earlier versions, set aside | | `archive/` (see `README.md`) |
+| Earlier versions, set aside | | Not in this repo. `/Users/globe/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidians/consulting/clients/cergam/prototypes/archive/` (see `README.md`) |
 
 Inputs the builds need are in `build/assets/cergam-imagery/`: the 41 curated photos with `manifest.json`, and the render library `cergam-glass.js`.
 
@@ -29,19 +29,22 @@ Not saved: the 531 images downloaded from cergam.pt during the audit. Download t
 
 ## 2. Start a Claude Code session
 
-Open the folder `consulting` (so the rules in `consulting/AGENTS.md` apply), not only the Cergam folder.
+Open this repo. It is the live source since 2026-11-05; the copy in the consulting vault is frozen.
 
 ```bash
-cd "/Users/globe/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidians/consulting"
+cd ~/dev/cergam
 claude
 ```
 
 In the Claude desktop app, open the Code tab and choose the same folder.
 
+`AGENTS.md`, `rates.md`, `review-queue.md` and the 19 Cergam briefs stayed in the vault at
+`/Users/globe/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidians/consulting`. They still govern this work. `CLAUDE.md` in this repo carries the binding extract and the exact paths.
+
 First message to give it:
 
 ```text
-Read clients/cergam/prototypes/HANDOFF.md, then clients/cergam/cergam-design-brief.md and cergam-journey-consumption-map.md. We are building the Cergam site prototypes. Follow the consulting AGENTS.md rules. Do not invent facts, prices or names: anything Cergam has not confirmed shows as "a confirmar".
+Read CLAUDE.md and HANDOFF.md, then the design brief and journey map in the consulting vault (paths are in CLAUDE.md). We are building the Cergam site prototypes. Follow the consulting AGENTS.md rules. Do not invent facts, prices or names: anything Cergam has not confirmed shows as "a confirmar".
 ```
 
 ## 3. Rebuild a site
@@ -49,7 +52,7 @@ Read clients/cergam/prototypes/HANDOFF.md, then clients/cergam/cergam-design-bri
 The build scripts use only paths inside `build/`. Edit the `-src.html` or the files in the `-work/` folder, then run:
 
 ```bash
-cd clients/cergam/prototypes/build
+cd ~/dev/cergam/build
 python3 i7b-build.py   # writes i7b.html
 python3 i7a-build.py   # writes i7a.html
 ```
@@ -65,7 +68,7 @@ Where to edit:
 ## 4. Check it in a browser
 
 ```bash
-cd clients/cergam/prototypes/build && python3 -m http.server 8000
+cd ~/dev/cergam/build && python3 -m http.server 8000
 ```
 
 Open `http://localhost:8000/i7b.html#fabricantes` (or `#amostra`, `#modelo`, and `i7a.html#agua`, `#cores`, `#orcamento`). For screenshots without opening a browser, a headless Chromium is already installed by Playwright under `~/Library/Caches/ms-playwright/` (`chromium_headless_shell-*`). Check at 1440 and 375 px wide.
@@ -83,7 +86,7 @@ Publishing needs Claude Code with your claude.ai sign-in and the Artifact tool.
 - Verified facts only (from cergam.pt, November 2026): since 1968, personalisation since 2008; 22 Cores Cergam (screen samples); Pantone and CMYK not matched exactly; 12 to 25 working days; 40+ countries; 2,500 m2; Malveira address, +351 21 9862 540, info@cergam.pt.
 - Contradictions on the site, shown as "a confirmar": minimum 24, 12 or 48; firing 580 or 620 ºC; dishwasher wording.
 - Never invent names, prices, specs, capacities, testimonials or certificates. Renders carry "Imagem de conceito, não fotografia". Photos carry "Foto Cergam, provisória".
-- Client documents follow `consulting/AGENTS.md` T-09: plain short sentences, numbers over adjectives, no em-dashes, no compound hyphens. No prices come from anywhere except `rates.md`.
+- Client documents follow the vault `AGENTS.md` T-09: plain short sentences, numbers over adjectives, no em-dashes, no compound hyphens. No prices come from anywhere except `rates.md`.
 
 ## 7. Still open
 
@@ -91,6 +94,6 @@ Publishing needs Claude Code with your claude.ai sign-in and the Artifact tool.
 - Photo consent: several placeholders show client names (Aliança, Lourinhã, Aidum, Ti Lena, BICA).
 - No team or credibility slide in the deck.
 - The deck shows the home pages only, not the new inner pages.
-- Decisions queued in `consulting/review-queue.md` (each note lists its own five).
+- Decisions queued in the vault `review-queue.md` (each note lists its own five). Ten Cergam items are open there.
 - Not tested: real phones, Safari, screen readers, dark mode on every page.
 - Possible next steps: send the open questions to Cergam, do the one-hour plant test (colour board and decal macro), a real photo shoot (`../cergam-imagery-brief.md`), a scoping note, then effort and price.
