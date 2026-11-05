@@ -17,17 +17,17 @@
 }
 @media(max-width:899px){:root{--hh:64px}}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#173D61;--alt:#0E3458;--alt2:#0A2D4F;--card:#173D61;--field:#1C4369;
-  --ink:#F3F0E8;--mute:#B8C1D0;--faint:#A8B6C7;--rule:#577694;--rule-strong:#8A99B1;
+  --bg:#1A3E61;--alt:#113455;--alt2:#0C2C4B;--card:#22486D;--field:#24486B;
+  --ink:#F3F0E8;--mute:#B8C1D0;--faint:#A8B6C7;--rule:#63809C;--rule-strong:#8B9EB1;
   --primary:#8FC1F2;--primary-h:#B0D3F7;--on-primary:#08111F;--link:#8FC1F2;--focus:#FFB38F;--accent:#FF7A4D;--accent-text:#FF7A4D;
-  --band:#001A33;--band-deep:#001224;--band-rule:#44617E;
+  --band:#001426;--band-deep:#000A14;--band-rule:#44617E;
   --tbc-bg:#3A2C06;--tbc-ink:#FFD97A;--tbc-line:#B08A2A;--tbc-hatch:rgba(255,217,122,.16);
   --error:#FF9A92;--ok:#8FD67A;color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#173D61;--alt:#0E3458;--alt2:#0A2D4F;--card:#173D61;--field:#1C4369;
-  --ink:#F3F0E8;--mute:#B8C1D0;--faint:#A8B6C7;--rule:#577694;--rule-strong:#8A99B1;
+  --bg:#1A3E61;--alt:#113455;--alt2:#0C2C4B;--card:#22486D;--field:#24486B;
+  --ink:#F3F0E8;--mute:#B8C1D0;--faint:#A8B6C7;--rule:#63809C;--rule-strong:#8B9EB1;
   --primary:#8FC1F2;--primary-h:#B0D3F7;--on-primary:#08111F;--link:#8FC1F2;--focus:#FFB38F;--accent:#FF7A4D;--accent-text:#FF7A4D;
-  --band:#001A33;--band-deep:#001224;--band-rule:#44617E;
+  --band:#001426;--band-deep:#000A14;--band-rule:#44617E;
   --tbc-bg:#3A2C06;--tbc-ink:#FFD97A;--tbc-line:#B08A2A;--tbc-hatch:rgba(255,217,122,.16);
   --error:#FF9A92;--ok:#8FD67A;color-scheme:dark}
 *{box-sizing:border-box}
@@ -91,7 +91,7 @@ section[id],footer[id]{scroll-margin-top:calc(var(--hh) + 8px)}
 .hero-top{position:relative;display:flex;flex-direction:column}
 .copy{padding-top:28px;padding-bottom:28px;min-width:0}
 .eyebrow{font:500 14px/1.4 var(--font-text);color:var(--mute);letter-spacing:.01em}
-h1{font-weight:700;font-size:clamp(36px,5.6vw,64px);line-height:1.02;letter-spacing:-.03em;margin-top:14px;color:var(--ink)}
+h1{font-weight:700;font-size:clamp(36px,5.6vw,64px);line-height:1.02;letter-spacing:-.03em;margin-top:14px;text-wrap:balance;color:var(--ink)}
 h1 span:first-child{display:block;text-wrap:balance}
 h1 .lite{display:block;font-weight:300;color:var(--mute)}
 .supply{font-size:clamp(17px,2vw,20px);line-height:1.5;margin-top:20px;max-width:30em;color:var(--ink)}
@@ -127,7 +127,7 @@ h1 .lite{display:block;font-weight:300;color:var(--mute)}
 .band.on-band{background:var(--band);color:var(--on-band)}
 .band.on-band h2,.band.on-band h3{color:var(--on-band)}
 .band.deep{background:var(--band-deep)}
-.sec-h{max-width:44em;margin-bottom:clamp(28px,4vw,48px)}
+.sec-h{max-width:52em;margin-bottom:clamp(28px,4vw,48px)}
 .kick{font:500 12px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
 .on-band .kick{color:var(--on-band-mute)}
 h2{font-weight:700;font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-.02em}
@@ -454,7 +454,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .ctool{display:grid;gap:28px}
 @media(min-width:1000px){.ctool{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:start}.ct-view{position:sticky;top:calc(var(--hh) + 16px)}}
 @media(max-width:999px){.ct-view{order:-1}}
-.ct-head h2{font-size:clamp(24px,3vw,32px)}
+.ct-head h2{font-size:clamp(26px,3.4vw,36px);line-height:1.12}
 .ct-head .lead{margin-top:8px;font-size:17px}
 .chart{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(min-width:520px){.chart{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}}
@@ -505,7 +505,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .chk li::before{content:"";position:absolute;left:5px;top:16px;width:15px;height:8px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
 .ccard{margin-top:14px;padding:20px 22px;background:var(--card);border:1px solid var(--rule);border-radius:6px;font-style:normal;line-height:1.7}
 .ccard a{display:inline-flex;align-items:center;min-height:44px}
-.dp{margin-top:14px;padding:14px 16px;border:1px dashed var(--tbc-line);border-radius:4px;font-size:15px;color:var(--ink)}
+.dp{margin-top:14px;padding:14px 16px;border:1px solid var(--rule);border-radius:4px;font-size:15px;color:var(--ink)}
 .dp .tbc{margin-top:6px}
 .replycard{margin-top:0;align-self:center}
 .phead.slim .phead-grid.two{display:grid;gap:24px}
@@ -519,6 +519,14 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .ben .fact a{display:inline-flex;align-items:center;min-height:44px}
 .slots a{display:inline-flex;align-items:center;min-height:44px}
 .faq-more a{display:inline-flex;align-items:center;min-height:44px}
+
+/* touch feedback: hover is the one state a phone cannot produce */
+.btn:active,.linkbtn:active,.tab:active,.tile:active,.chip span:active,.q:active,.seg button:active,.menubtn:active,.hbtn:active{transform:translateY(1px)}
+@media(prefers-reduced-motion:reduce){.btn:active,.tab:active,.tile:active{transform:none}}
+
+input[type=date]::-webkit-calendar-picker-indicator:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+h2{text-wrap:balance}
 </style>
 
 <a class="skip" href="#top" id="skip" data-en="Skip to the content">Saltar para o conteúdo</a>
@@ -923,7 +931,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="sec-h">
       <p class="kick" data-en="The range">A gama</p>
       <h2 id="h-ag-rng" data-en="Three types of piece">Três tipos de peça</h2>
-      <p class="lead" data-en="By type only. Models, sizes and closures are not listed here until Cergam confirms them.">Só por tipo. Modelos, tamanhos e tampas não estão listados aqui até a Cergam os confirmar.</p>
+      <p class="lead" data-en="Three kinds of piece. Tell us the model and closure you need and we confirm them with the quote.">Três tipos de peça. Diga o modelo e a tampa de que precisa e confirmamos no orçamento.</p>
     </div>
     <div class="grid sit rng">
       <article class="card">
@@ -1275,7 +1283,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
             </fieldset>
             <div class="two">
               <div class="fld" id="fl-date">
-                <label for="f-date"><span data-en="Date you need them by">Data de que precisa</span><span class="opt" data-en="optional">opcional</span></label>
+                <label for="f-date"><span data-en="Date you need them by">Data de que precisa</span> <span class="opt" data-en="optional">opcional</span></label>
                 <input type="date" id="f-date" name="date" aria-describedby="e-date h-date">
                 <p class="hint" id="h-date" data-en="Production takes 12 to 25 working days.">A produção demora 12 a 25 dias úteis.</p>
                 <p class="err" id="e-date" data-en="That date has passed. Choose a later date, or leave it empty.">Essa data já passou. Escolha uma data futura ou deixe vazio.</p>
@@ -1316,7 +1324,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
               <p class="err" id="e-qline" data-en="Write one line, even a short one.">Escreva uma linha, mesmo curta.</p>
             </div>
             <div class="fld">
-              <label for="q-link"><span data-en="Website or Instagram">Site ou Instagram</span><span class="opt" data-en="optional">opcional</span></label>
+              <label for="q-link"><span data-en="Website or Instagram">Site ou Instagram</span> <span class="opt" data-en="optional">opcional</span></label>
               <input type="text" id="q-link" name="qlink" inputmode="url" autocomplete="url">
             </div>
             <button type="submit" class="btn" data-en="Send enquiry">Enviar pedido</button>
@@ -2182,6 +2190,11 @@ global.CergamGlass = API;
 <script>
 (function(){
 "use strict";
+/* The built file is a head fragment: a host that wraps it supplies these, a raw
+   file:// or static host does not. Without the viewport meta every phone lays the
+   page out at 980px and scales down, which kills every mobile media query. */
+if(!document.querySelector('meta[name="viewport"]')){var _vp=document.createElement("meta");_vp.name="viewport";_vp.content="width=device-width, initial-scale=1";document.head.appendChild(_vp)}
+if(!document.documentElement.getAttribute("lang"))document.documentElement.setAttribute("lang","pt");
 var $=function(s,r){return(r||document).querySelector(s)};
 var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var lang="pt";
@@ -2209,7 +2222,15 @@ $("#lang-en").addEventListener("click",function(){setLang("en")});
 var mb=$("#menubtn"),nav=$("#nav"),ddb=$("#ddb"),ddp=$("#ddp");
 function closeMenu(){nav.classList.remove("open");mb.setAttribute("aria-expanded","false")}
 function closeDd(){ddp.hidden=true;ddb.setAttribute("aria-expanded","false")}
-mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+function navLinks(){return $$("a,button",nav).filter(function(e){return e.offsetParent!==null})}
+  mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o);
+  if(o){var l=navLinks();if(l.length)l[0].focus()}});
+nav.addEventListener("keydown",function(e){
+    if(e.key!=="Tab"||!nav.classList.contains("open"))return;
+    var l=navLinks();if(!l.length)return;var first=l[0],last=l[l.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();mb.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();mb.focus()}
+  });
 ddb.addEventListener("click",function(){var o=ddp.hidden;ddp.hidden=!o;ddb.setAttribute("aria-expanded",o)});
 $$("a",nav).forEach(function(a){a.addEventListener("click",function(){closeMenu();closeDd()})});
 document.addEventListener("click",function(e){if(!ddp.hidden&&!$("#dd").contains(e.target))closeDd()});
