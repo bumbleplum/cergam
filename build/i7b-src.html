@@ -266,8 +266,12 @@ details.more .in{padding:4px 12px 0}
 table.tbl{width:100%;border-collapse:collapse;font-size:15px;min-width:0}
 .tbl th{font:500 11px/1.4 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:8px 12px 8px 0;border-bottom:2px solid var(--ink)}
 .tbl td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
-.tbl td:first-child{font-weight:600;width:24%}
-.tbl td:last-child{text-align:left;width:1%}
+/* the Estado column was removed on 2026-11-06, which left width:1% on what is now
+   the VALUE column and handed all surplus to the label. Label fixed, value takes
+   the rest, table capped so the value line stays inside the readable band. */
+.tbl{max-width:760px}
+.tbl td:first-child{font-weight:600;width:200px}
+.tbl td:last-child{text-align:left;width:auto}
 @media(max-width:680px){
   .tbl thead{position:absolute;left:-999px}
   .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:auto}
